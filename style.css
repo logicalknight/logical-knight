@@ -81,6 +81,7 @@ header nav.scrolled {
   text-align: center;
   padding: 0 20px;
   position: relative;
+  overflow: hidden;
 }
 
 /* blurred gradient behind hero */
@@ -237,26 +238,83 @@ footer {
   color: #b0b5d9;
 }
 
-.social-links {
+/* Product */
+.product {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-lead {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 16px;
+  margin-bottom: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 50px;
+}
+
+.product-text {
+  font-size: 1.1rem;
+  color: #d0d5ef;
+  margin-bottom: 30px;
+}
+
+.capabilities {
   list-style: none;
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
 }
 
-.social-links a {
-  color: #b0b5d9;
+.capabilities li {
+  padding: 8px 18px;
   font-size: 0.9rem;
-  transition: color 0.3s;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.social-links a:hover {
-  color: var(--secondary-color);
+.more {
+  margin-top: 60px;
+  text-align: center;
+  color: #b0b5d9;
+}
+
+.contact {
+  text-align: center;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   header nav {
-    padding: 15px 40px;
+    padding: 15px 20px;
+  }
+  .nav-links {
+    gap: 16px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 560px) {
+  header nav {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .hero {
+    padding-top: 90px;
   }
   .hero h1 {
     font-size: 2.5rem;
