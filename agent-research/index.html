@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Research — Verified business events with original evidence · Logical Knight</title>
+  <meta name="description" content="Agent Research monitors public sources, detects meaningful business changes, verifies them against original evidence and delivers structured events to people and software. Early access.">
+  <link rel="canonical" href="https://logicalknight.com/agent-research/">
+  <meta name="theme-color" content="#0a0a0b">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Logical Knight">
+  <meta property="og:title" content="Agent Research — Business changes, verified at the source">
+  <meta property="og:description" content="Verified business events with original evidence and source provenance — for teams, systems and AI agents.">
+  <meta property="og:url" content="https://logicalknight.com/agent-research/">
+  <meta property="og:image" content="https://logicalknight.com/assets/img/og-agent-research.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="/" aria-label="Logical Knight — home">
+        <img src="/assets/img/mark-64.png" width="30" height="30" alt="">
+        <span>Logical Knight</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/agent-research/" aria-current="page">Products</a>
+        <a href="/#approach">Approach</a>
+        <a href="/#company">Company</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn--primary btn--sm nav__cta" href="#early-access">Request Early Access
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span></button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/agent-research/" aria-current="page">Products <span>01</span></a>
+    <a href="/#approach">Approach <span>02</span></a>
+    <a href="/#company">Company <span>03</span></a>
+    <a href="#contact">Contact <span>04</span></a>
+    <a class="btn btn--primary" href="#early-access">Request Early Access</a>
+  </div>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="p-hero" aria-labelledby="p-title">
+      <div class="gridbg" aria-hidden="true"></div>
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Logical Knight</a><span aria-hidden="true">/</span><span aria-current="page">Agent Research</span></nav>
+        <div class="p-hero__grid">
+          <div>
+            <div class="flagship__meta">
+              <span class="flagship__name">Agent Research</span>
+              <span class="badge badge--gold"><span class="dot dot--live" aria-hidden="true"></span>Early access</span>
+            </div>
+            <h1 class="display p-hero__title" id="p-title">Business changes, <span class="serif gold">verified at the source.</span></h1>
+          </div>
+          <div class="p-hero__side">
+            <p class="lede">Agent Research monitors public sources, detects meaningful business changes, verifies them against original evidence and delivers <strong>structured events</strong> to people and software systems.</p>
+            <div class="btn-row">
+              <a class="btn btn--primary" href="#early-access">Request Early Access
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              <a class="btn btn--ghost" href="#demo">See the demo</a>
+            </div>
+          </div>
+        </div>
+        <nav class="p-hero__index" aria-label="On this page">
+          <a href="#demo">Demo</a><a href="#monitors">What it monitors</a><a href="#model">Event model</a><a href="#evidence">Evidence</a><a href="#languages">Languages</a><a href="#use-cases">Use cases</a><a href="#delivery">Delivery</a><a href="#api">API example</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ================= DEMO ================= -->
+    <section class="section section--flush-top" id="demo" aria-labelledby="demo-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="demo-title">Live demo</h2>
+        <section class="demo" data-demo aria-label="Agent Research demo with fictional data">
+          <div class="panel-bar">
+            <span class="panel-bar__title"><span class="dot dot--live" aria-hidden="true"></span><span class="hide-sm">Agent Research ·</span> console</span>
+            <span class="badge badge--demo">Demo · fictional data</span>
+            <div class="demo__tabs" role="tablist" aria-label="Demo scenario" data-shared>
+              <button class="scenario-tab" role="tab" type="button" aria-selected="true" aria-controls="demo-output">Facility</button>
+              <button class="scenario-tab" role="tab" type="button" aria-selected="false" aria-controls="demo-output">Launch</button>
+              <button class="scenario-tab" role="tab" type="button" aria-selected="false" aria-controls="demo-output">Partnership</button>
+            </div>
+          </div>
+          <div class="demo__body">
+            <div class="demo__col demo__col--src">
+              <div class="col-label"><span>Sources</span><span>3 watched</span></div>
+              <ul class="sources">
+                <li class="source"><span class="source__url">acme.example/de/news</span><span class="source__meta"><span class="source__status"><span class="dot"></span><span class="source__label">Monitoring</span></span><span class="source__checked">checked 14s ago</span></span></li>
+                <li class="source"><span class="source__url">acme.example/en/sites</span><span class="source__meta"><span class="source__status"><span class="dot"></span><span class="source__label">Monitoring</span></span><span class="source__checked">checked 41s ago</span></span></li>
+                <li class="source"><span class="source__url">acme.example/fr/press</span><span class="source__meta"><span class="source__status"><span class="dot"></span><span class="source__label">Monitoring</span></span><span class="source__checked">checked 8s ago</span></span></li>
+              </ul>
+              <p class="source-note">Company, URLs and quotes are fictional. The demo runs locally in your browser.</p>
+            </div>
+            <div class="demo__col demo__col--pipe">
+              <div class="col-label"><span>Pipeline</span></div>
+              <ol class="pipeline">
+                <li class="pstep"><span class="pstep__dot">01</span><div><div class="pstep__name">Source</div><div class="pstep__detail">—</div></div></li>
+                <li class="pstep"><span class="pstep__dot">02</span><div><div class="pstep__name">Change</div><div class="pstep__detail">—</div></div></li>
+                <li class="pstep"><span class="pstep__dot">03</span><div><div class="pstep__name">Verify</div><div class="pstep__detail">—</div></div></li>
+                <li class="pstep"><span class="pstep__dot">04</span><div><div class="pstep__name">Event</div><div class="pstep__detail">—</div></div></li>
+              </ol>
+            </div>
+            <div class="demo__col" id="demo-output">
+              <div class="col-label">
+                <span>Verified event</span>
+                <div class="out-tabs" role="tablist" aria-label="Output format" data-tabs>
+                  <button class="out-tab" role="tab" type="button" aria-selected="true" aria-controls="demo-event">Event</button>
+                  <button class="out-tab" role="tab" type="button" aria-selected="false" aria-controls="demo-json">JSON</button>
+                </div>
+              </div>
+              <div class="event-wrap" id="demo-event" role="tabpanel" aria-label="Event card">
+                <article class="event">
+                  <div class="event__head">
+                    <div class="event__top"><span class="event__type">Facility opening</span><span class="badge badge--gold">Verified</span></div>
+                    <div class="event__company">Acme Example Industries</div>
+                    <div class="event__place">Bremen, Germany</div>
+                  </div>
+                  <div class="event__fields">
+                    <div><span class="k">Detected</span><span class="v">28 Sep 2026</span></div>
+                    <div><span class="k">Language</span><span class="v mono">EN</span></div>
+                    <div><span class="k">Event type</span><span class="v mono">facility_opening</span></div>
+                  </div>
+                  <div class="event__evidence">
+                    <span class="k">Original evidence</span>
+                    <blockquote class="event__quote">“Our new Bremen facility will begin operations in the fourth quarter.”</blockquote>
+                    <span class="event__src">Source · acme.example/en/sites</span>
+                  </div>
+                </article>
+              </div>
+              <pre class="json" id="demo-json" role="tabpanel" aria-label="Event as JSON" tabindex="0" hidden></pre>
+            </div>
+          </div>
+          <div class="demo__foot">
+            <button class="motion-toggle" type="button" data-demo-play aria-pressed="false">
+              <svg class="i-pause" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".6"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".6"/></svg>
+              <svg class="i-play" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true" hidden><path d="M3 1.8v8.4L10 6z"/></svg>
+              <span data-label>Pause</span><span class="visually-hidden"> demo</span>
+            </button>
+            <button class="motion-toggle" type="button" data-demo-replay>Replay</button>
+            <span class="demo__progress" aria-hidden="true"><i></i></span>
+            <span class="spacer"></span>
+            <span>Illustrative · no live backend</span>
+            <span class="visually-hidden" aria-live="polite" data-demo-live></span>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ================= WHAT IT MONITORS ================= -->
+    <section class="section" id="monitors" aria-labelledby="mon-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <p class="eyebrow"><span class="idx">01</span><span class="rule"></span>What it monitors</p>
+          <h2 class="h2" id="mon-title" data-reveal>The public pages where companies announce what they do.</h2>
+          <p class="lede" data-reveal="2">You choose the companies and the kinds of events that matter. Agent Research watches the relevant public sources and reports business events, not page edits.</p>
+        </div>
+        <div class="monitors">
+          <div class="srcmap" data-reveal>
+            <div class="srcmap__co">
+              <span class="logo-sq" aria-hidden="true">AE</span>
+              <div><strong>Acme Example Industries</strong><small>fictional company · 6 public sources</small></div>
+            </div>
+            <ul class="tree">
+              <li><span>acme.example/de/news</span><span>Newsroom</span></li>
+              <li><span>acme.example/en/sites</span><span>Locations</span></li>
+              <li><span>acme.example/fr/press</span><span>Press</span></li>
+              <li><span>acme.example/en/products</span><span>Products</span></li>
+              <li><span>acme.example/en/careers</span><span>Careers</span></li>
+              <li><span>acme.example/en/about/leadership</span><span>Leadership</span></li>
+            </ul>
+          </div>
+          <div class="srcmap" data-reveal="2">
+            <span class="k">Example event types</span>
+            <div class="types">
+              <code>facility_opening</code><code>product_launch</code><code>partnership</code><code>leadership_change</code><code>location_change</code><code>product_availability</code><code>expansion</code><code>hiring</code><code>market_entry</code><code>announcement</code>
+            </div>
+            <p class="muted" style="font-size:.95rem">Illustrative list. In early access we start from the events that matter to you.</p>
+            <div class="fstep__art" role="group" aria-label="Examples of page edits that are not business events">
+              <span class="k" style="display:block;margin-bottom:6px">Not a business event</span>
+              <s>layout or styling change</s><br><s>updated copyright year</s><br><s>reordered navigation</s>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EVENT MODEL ================= -->
+    <section class="section" id="model" aria-labelledby="model-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <p class="eyebrow"><span class="idx">02</span><span class="rule"></span>Verified event model</p>
+          <h2 class="h2" id="model-title" data-reveal>Anatomy of a verified event.</h2>
+          <p class="lede" data-reveal="2">Each event answers the same questions — what happened, to whom, when, according to what, and where it came from. Select a field to see where it lives.</p>
+        </div>
+        <div class="anatomy" data-anatomy>
+          <div class="fields">
+            <button class="field" type="button" data-lines="3" aria-pressed="false"><span class="field__n">01</span><span class="field__t">What happened</span><span class="field__d">A consistent <code>event_type</code>, so events can be filtered and counted.</span></button>
+            <button class="field" type="button" data-lines="4-5" aria-pressed="false"><span class="field__n">02</span><span class="field__t">Who it affects</span><span class="field__d">The <code>company</code> and, where relevant, the <code>location</code>.</span></button>
+            <button class="field" type="button" data-lines="6" aria-pressed="false"><span class="field__n">03</span><span class="field__t">When it was detected</span><span class="field__d">A precise <code>detected_at</code> timestamp.</span></button>
+            <button class="field" type="button" data-lines="7-10" aria-pressed="false"><span class="field__n">04</span><span class="field__t">Original evidence</span><span class="field__d">The exact source sentence, kept in its original <code>language</code>.</span></button>
+            <button class="field" type="button" data-lines="11-14" aria-pressed="false"><span class="field__n">05</span><span class="field__t">Source provenance</span><span class="field__d">The <code>url</code> it came from and when it was captured.</span></button>
+            <button class="field" type="button" data-lines="15" aria-pressed="false"><span class="field__n">06</span><span class="field__t">Verification</span><span class="field__d">Whether the event was confirmed against its evidence.</span></button>
+          </div>
+          <div class="code" data-reveal="2">
+            <div class="code__bar"><span class="code__tab" aria-hidden="true" style="display:inline-flex;align-items:center;color:var(--text)">event.json</span></div>
+            <pre tabindex="0" aria-label="Illustrative verified event JSON" data-hl="lines">
+{
+  "id": "evt_01J8Z6Q3F2",
+  "event_type": "facility_opening",
+  "company": "Acme Example Industries",
+  "location": { "city": "Bremen", "country": "DE" },
+  "detected_at": "2026-09-28T09:14:03Z",
+  "evidence": {
+    "quote": "Our new Bremen facility will begin operations…",
+    "language": "en"
+  },
+  "source": {
+    "url": "https://acme.example/en/sites",
+    "captured_at": "2026-09-28T09:14:03Z"
+  },
+  "verification": { "status": "verified" }
+}</pre>
+            <div class="code__note"><span class="dot" style="color:var(--gold)" aria-hidden="true"></span>Illustrative schema · fictional data</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EVIDENCE ================= -->
+    <section class="section" id="evidence" aria-labelledby="evidence-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <p class="eyebrow"><span class="idx">03</span><span class="rule"></span>Evidence</p>
+          <h2 class="h2" id="evidence-title" data-reveal>Don’t just get an alert. <span class="serif gold">Get the evidence.</span></h2>
+          <p class="lede" data-reveal="2">The sentence that triggered the event is preserved exactly as published — here in German — with its source and detection time. Anyone can check it in seconds.</p>
+        </div>
+        <div class="evidence">
+          <div class="doc hl-wait" data-reveal>
+            <div class="doc__chrome">
+              <span class="doc__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="doc__url"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 014 0v1.5"/></svg>acme.example/de/news</span>
+            </div>
+            <div class="doc__page" lang="de">
+              <span class="doc__crumb">Acme Example Industries · Aktuelles</span>
+              <p class="doc__h">Neue Pumpengeneration für Industriekunden</p>
+              <p class="doc__p">Nach zwei Jahren Entwicklung stellen wir heute unsere nächste Produktgeneration vor.
+                <mark class="hl">Ab sofort ist die neue Baureihe K7 in ganz Europa erhältlich.</mark>
+                Bestehende Kunden erhalten in den kommenden Wochen weitere Informationen.</p>
+              <p class="doc__p">Technische Datenblätter stehen im Downloadbereich zur Verfügung.</p>
+            </div>
+            <div class="doc__meta">
+              <div><span class="k">Language</span><span class="v mono">DE · original</span></div>
+              <div><span class="k">Detected</span><span class="v mono">2026-09-28 07:52 UTC</span></div>
+              <div><span class="k">Classification</span><span class="v mono">product_launch</span></div>
+              <div><span class="k">State</span><span class="tag-verified"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg>VERIFIED</span></div>
+            </div>
+          </div>
+          <div class="bridge" aria-hidden="true">
+            <svg viewBox="0 0 90 200" preserveAspectRatio="none" class="bridge--h"><path d="M0 100 L 90 100"/></svg>
+            <svg viewBox="0 0 200 88" preserveAspectRatio="none" class="bridge--v"><path d="M100 0 L 100 88"/></svg>
+            <span class="bridge__a"></span><span class="bridge__b"></span>
+          </div>
+          <div class="evidence__event" data-reveal="2">
+            <article class="event">
+              <div class="event__head">
+                <div class="event__top"><span class="event__type">Product launch</span><span class="badge badge--gold">Verified</span></div>
+                <div class="event__company">Acme Example Industries</div>
+                <div class="event__place">Europe · K7 series</div>
+              </div>
+              <div class="event__fields">
+                <div><span class="k">Detected</span><span class="v">28 Sep 2026</span></div>
+                <div><span class="k">Language</span><span class="v mono">DE</span></div>
+                <div><span class="k">Source</span><span class="v mono">/de/news</span></div>
+              </div>
+              <div class="event__evidence">
+                <span class="k">Evidence · original language</span>
+                <blockquote class="event__quote" lang="de">„Ab sofort ist die neue Baureihe K7 in ganz Europa erhältlich.“</blockquote>
+                <span class="event__src">acme.example/de/news · captured 07:52 UTC</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MULTILINGUAL ================= -->
+    <section class="section" id="languages" aria-labelledby="lang-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <p class="eyebrow"><span class="idx">04</span><span class="rule"></span>Multilingual</p>
+          <h2 class="h2" id="lang-title" data-reveal>Six languages in. One structure out.</h2>
+          <p class="lede" data-reveal="2">Companies announce in their own languages. The evidence is kept exactly as written, and the event is structured the same way every time.</p>
+        </div>
+        <div class="langs" data-langs>
+          <div class="lang-card" data-reveal>
+            <div class="lang-tabs" role="tablist" aria-label="Source language" data-shared>
+              <button class="lang-tab" role="tab" type="button" data-lang="de" aria-selected="false" aria-controls="lang-panel">DE</button>
+              <button class="lang-tab" role="tab" type="button" data-lang="en" aria-selected="true" aria-controls="lang-panel">EN</button>
+              <button class="lang-tab" role="tab" type="button" data-lang="fr" aria-selected="false" aria-controls="lang-panel">FR</button>
+              <button class="lang-tab" role="tab" type="button" data-lang="it" aria-selected="false" aria-controls="lang-panel">IT</button>
+              <button class="lang-tab" role="tab" type="button" data-lang="es" aria-selected="false" aria-controls="lang-panel">ES</button>
+              <button class="lang-tab" role="tab" type="button" data-lang="nl" aria-selected="false" aria-controls="lang-panel">NL</button>
+            </div>
+            <div id="lang-panel" role="tabpanel" aria-label="Source evidence" style="display:grid;gap:18px">
+              <span class="k">Original source text</span>
+              <p class="lang-card__quote" data-lang-quote lang="en">“Our new Bremen facility will begin operations in the fourth quarter.”</p>
+              <span class="lang-card__src" data-lang-src>Source · acme.example/en/sites</span>
+            </div>
+          </div>
+          <div class="lang-card" data-reveal="2">
+            <span class="k">Structured event · same shape in every language</span>
+            <pre class="json" data-lang-json data-hl tabindex="0" aria-label="Structured event JSON">{
+  "event_type": "facility_opening",
+  "company": "Acme Example Industries",
+  "location": "Bremen, DE",
+  "evidence": {
+    "language": "en",
+    "source_url": "https://acme.example/en/sites"
+  },
+  "verified": true
+}</pre>
+            <span class="lang-card__src">Fictional example</span>
+          </div>
+        </div>
+        <div class="lang-grid" data-reveal role="group" aria-label="Source languages shown in this example">
+          <div><b>DE</b>Deutsch</div><div><b>EN</b>English</div><div><b>FR</b>Français</div><div><b>IT</b>Italiano</div><div><b>ES</b>Español</div><div><b>NL</b>Nederlands</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= USE CASES ================= -->
+    <section class="section" id="use-cases" aria-labelledby="uc-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="idx">05</span><span class="rule"></span>Use cases</p>
+          <h2 class="h2" id="uc-title" data-reveal>One engine. Four ways teams use it.</h2>
+        </div>
+        <div class="explorer">
+          <div class="uc-list" role="tablist" aria-orientation="vertical" aria-label="Use cases" data-tabs>
+            <button class="uc-tab" role="tab" type="button" id="uc-t1" aria-selected="true" aria-controls="uc-p1"><span class="n">01</span><span class="t">Competitive intelligence</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+            <button class="uc-tab" role="tab" type="button" id="uc-t2" aria-selected="false" aria-controls="uc-p2"><span class="n">02</span><span class="t">Supplier &amp; market monitoring</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+            <button class="uc-tab" role="tab" type="button" id="uc-t3" aria-selected="false" aria-controls="uc-p3"><span class="n">03</span><span class="t">Sales intelligence</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+            <button class="uc-tab" role="tab" type="button" id="uc-t4" aria-selected="false" aria-controls="uc-p4"><span class="n">04</span><span class="t">AI agents</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+          </div>
+          <div>
+            <div class="uc-panel" id="uc-p1" role="tabpanel" aria-labelledby="uc-t1">
+              <div class="uc-panel__intro">
+                <p>Follow what competitors actually do — not what their homepage looks like this week.</p>
+                <ul class="chips"><li class="chip">Product launches</li><li class="chip">Facility openings</li><li class="chip">Partnerships</li><li class="chip">Leadership changes</li></ul>
+              </div>
+              <div class="feed">
+                <div class="feed__row"><span class="feed__type">product_launch</span><span class="feed__what">K7 series available across Europe<small>acme.example/de/news</small></span><span class="feed__lang">DE</span></div>
+                <div class="feed__row"><span class="feed__type">facility_opening</span><span class="feed__what">New service centre in Valencia<small>harbor.example/es/prensa</small></span><span class="feed__lang">ES</span></div>
+                <div class="feed__row"><span class="feed__type">partnership</span><span class="feed__what">Logistics partnership announced<small>vale.example/fr/presse</small></span><span class="feed__lang">FR</span></div>
+                <div class="feed__row"><span class="feed__type">leadership_change</span><span class="feed__what">New chief financial officer named<small>lumen.example/en/news</small></span><span class="feed__lang">EN</span></div>
+              </div>
+              <p class="panel-note">Fictional example events</p>
+            </div>
+            <div class="uc-panel" id="uc-p2" role="tabpanel" aria-labelledby="uc-t2" hidden>
+              <div class="uc-panel__intro">
+                <p>Know early when a supplier moves, changes what it offers, or announces something that affects your supply.</p>
+                <ul class="chips"><li class="chip">Supplier updates</li><li class="chip">Location changes</li><li class="chip">Product availability</li><li class="chip">Public announcements</li></ul>
+              </div>
+              <div class="feed">
+                <div class="feed__row"><span class="feed__type">location_change</span><span class="feed__what">Warehouse relocating from Milan to Lodi<small>keel.example/it/notizie</small></span><span class="feed__lang">IT</span></div>
+                <div class="feed__row"><span class="feed__type">product_availability</span><span class="feed__what">Part series KX-20 marked as discontinued<small>acme.example/de/produkte</small></span><span class="feed__lang">DE</span></div>
+                <div class="feed__row"><span class="feed__type">announcement</span><span class="feed__what">Planned plant maintenance in October<small>harbor.example/nl/nieuws</small></span><span class="feed__lang">NL</span></div>
+                <div class="feed__row"><span class="feed__type">supplier_update</span><span class="feed__what">New delivery terms for EU customers<small>vale.example/en/updates</small></span><span class="feed__lang">EN</span></div>
+              </div>
+              <p class="panel-note">Fictional example events</p>
+            </div>
+            <div class="uc-panel" id="uc-p3" role="tabpanel" aria-labelledby="uc-t3" hidden>
+              <div class="uc-panel__intro">
+                <p>Reach accounts when something real has changed — expansion, hiring or a new market.</p>
+                <ul class="chips"><li class="chip">Expansion</li><li class="chip">Hiring</li><li class="chip">New markets</li><li class="chip">Leadership activity</li></ul>
+              </div>
+              <div class="feed">
+                <div class="feed__row"><span class="feed__type">expansion</span><span class="feed__what">Second office opening in Rotterdam<small>lumen.example/nl/nieuws</small></span><span class="feed__lang">NL</span></div>
+                <div class="feed__row"><span class="feed__type">hiring</span><span class="feed__what">12 new engineering roles in Lyon<small>keel.example/fr/carrieres</small></span><span class="feed__lang">FR</span></div>
+                <div class="feed__row"><span class="feed__type">market_entry</span><span class="feed__what">Entering the Spanish market<small>harbor.example/es/noticias</small></span><span class="feed__lang">ES</span></div>
+                <div class="feed__row"><span class="feed__type">leadership_change</span><span class="feed__what">New head of sales for the Nordics<small>acme.example/en/news</small></span><span class="feed__lang">EN</span></div>
+              </div>
+              <p class="panel-note">Fictional example events</p>
+            </div>
+            <div class="uc-panel" id="uc-p4" role="tabpanel" aria-labelledby="uc-t4" hidden>
+              <div class="uc-panel__intro">
+                <p>Give software agents verified events with provenance, rather than raw web pages they have to interpret.</p>
+                <ul class="chips"><li class="chip">Structured events</li><li class="chip">Evidence attached</li><li class="chip">Source provenance</li><li class="chip">Programmatic purchasing</li></ul>
+              </div>
+              <div class="feed">
+                <div class="feed__row"><span class="feed__type">agent · asks</span><span class="feed__what">Facility openings, DACH, last 7 days</span><span class="feed__lang">→</span></div>
+                <div class="feed__row"><span class="feed__type">receives</span><span class="feed__what">Verified events, each with quote and source URL</span><span class="feed__lang">JSON</span></div>
+                <div class="feed__row"><span class="feed__type">pays</span><span class="feed__what">Per request, machine-to-machine</span><span class="feed__lang">x402</span></div>
+                <div class="feed__row"><span class="feed__type">acts</span><span class="feed__what">Summarises, alerts or updates a CRM — citing evidence</span><span class="feed__lang">✓</span></div>
+              </div>
+              <p class="panel-note">Illustrative agent workflow</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DELIVERY ================= -->
+    <section class="section" id="delivery" aria-labelledby="delivery-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <p class="eyebrow"><span class="idx">06</span><span class="rule"></span>Delivery</p>
+          <h2 class="h2" id="delivery-title" data-reveal>To your team, your systems, or your agents.</h2>
+          <p class="lede" data-reveal="2">Every verified event can be read by a person, pulled or pushed to a system, or requested and paid for by software.</p>
+        </div>
+        <div class="duo">
+          <div class="lane" data-reveal>
+            <div class="lane__head">
+              <span class="lane__kicker">For teams &amp; systems</span>
+              <h3 class="h3">Dashboard-ready data, by API or webhook.</h3>
+            </div>
+            <ul class="lane__list">
+              <li><span>Dashboard-ready data</span><span>Consistent fields per event</span></li>
+              <li><span>API</span><span>Query events on demand</span></li>
+              <li><span>Webhooks</span><span>Pushed when an event is verified</span></li>
+            </ul>
+            <div class="mini-table" role="group" aria-label="Example event table with fictional data">
+              <div class="mini-table__row"><span>Company</span><span>Event</span><span>Where</span><span>State</span></div>
+              <div class="mini-table__row"><span>Acme Example</span><span class="t">facility_opening</span><span>Bremen</span><span class="ok">VERIFIED</span></div>
+              <div class="mini-table__row"><span>Harbor Example</span><span class="t">market_entry</span><span>Madrid</span><span class="ok">VERIFIED</span></div>
+              <div class="mini-table__row"><span>Vale Example</span><span class="t">partnership</span><span>Lyon</span><span class="ok">VERIFIED</span></div>
+            </div>
+          </div>
+          <div class="lane" data-reveal="2">
+            <div class="lane__head">
+              <span class="lane__kicker">For agents</span>
+              <h3 class="h3">Structured results, bought programmatically.</h3>
+            </div>
+            <ul class="lane__list">
+              <li><span>Structured results</span><span>Typed events, not raw HTML</span></li>
+              <li><span>Programmatic purchasing</span><span>No manual sign-up step</span></li>
+              <li><span>x402 support</span><span>Machine-to-machine payment</span></li>
+            </ul>
+            <div class="exchange" role="group" aria-label="Illustrative agent payment exchange">
+              <div class="exchange__row"><span class="who">Agent</span><span>requests verified events</span></div>
+              <div class="exchange__row"><span class="who">Service</span><span><b>402</b> Payment Required · price quoted</span></div>
+              <div class="exchange__row"><span class="who">Agent</span><span>pays via <em>x402</em>, retries request</span></div>
+              <div class="exchange__row"><span class="who">Service</span><span><b>200</b> OK · events with evidence</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= API EXAMPLE ================= -->
+    <section class="section" id="api" aria-labelledby="api-title">
+      <div class="container devx">
+        <div>
+          <p class="eyebrow"><span class="idx">07</span><span class="rule"></span>Illustrative technical example</p>
+          <h2 class="h2" id="api-title" style="margin-top:22px" data-reveal>Events your code can trust.</h2>
+          <ul class="devx__points">
+            <li><b>01</b><p><strong>Query.</strong> Ask for the companies and event types you care about.</p></li>
+            <li><b>02</b><p><strong>Receive.</strong> Get structured events with evidence and source attached.</p></li>
+            <li><b>03</b><p><strong>Subscribe.</strong> Or have verified events pushed to your webhook.</p></li>
+          </ul>
+          <p class="muted" style="margin-top:24px;font-size:.95rem">This example shows the shape of the data. It is not a public endpoint — early-access users receive integration details directly.</p>
+        </div>
+        <div class="code" data-reveal="2">
+          <div class="code__bar">
+            <div class="code__tabs" role="tablist" aria-label="Example" data-tabs>
+              <button class="code__tab" role="tab" type="button" aria-selected="true" aria-controls="api-req">Request</button>
+              <button class="code__tab" role="tab" type="button" aria-selected="false" aria-controls="api-res">Response</button>
+              <button class="code__tab" role="tab" type="button" aria-selected="false" aria-controls="api-hook">Webhook</button>
+            </div>
+            <button class="code__copy" type="button" data-copy aria-label="Copy example to clipboard"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4.5" y="4.5" width="7" height="7" rx="1.5"/><path d="M9.5 4.5V3a1 1 0 00-1-1H3a1 1 0 00-1 1v5.5a1 1 0 001 1h1.5"/></svg><span>Copy</span></button>
+          </div>
+          <pre id="api-req" role="tabpanel" aria-label="Request" tabindex="0" data-hl="lines">
+# Illustrative example — not a public endpoint
+POST /events/query
+Content-Type: application/json
+
+{
+  "companies": ["Acme Example Industries"],
+  "event_types": ["facility_opening", "product_launch"]
+}</pre>
+          <pre id="api-res" role="tabpanel" aria-label="Response" tabindex="0" data-hl="lines" hidden>
+HTTP/1.1 200 OK
+
+{
+  "events": [
+    {
+      "event_type": "facility_opening",
+      "company": "Acme Example Industries",
+      "location": "Bremen",
+      "language": "en",
+      "evidence": "Our new Bremen facility will begin operations…",
+      "source_url": "https://acme.example/en/sites",
+      "verified": true
+    }
+  ]
+}</pre>
+          <pre id="api-hook" role="tabpanel" aria-label="Webhook" tabindex="0" data-hl="lines" hidden>
+# Delivered to your endpoint when an event is verified
+POST https://your-app.example/hooks/events
+Content-Type: application/json
+
+{
+  "type": "event.verified",
+  "event": {
+    "event_type": "partnership",
+    "company": "Acme Example Industries",
+    "location": "Lyon, FR",
+    "language": "fr",
+    "evidence": "Acme Example Industries annonce un partenariat…",
+    "source_url": "https://acme.example/fr/press",
+    "verified": true
+  }
+}</pre>
+          <div class="code__note"><span class="dot" style="color:var(--gold)" aria-hidden="true"></span>Illustrative API example · fictional data</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="section section--tight" id="early-access" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta" data-reveal>
+          <div class="cta__copy">
+            <span class="badge badge--gold" style="width:fit-content"><span class="dot dot--live" aria-hidden="true"></span>Early access</span>
+            <h2 class="h1" id="cta-title">Monitor what matters.</h2>
+            <p class="lede">Tell us which companies and events matter to you. We are opening Agent Research to a small number of early users.</p>
+            <div class="btn-row">
+              <a class="btn btn--primary" href="mailto:logicalknight0@gmail.com?subject=Agent%20Research%20Early%20Access&amp;body=Companies%20to%20monitor%3A%0A%0AEvents%20that%20matter%3A%0A%0APreferred%20delivery%20(dashboard%2C%20API%2C%20webhook%2C%20agent)%3A%0A">Request Early Access
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              <a class="btn btn--ghost" href="#demo">Learn how it works</a>
+            </div>
+          </div>
+          <div class="cta__mail" role="group" aria-label="What to include in your request">
+            <div class="cta__mail-row"><span class="k">To</span><span class="v">logicalknight0@gmail.com</span></div>
+            <div class="cta__mail-row"><span class="k">Subject</span><span class="v">Agent Research Early Access</span></div>
+            <div class="cta__mail-body"><b>Companies</b> you want to follow<br><b>Events</b> that matter to you<br><b>Delivery</b> — dashboard, API, webhook or agent</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="brand" href="/" aria-label="Logical Knight — home"><img src="/assets/img/mark-64.png" width="30" height="30" alt=""><span>Logical Knight</span></a>
+          <p>Practical technology for difficult real-world problems.</p>
+          <a class="link-arrow" href="mailto:logicalknight0@gmail.com">logicalknight0@gmail.com</a>
+        </div>
+        <div>
+          <h2>Product</h2>
+          <ul>
+            <li><a href="/agent-research/">Agent Research</a></li>
+            <li><a href="#demo">Live demo</a></li>
+            <li><a href="#evidence">Evidence</a></li>
+            <li><a href="#early-access">Early access</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="/#approach">Approach</a></li>
+            <li><a href="/#company">Company</a></li>
+            <li><a href="/#principles">Principles</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="mailto:logicalknight0@gmail.com">Email us</a></li>
+            <li><a href="mailto:logicalknight0@gmail.com?subject=Agent%20Research%20Early%20Access">Request early access</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Logical Knight. All rights reserved.</span>
+        <span>Demo data, companies and URLs shown on this site are fictional.</span>
+      </div>
+      <p class="footer__word" aria-hidden="true">Logical Knight</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>
