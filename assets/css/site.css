@@ -1643,10 +1643,10 @@ body.menu-open { overflow: hidden; }
   .lang-tab { flex: 1 1 calc(33.333% - 8px); }
   .principle { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .principle p { grid-column: auto; }
-  .sheet__row { grid-template-columns: minmax(0, 1fr) auto; padding: 20px; gap: 8px 16px; }
+  .sheet__row { grid-template-columns: minmax(0, 1fr); padding: 20px; gap: 8px; }
   .sheet__row .n { display: none; }
-  .sheet__row p { grid-column: 1 / -1; }
-  .sheet__row .sheet__state { grid-column: 2; }
+  .sheet__row p { grid-column: 1; grid-row: 3; }
+  .sheet__row .sheet__state { grid-column: 1; grid-row: 2; white-space: normal; }
   .sheet__foot { padding: 16px 20px; }
   .cta { padding: 36px 22px; border-radius: 20px; }
   .cta__mail-row { grid-template-columns: 64px 1fr; }
