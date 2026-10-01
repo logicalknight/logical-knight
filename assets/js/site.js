@@ -147,7 +147,7 @@
   if (cycle) {
     const items = [
       { type: "Facility opening", entity: "Acme Example Industries", where: "Bremen, DE", when: "28 Sep 2026", quote: "“Our new Bremen facility will begin operations…”" },
-      { type: "Product launch", entity: "Harbor Example Systems", where: "Rotterdam, NL", when: "27 Sep 2026", quote: "“Vanaf vandaag leverbaar in de hele Benelux…”" },
+      { type: "New product", entity: "Harbor Example Systems", where: "Rotterdam, NL", when: "27 Sep 2026", quote: "“Vanaf vandaag leverbaar in de hele Benelux…”" },
       { type: "Partnership", entity: "Vale Example Logistics", where: "Lyon, FR", when: "26 Sep 2026", quote: "« Un nouveau partenariat logistique… »" },
     ];
     let i = 0, timer = null, visible = false;
@@ -176,16 +176,18 @@
       detected: "28 Sep 2026", ts: "2026-09-28T09:14:03Z", lang: "EN", langCode: "en",
       url: "acme.example/en/sites",
       quote: "Our new Bremen facility will begin operations in the fourth quarter.",
-      steps: ["Checked 3 sources", "+1 paragraph on /en/sites", "Evidence captured · source confirmed", "Classified: facility_opening"],
+      claim: "Acme Example Industries is opening a facility in Bremen.",
+      steps: ["Expansion · official source required", "Change on /en/sites", "Official + independent ✓", "VERIFIED · facility_opening"],
     },
     {
       key: "launch", source: 0,
-      type: "Product launch", code: "product_launch",
+      type: "New product", code: "new_product",
       company: "Acme Example Industries", place: "Germany", loc: "DE",
       detected: "28 Sep 2026", ts: "2026-09-28T07:52:41Z", lang: "DE", langCode: "de",
       url: "acme.example/de/news",
       quote: "Ab sofort ist die neue Baureihe K7 in ganz Europa erhältlich.",
-      steps: ["Checked 3 sources", "New article on /de/news", "Evidence captured · source confirmed", "Classified: product_launch"],
+      claim: "Acme Example Industries launched the K7 series in Europe.",
+      steps: ["Competitor launch · 1 source", "New article on /de/news", "Evidence in source ✓", "VERIFIED · new_product"],
     },
     {
       key: "partner", source: 2,
@@ -194,18 +196,21 @@
       detected: "27 Sep 2026", ts: "2026-09-27T16:30:12Z", lang: "FR", langCode: "fr",
       url: "acme.example/fr/press",
       quote: "Acme Example Industries annonce un partenariat logistique à Lyon.",
-      steps: ["Checked 3 sources", "New release on /fr/press", "Evidence captured · source confirmed", "Classified: partnership"],
+      claim: "Acme Example Industries announced a logistics partnership in Lyon.",
+      steps: ["M&A · official source required", "New release on /fr/press", "Official source ✓", "VERIFIED · partnership"],
     },
   ];
   const SOURCES = ["acme.example/de/news", "acme.example/en/sites", "acme.example/fr/press"];
 
+  // Real field names (GET /v1/events/{id}/intelligence, abridged); fictional data
   const eventJSON = (s) => JSON.stringify({
     event_type: s.code,
-    company: s.company,
-    location: s.loc,
-    detected_at: s.ts,
-    evidence: { quote: s.quote, language: s.langCode, source_url: "https://" + s.url },
-    verified: true,
+    lifecycle: { state: "verified" },
+    statements: [
+      { kind: "OBSERVED_FACT", statement: s.quote, attributed_to: "https://" + s.url },
+      { kind: "INFERENCE", statement: s.claim },
+    ],
+    first_seen_at: s.ts,
   }, null, 2);
 
   const demo = $("[data-demo]");
@@ -243,7 +248,7 @@
           <div><span class="k">Event type</span><span class="v mono">${s.code}</span></div>
         </div>
         <div class="event__evidence">
-          <span class="k">Original evidence</span>
+          <span class="k">Observed fact · original evidence</span>
           <blockquote class="event__quote" lang="${s.langCode}">“${s.quote}”</blockquote>
           <span class="event__src">Source · ${s.url}</span>
         </div>
@@ -364,10 +369,10 @@
       src.textContent = "Source · " + d.url;
       json.innerHTML = highlight(JSON.stringify({
         event_type: "facility_opening",
-        company: "Acme Example Industries",
-        location: "Bremen, DE",
-        evidence: { language: code, source_url: "https://" + d.url },
-        verified: true,
+        facts: { location: { text: "Bremen" } },
+        language: code,
+        source_url: "https://" + d.url,
+        verification_state: "evidence_backed",
       }, null, 2));
       if (motionOK()) [q, json].forEach((el) => { el.classList.remove("anim-in"); void el.offsetWidth; el.classList.add("anim-in"); });
     });
