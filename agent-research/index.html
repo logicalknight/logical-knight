@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Agent Research — Verified business-event intelligence for humans and agents · Logical Knight</title>
-  <meta name="description" content="Agent Research turns business questions into continuously verified intelligence: structured, source-linked events with explicit coverage, verification requirements and a clear line between fact and interpretation. Early access.">
+  <meta name="description" content="Agent Research turns business questions into verified intelligence, automatically monitored and re-verified on a schedule: structured, source-linked events with explicit coverage, verification requirements and a clear line between fact and interpretation. Limited free beta.">
   <link rel="canonical" href="https://logicalknight.com/agent-research/">
   <meta name="theme-color" content="#0a0a0b">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Logical Knight">
-  <meta property="og:title" content="Agent Research — Turn business questions into continuously verified intelligence">
+  <meta property="og:title" content="Agent Research — Turn business questions into verified, source-linked intelligence">
   <meta property="og:description" content="Verified business-event intelligence for teams, analysts and software agents — with evidence, explicit uncertainty and machine-readable delivery.">
   <meta property="og:url" content="https://logicalknight.com/agent-research/">
   <meta property="og:image" content="https://logicalknight.com/assets/img/og-agent-research.png">
@@ -37,7 +37,7 @@
         <a href="/#company">Company</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="btn btn--primary btn--sm nav__cta" href="#early-access">Join Early Access
+      <a class="btn btn--primary btn--sm nav__cta" href="#early-access">Request beta access
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span></button>
     </div>
@@ -47,7 +47,7 @@
     <a href="/#approach">Approach <span>02</span></a>
     <a href="/#company">Company <span>03</span></a>
     <a href="#contact">Contact <span>04</span></a>
-    <a class="btn btn--primary" href="#early-access">Join Early Access</a>
+    <a class="btn btn--primary" href="#early-access">Request beta access</a>
   </div>
 
   <main id="main">
@@ -60,14 +60,15 @@
           <div>
             <div class="flagship__meta">
               <span translate="no" class="flagship__name notranslate">Agent Research</span>
-              <span class="badge badge--gold"><span class="dot dot--live" aria-hidden="true"></span>Early access</span>
+              <span class="badge badge--gold"><span class="dot dot--live" aria-hidden="true"></span>Free beta</span>
             </div>
-            <h1 class="display p-hero__title" id="p-title">Turn business questions into <span class="serif gold">continuously verified intelligence.</span></h1>
+            <h1 class="display p-hero__title" id="p-title">Turn business questions into <span class="serif gold">verified intelligence.</span></h1>
           </div>
           <div class="p-hero__side">
             <p class="lede"><span translate="no" class="notranslate">Agent Research</span> monitors the evidence behind your business questions and returns <strong>structured, source-linked events</strong> — with your verification requirements, explicit coverage and a clear line between fact and interpretation. For teams, analysts and software agents.</p>
+            <p class="muted" style="font-size:.95rem">Automatically monitored and re-verified on a schedule. Monitoring frequency ranges from hourly to weekly depending on plan and configured watch.</p>
             <div class="btn-row">
-              <a class="btn btn--primary" href="#early-access">Join Early Access
+              <a class="btn btn--primary" href="#early-access">Request beta access
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
               <a class="btn btn--ghost" href="#workflow">How it works</a>
               <a class="btn btn--ghost" href="#api">Explore the API</a>
@@ -75,7 +76,7 @@
           </div>
         </div>
         <nav class="p-hero__index" aria-label="On this page">
-          <a href="#workflow">Workflow</a><a href="#demo">Demo</a><a href="#plan">Plans</a><a href="#verification">Verification</a><a href="#coverage">Coverage</a><a href="#understanding">Fact vs inference</a><a href="#capabilities">Capabilities</a><a href="#evidence">Evidence</a><a href="#delivery">Delivery</a><a href="#api">API</a>
+          <a href="#workflow">Workflow</a><a href="#demo">Demo</a><a href="#plan">Plans</a><a href="#verification">Verification</a><a href="#coverage">Coverage</a><a href="#understanding">Fact vs inference</a><a href="#capabilities">Capabilities</a><a href="#evidence">Evidence</a><a href="#delivery">Delivery</a><a href="#api">API</a><a href="#pricing">Pricing</a>
         </nav>
       </div>
     </section>
@@ -589,7 +590,7 @@
             <li><b>02</b><p><strong>Check.</strong> Ask whether a verified change happened — and whether coverage was complete enough to say so.</p></li>
             <li><b>03</b><p><strong>Subscribe.</strong> Receive signed webhooks when events are found, each with its evidence.</p></li>
           </ul>
-          <p class="muted" style="margin-top:24px;font-size:.95rem">API: <span class="mono">https://api.logicalknight.com</span> · Machine-readable description: <span class="mono">/.well-known/agent-research</span> · API keys are issued in early access.</p>
+          <p class="muted" style="margin-top:24px;font-size:.95rem">API: <span class="mono">https://api.logicalknight.com</span> · Machine-readable description: <span class="mono">/.well-known/agent-research</span> · API keys are issued to invited beta users.</p>
         </div>
         <div class="code" data-reveal="2">
           <div class="code__bar">
@@ -658,23 +659,41 @@ X-AgentResearch-Signature: sha256=…
       </div>
     </section>
 
+    <!-- ================= PLANNED PRICING ================= -->
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head section-head--split">
+          <p class="eyebrow"><span class="idx">—</span><span class="rule"></span>Planned post-beta pricing</p>
+          <h2 class="h2" id="pricing-title" data-reveal>Free during the beta. <span class="serif gold">Planned plans after it.</span></h2>
+          <p class="lede" data-reveal="2">Paid plans are <strong>not available yet</strong> and nothing can be bought on this site. The beta is free. The prices below are planned for after the beta and may change; final terms and total prices are shown before any purchase.</p>
+        </div>
+        <div class="sheet" data-reveal role="list" aria-label="Planned post-beta plans">
+          <div class="sheet__row" role="listitem"><span class="n">01</span><h3>Individual</h3><p>€29 per month or €290 per year. For one person: watches, research plans and daily monitoring.</p><span class="sheet__state"><span class="dot"></span>Planned</span></div>
+          <div class="sheet__row" role="listitem"><span class="n">02</span><h3>Team</h3><p>€79 per month or €790 per year. For small teams, with more capacity and hourly monitoring.</p><span class="sheet__state"><span class="dot"></span>Planned</span></div>
+          <div class="sheet__row" role="listitem"><span class="n">03</span><h3>Business</h3><p>€199 per month or €1,990 per year. For larger teams and heavier monitoring.</p><span class="sheet__state"><span class="dot"></span>Planned</span></div>
+          <div class="sheet__row" role="listitem"><span class="n">04</span><h3>Enterprise</h3><p>Custom terms, by individual agreement.</p><span class="sheet__state"><span class="dot"></span>Planned</span></div>
+        </div>
+        <p class="muted" style="margin-top:20px;font-size:.95rem">Planned prices are total prices for consumers. Every plan uses the same verification, evidence and coverage standard; plans differ only in capacity.</p>
+      </div>
+    </section>
+
     <!-- ================= CTA ================= -->
     <section class="section section--tight" id="early-access" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta" data-reveal>
           <div class="cta__copy">
-            <span class="badge badge--gold" style="width:fit-content"><span class="dot dot--live" aria-hidden="true"></span>Early access</span>
+            <span class="badge badge--gold" style="width:fit-content"><span class="dot dot--live" aria-hidden="true"></span>Free beta</span>
             <h2 class="h1" id="cta-title">Ask the question. Get the evidence.</h2>
-            <p class="lede">Tell us which companies, questions and events matter to you. We are opening <span translate="no" class="notranslate">Agent Research</span> to a small number of early users.</p>
+            <p class="lede"><span translate="no" class="notranslate">Agent Research</span> is currently in a limited free beta: a one-month validation period with a small number of invited users. Tell us which companies, questions and events matter to you. The beta is free; no payment is taken.</p>
             <div class="btn-row">
-              <a class="btn btn--primary" href="mailto:logicalknight0@gmail.com?subject=Agent%20Research%20Early%20Access&amp;body=Questions%20or%20companies%20to%20monitor%3A%0A%0AEvents%20that%20matter%3A%0A%0APreferred%20delivery%20(API%2C%20webhook%2C%20briefing%2C%20agent)%3A%0A">Join Early Access
+              <a class="btn btn--primary" href="mailto:logicalknight0@gmail.com?subject=Agent%20Research%20Free%20Beta&amp;body=Questions%20or%20companies%20to%20monitor%3A%0A%0AEvents%20that%20matter%3A%0A%0APreferred%20delivery%20(API%2C%20webhook%2C%20briefing%2C%20agent)%3A%0A">Request beta access
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
               <a class="btn btn--ghost" href="#workflow">How it works</a>
             </div>
           </div>
           <div class="cta__mail" role="group" aria-label="What to include in your request">
             <div class="cta__mail-row"><span class="k">To</span><span class="v">logicalknight0@gmail.com</span></div>
-            <div class="cta__mail-row"><span class="k">Subject</span><span class="v"><span translate="no" class="notranslate">Agent Research</span> Early Access</span></div>
+            <div class="cta__mail-row"><span class="k">Subject</span><span class="v"><span translate="no" class="notranslate">Agent Research</span> Free Beta</span></div>
             <div class="cta__mail-body"><b>Questions</b> or companies you want to follow<br><b>Events</b> that matter to you<br><b>Delivery</b> — API, webhook, briefing or agent</div>
           </div>
         </div>
@@ -696,7 +715,7 @@ X-AgentResearch-Signature: sha256=…
             <li><a class="notranslate" translate="no" href="/agent-research/">Agent Research</a></li>
             <li><a href="#workflow">How it works</a></li>
             <li><a href="#api">API</a></li>
-            <li><a href="#early-access">Early access</a></li>
+            <li><a href="#early-access">Free beta</a></li><li><a href="#pricing">Planned pricing</a></li>
           </ul>
         </div>
         <div>
@@ -711,7 +730,7 @@ X-AgentResearch-Signature: sha256=…
           <h2>Contact</h2>
           <ul>
             <li><a href="mailto:logicalknight0@gmail.com">Email us</a></li>
-            <li><a href="mailto:logicalknight0@gmail.com?subject=Agent%20Research%20Early%20Access">Join early access</a></li>
+            <li><a href="mailto:logicalknight0@gmail.com?subject=Agent%20Research%20Free%20Beta">Request beta access</a></li>
           </ul>
         </div>
       </div>
