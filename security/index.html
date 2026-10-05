@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security · Logical Knight</title>
+  <meta name="description" content="Security at Agent Research
+Last updated 2026-10-05">
+  <link rel="canonical" href="https://logicalknight.com/security/">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a translate="no" class="brand notranslate" href="/" aria-label="Logical Knight — home">
+        <img src="/assets/img/mark-64.png" width="30" height="30" alt="">
+        <span>Logical Knight</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/agent-research/">Agent Research</a>
+        <a href="/kontakt/">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="legal">
+    <div class="container legal__inner">
+<h1 id="security-at-agent-research">Security at Agent Research</h1>
+<p>Last updated 2026-10-05</p>
+<p><strong>Encryption in transit.</strong> All traffic uses TLS. The API enforces HTTPS with HSTS.</p>
+<p><strong>Tenant isolation.</strong> Every organization's data is separated at the database level with row-level security, not only
+by application code. A request can only see its own organization's data. Another organization's objects are
+indistinguishable from objects that do not exist.</p>
+<p><strong>Least privilege.</strong> The service runs with narrowly scoped database roles, and none of them can bypass isolation. An
+automated audit compares the live permissions with an exact expected catalogue; it is part of every release.</p>
+<p><strong>Credentials.</strong> Activation codes and API keys are shown once and stored only as hashes. Keys can be rotated and
+revoked, and closing an account revokes all of them at once. Webhooks are signed (HMAC-SHA256 with a timestamp), so
+you can verify their origin and reject replays.</p>
+<p><strong>Abuse protection.</strong> Per-key and per-client rate limits are shared across all servers. Monthly quotas are enforced
+before any work starts.</p>
+<p><strong>Safe fetching.</strong> We fetch only public web addresses, refuse private and internal networks, honour robots.txt and
+space out requests to each host.</p>
+<p><strong>Evidence integrity.</strong> Every stored page and event carries a SHA-256 hash. Events keep their verbatim
+original-language evidence and their history; nothing is silently overwritten.</p>
+<p><strong>Operations.</strong>
+- Production and test environments are separate.
+- Changes ship only after automated tests, a dependency audit and secret scanning.
+- Database backups support point-in-time recovery, and restores are tested before migrations.
+- Secrets live in the hosting provider's secret store, never in source code.
+- The application writes no access logs of your requests.</p>
+<p><strong>Hosting.</strong> The API runs on Render (USA). Render holds its own certifications (e.g. SOC 2 Type 2, ISO 27001).
+<strong>These are Render's certifications, not Logical Knight's.</strong> Logical Knight holds no security certification of its
+own.</p>
+<h2 id="responsible-disclosure">Responsible disclosure</h2>
+<p>If you believe you have found a vulnerability:
+- e-mail <strong>logicalknight0@gmail.com</strong> with the subject "Security", or use the contact form;
+- include the steps to reproduce it.</p>
+<p>Please do not:
+- access other users' data;
+- disrupt the service;
+- publish the issue before we have had reasonable time to fix it (we aim for 90 days or less).</p>
+<p>We confirm receipt within 3 business days and do not take legal action against good-faith research that follows
+these rules. There is no bug bounty.</p>
+<hr />
+<p><strong>Deutsch (Kurzfassung).</strong>
+- TLS/HSTS.
+- Mandantentrennung auf Datenbankebene (Row-Level Security).
+- Datenbankrollen mit minimalen Rechten, automatisch geprüft.
+- Schlüssel nur als Hashwerte gespeichert.
+- Signierte Webhooks.
+- Anfragebegrenzung.
+- Prüfsummen für alle Belege.
+- Getestete Wiederherstellung von Sicherungen.
+- Keine Zugriffsprotokolle der Anwendung.</p>
+<p>Hosting bei Render (USA); dessen Zertifizierungen sind die von Render, nicht unsere. Sicherheitslücken bitte an
+logicalknight0@gmail.com (Betreff „Security“).</p>
+    </div>
+  </main>
+  <footer class="footer footer--legal">
+    <div class="container">
+      <nav aria-label="Rechtliches / Legal"><ul class="legal-links"><li><a href="/datenschutz/">Datenschutz</a></li><li><a href="/nutzungsbedingungen/">Nutzungsbedingungen</a></li><li><a href="/acceptable-use/">Acceptable Use</a></li><li><a href="/ki-transparenz/">Transparenz</a></li><li><a href="/security/">Security</a></li><li><a href="/kontakt/">Kontakt</a></li></ul></nav>
+      <div class="footer__bottom">
+        <span>© 2026 <span translate="no" class="notranslate">Logical Knight</span> · Leo King</span>
+        <span><a href="mailto:logicalknight0@gmail.com">logicalknight0@gmail.com</a></span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1717,3 +1717,30 @@ body.menu-open { overflow: hidden; }
   .flow--6 .fstep, .flow--6 .fstep:nth-child(odd) { border-left: 0; }
   .flow--6 .fstep + .fstep { border-top: 1px solid var(--line); }
 }
+
+/* ---------- legal pages, contact form, legal footer links (2026-10-05) ---------- */
+.legal { padding: calc(var(--nav-h, 72px) + 48px) 0 72px; }
+.legal__inner { max-width: 46rem; }
+.legal h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; margin: 0 0 12px; }
+.legal h2 { font-size: 1.3rem; margin: 40px 0 10px; }
+.legal h3 { font-size: 1.05rem; margin: 28px 0 8px; }
+.legal p, .legal li, .legal td, .legal th { color: var(--text); line-height: 1.65; overflow-wrap: anywhere; }
+.legal p, .legal ul, .legal ol, .legal table { margin: 0 0 14px; }
+.legal ul, .legal ol { padding-left: 1.3em; }
+.legal a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.legal hr { border: 0; border-top: 1px solid var(--line-2); margin: 48px 0; }
+.legal table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; }
+.legal th, .legal td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line-2); font-size: 0.95rem; }
+.legal code { font-family: var(--font-mono, monospace); font-size: 0.9em; overflow-wrap: anywhere; }
+.contact-form { display: grid; gap: 6px; margin: 24px 0 32px; }
+.contact-form label { font-weight: 600; margin-top: 12px; color: var(--text); }
+.contact-form .optional { font-weight: 400; color: var(--text-2); }
+.contact-form input, .contact-form textarea { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--line-3); border-radius: var(--radius-sm); padding: 12px 14px; width: 100%; }
+.contact-form input:focus-visible, .contact-form textarea:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.contact-form .form-note { font-size: 0.9rem; color: var(--text-2); margin-top: 12px; }
+.contact-form button { justify-self: start; margin-top: 8px; }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.legal-links { display: flex; flex-wrap: wrap; gap: 8px 22px; list-style: none; padding: 0; margin: 28px 0 0; font-size: 0.9rem; }
+.legal-links a { color: var(--text-2); text-decoration: underline; text-underline-offset: 3px; }
+.legal-links a:hover, .legal-links a:focus-visible { color: var(--text); }
+.footer--legal { padding-top: 24px; border-top: 1px solid var(--line); }

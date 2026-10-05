@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt · Logical Knight</title>
+  <meta name="description" content="Kontakt zu Logical Knight (Inhaber Leo King): E-Mail und Kontaktformular.">
+  <link rel="canonical" href="https://logicalknight.com/kontakt/">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a translate="no" class="brand notranslate" href="/" aria-label="Logical Knight — home">
+        <img src="/assets/img/mark-64.png" width="30" height="30" alt="">
+        <span>Logical Knight</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="/agent-research/">Agent Research</a>
+        <a href="/kontakt/">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="legal">
+    <div class="container legal__inner">
+<h1>Kontakt / Contact</h1>
+<p><strong translate="no" class="notranslate">Logical Knight</strong><br>Inhaber / Owner: Leo King<br>
+E-Mail: <a href="mailto:logicalknight0@gmail.com">logicalknight0@gmail.com</a></p>
+<p>Nachrichten über dieses Formular erreichen den Inhaber direkt; wir antworten in der Regel innerhalb von zwei
+Werktagen per E-Mail. Keine Anmeldung nötig. / Messages reach the owner directly; we usually reply by e-mail within two
+working days. No login needed.</p>
+<form class="contact-form" method="post" action="https://api.logicalknight.com/contact">
+  <label for="cf-name">Name</label>
+  <input id="cf-name" name="name" required minlength="2" maxlength="200" autocomplete="name">
+  <label for="cf-email">E-Mail (für die Antwort / for our reply)</label>
+  <input id="cf-email" name="email" type="email" required maxlength="254" autocomplete="email">
+  <label for="cf-subject">Betreff / Subject <span class="optional">(optional)</span></label>
+  <input id="cf-subject" name="subject" maxlength="200">
+  <label for="cf-message">Nachricht / Message</label>
+  <textarea id="cf-message" name="message" rows="8" required minlength="5" maxlength="5000"></textarea>
+  <div class="hp" aria-hidden="true"><label for="cf-website">Leave this field empty</label>
+    <input id="cf-website" name="website" tabindex="-1" autocomplete="off"></div>
+  <p class="form-note">Wir verwenden Ihre Angaben nur, um Ihre Anfrage zu beantworten (<a href="/datenschutz/#4-kontakt-per-formular-oder-e-mail">Datenschutzerklärung, Abschnitt 4</a>).
+  / We use your details only to answer you.</p>
+  <button class="btn btn--primary" type="submit">Nachricht senden / Send message</button>
+</form>
+<h2>Konto schließen / Close your account</h2>
+<p>Schreiben Sie uns, oder nutzen Sie mit Ihrem Inhaber-Schlüssel <code>POST https://api.logicalknight.com/v1/account/close</code>
+mit <code>{"confirm": "CLOSE"}</code>. Der Zugang endet sofort; die Daten werden innerhalb von 30 Tagen gelöscht. / Write
+to us, or call the endpoint above with your owner key: access ends at once and data is deleted within 30 days.</p>
+
+    </div>
+  </main>
+  <footer class="footer footer--legal">
+    <div class="container">
+      <nav aria-label="Rechtliches / Legal"><ul class="legal-links"><li><a href="/datenschutz/">Datenschutz</a></li><li><a href="/nutzungsbedingungen/">Nutzungsbedingungen</a></li><li><a href="/acceptable-use/">Acceptable Use</a></li><li><a href="/ki-transparenz/">Transparenz</a></li><li><a href="/security/">Security</a></li><li><a href="/kontakt/">Kontakt</a></li></ul></nav>
+      <div class="footer__bottom">
+        <span>© 2026 <span translate="no" class="notranslate">Logical Knight</span> · Leo King</span>
+        <span><a href="mailto:logicalknight0@gmail.com">logicalknight0@gmail.com</a></span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
