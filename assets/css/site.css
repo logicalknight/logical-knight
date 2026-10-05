@@ -1744,3 +1744,19 @@ body.menu-open { overflow: hidden; }
 .legal-links a { color: var(--text-2); text-decoration: underline; text-underline-offset: 3px; }
 .legal-links a:hover, .legal-links a:focus-visible { color: var(--text); }
 .footer--legal { padding-top: 24px; border-top: 1px solid var(--line); }
+
+/* IPPC Ledger product page */
+.product .lede { margin: 0 0 20px; }
+.product .btn-row { margin: 8px 0 20px; }
+.product .note { border-left: 2px solid var(--gold); padding: 10px 14px; color: var(--text-2); background: rgba(255,255,255,0.02); }
+.product .muted { color: var(--text-2); }
+.demo-record { margin: 0 0 24px; border: 1px solid var(--line-2); border-radius: 12px; overflow: hidden; }
+.demo-record__bar { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line); font-weight: 600; }
+.demo-record dl { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 8px 16px; margin: 0; padding: 16px; }
+.demo-record dt { color: var(--text-2); }
+.demo-record dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 560px) { .demo-record dl { grid-template-columns: 1fr; } .demo-record dd { margin-bottom: 6px; } }
+.flow li { margin-bottom: 10px; }
+.legal a.btn { text-decoration: none; }
+.legal a.btn--primary { color: var(--gold-ink); }
+.legal a.btn--ghost { color: var(--text); }

@@ -10,6 +10,10 @@
    this public file does not contain them.
 5. Retired product: no links to its pages or API, no payment protocol, and its name only on the retirement notice and
    the privacy policy.
+6. No unfinished owner input: "TODO-OWNER" marks details only the owner can supply (Impressum, hosting provider). A
+   page with such a marker must not be published.
+7. With --live: every link into the application (https://app.logicalknight.com/...) answers. Run in CI, so a page that
+   links to the application cannot pass before the application is deployed.
 """
 
 from __future__ import annotations
@@ -21,7 +25,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-BRANDS = ("Logical Knight", "Agent Research")
+BRANDS = ("Logical Knight", "Agent Research", "IPPC Ledger")
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 NOT_TEXT = {"head", "script", "style", "title", "noscript", "template", "svg"}
 PRIVATE_NAME_HASHES = {
@@ -119,6 +123,29 @@ def check_retired(path: Path) -> list[str]:
     return [f"{rel}: retired product reference {t!r}" for t in terms if t in text]
 
 
+OWNER_MARKER = "TODO-OWNER"
+APP_LINK = re.compile(r'href="(https://app\.logicalknight\.com/[^"]*)"')
+
+
+def check_owner_markers(path: Path) -> list[str]:
+    n = path.read_text(encoding="utf-8", errors="replace").count(OWNER_MARKER)
+    return [f"{path.relative_to(ROOT).as_posix()}: {n} detail(s) still need the owner ({OWNER_MARKER})"] if n else []
+
+
+def check_live(files: list[Path]) -> list[str]:
+    import urllib.request
+    links = sorted({u for p in files if p.suffix == ".html" for u in APP_LINK.findall(p.read_text(encoding="utf-8"))})
+    findings = []
+    for url in links:
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, method="GET"), timeout=15) as r:
+                if r.status != 200:
+                    findings.append(f"{url}: HTTP {r.status}")
+        except Exception as exc:  # noqa: BLE001 - any failure means the link is dead for visitors
+            findings.append(f"{url}: not reachable ({type(exc).__name__})")
+    return findings
+
+
 def main() -> int:
     files = [p for p in ROOT.rglob("*") if p.is_file() and ".git" not in p.relative_to(ROOT).parts[:1] and not any(
         part.startswith((".", "_")) for part in p.relative_to(ROOT).parts)]  # what GitHub Pages (Jekyll) publishes
@@ -130,6 +157,9 @@ def main() -> int:
             findings += check_private_names(path)
         if path.suffix in PUBLISHED and path.name != "check_site.py":
             findings += check_retired(path)
+            findings += check_owner_markers(path)
+    if "--live" in sys.argv:
+        findings += check_live(files)
     for f in findings:
         print(f)
     pages = sum(p.suffix == ".html" for p in files)
