@@ -5,9 +5,11 @@
    styles and attribute values are not text a translator can be told to skip, so they are not checked.
 2. The rest of the site stays translatable: no page-wide opt-out (<meta name="google" content="notranslate">, or
    translate="no" on <html>/<body>), and most visible text is outside protected elements.
-3. Logo: the mark inside a brand link has alt="Logical Knight" and the link itself is protected.
+3. Logo: the mark inside a brand link is decorative (alt=""), since the link text names the brand; the link is protected.
 4. No unreleased product names anywhere in the published files. They are compared as SHA-256 hashes of each word, so
    this public file does not contain them.
+5. Retired product: no links to its pages or API, no payment protocol, and its name only on the retirement notice and
+   the privacy policy.
 """
 
 from __future__ import annotations
@@ -59,8 +61,8 @@ class Page(HTMLParser):
             self.brand_link = True
             if not protected:
                 self.findings.append(f"line {self.getpos()[0]}: brand link (logo) is not protected from translation")
-        if tag == "img" and self.brand_link and a.get("alt") != "Logical Knight":
-            self.findings.append(f'line {self.getpos()[0]}: logo mark without alt="Logical Knight"')
+        if tag == "img" and self.brand_link and a.get("alt") != "":
+            self.findings.append(f'line {self.getpos()[0]}: logo mark must be decorative (alt=""); the link already names the brand')
         if tag not in VOID:
             self.stack.append((tag, protected))
 
@@ -106,6 +108,17 @@ def check_private_names(path: Path) -> list[str]:
     return [f"{path.relative_to(ROOT)}: unreleased product name present ({len(hits)} distinct)"] if hits else []
 
 
+RETIRED_ALLOWED = {"agent-research/index.html", "datenschutz/index.html"}
+RETIRED_TERMS = ("api.logicalknight.com", "x402", 'href="/agent-research/', "og-agent-research", "Agent Research")
+
+
+def check_retired(path: Path) -> list[str]:
+    rel = path.relative_to(ROOT).as_posix()
+    text = path.read_text(encoding="utf-8", errors="replace")
+    terms = RETIRED_TERMS[:-1] if rel in RETIRED_ALLOWED else RETIRED_TERMS
+    return [f"{rel}: retired product reference {t!r}" for t in terms if t in text]
+
+
 def main() -> int:
     files = [p for p in ROOT.rglob("*") if p.is_file() and ".git" not in p.relative_to(ROOT).parts[:1] and not any(
         part.startswith((".", "_")) for part in p.relative_to(ROOT).parts)]  # what GitHub Pages (Jekyll) publishes
@@ -115,6 +128,8 @@ def main() -> int:
             findings += check_page(path)
         if path.suffix in PUBLISHED:
             findings += check_private_names(path)
+        if path.suffix in PUBLISHED and path.name != "check_site.py":
+            findings += check_retired(path)
     for f in findings:
         print(f)
     pages = sum(p.suffix == ".html" for p in files)
