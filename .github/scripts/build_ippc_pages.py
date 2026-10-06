@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[2]
 APP = "https://app.logicalknight.com"
 STAFF = "https://staff.logicalknight.com"
 LK = '<span translate="no" class="notranslate">Logical Knight</span>'
-SAMPLE = "/assets/samples/ippc-ledger-beispiel-export.zip"
+SAMPLE = {"de": "/assets/samples/ippc-ledger-beispiel-export.zip", "en": "/assets/samples/ippc-ledger-sample-export.zip"}
 IP = '<span translate="no" class="notranslate">IPPC Ledger</span>'
 
 
@@ -26,14 +26,16 @@ def e(s: str) -> str:
     return escape(s).replace("IPPC Ledger", IP).replace("Logical Knight", LK)
 
 
-def img_size(name: str) -> tuple[int, int]:
-    data = (ROOT / "assets/img/ippc" / name).read_bytes()
+def img_size(path: str) -> tuple[int, int]:
+    data = (ROOT / path.lstrip("/")).read_bytes()
     return int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")  # PNG IHDR
 
 
-def figure(name: str, alt: str, caption: str) -> str:
-    w, h = img_size(name)
-    return (f'<figure class="shot" data-reveal><a href="/assets/img/ippc/{name}"><img src="/assets/img/ippc/{name}" width="{w}" '
+def figure(name: str, alt: str, caption: str, lang: str) -> str:
+    """A real screen of the application in the page's language (fictional demo data)."""
+    src = f"/assets/img/ippc/{lang}/{name}"
+    w, h = img_size(src)
+    return (f'<figure class="shot" data-reveal><a href="{src}"><img src="{src}" width="{w}" '
             f'height="{h}" loading="lazy" alt="{escape(alt)}"></a><figcaption>{caption}</figcaption></figure>')
 
 
@@ -68,7 +70,7 @@ T = {
         ],
         "ex_eyebrow": "Beispiel mit fiktiven Daten",
         "ex_h": "So sieht es in <span class=\"serif gold\">IPPC Ledger</span> aus.",
-        "ex_lede": "Echte Bildschirme der Anwendung mit erfundenen Firmen und Musterdokumenten. Die Oberfläche ist derzeit englisch; Hilfe und E-Mails sind zweisprachig.",
+        "ex_lede": "Echte Bildschirme der Anwendung mit erfundenen Firmen und Musterdokumenten. Die Anwendung gibt es auf Deutsch und Englisch; diese Bilder zeigen die deutsche Oberfläche.",
         "shots": [
             ("app-delivery-incomplete.png", "Lieferung WE-DEMO-002 mit Status Unvollständig: kein Behandlungsnachweis angehängt",
              "<strong>Fehlende Nachweise mit Grund.</strong> Die fiktive Lieferung WE-DEMO-002 ist unvollständig: Der Behandlungsnachweis fehlt. Sobald er angehängt ist, wechselt der Status."),
@@ -78,8 +80,8 @@ T = {
              "<strong>Vom Auftrag zum Beleg.</strong> Auftrag AUF-DEMO-101 nutzt 120 Stk aus WE-DEMO-001 und 200 Stk aus WE-DEMO-003; darunter Lieferant, Ermächtigung und alle Dokumente."),
             ("app-history-correction.png", "Verlauf einer Lieferung mit Korrektur der Lieferscheinnummer und Grund",
              "<strong>Korrekturen mit Grund.</strong> Die Lieferscheinnummer wurde korrigiert: alter Wert, neuer Wert, Person, Zeitpunkt und Grund bleiben sichtbar."),
-            ("app-missing-evidence.png", "Liste Missing Evidence mit allen offenen Lücken",
-             "<strong>Alle Lücken auf einen Blick.</strong> „Missing Evidence“ listet jede offene Lücke über alle Lieferungen und Aufträge."),
+            ("app-missing-evidence.png", "Liste „Fehlende Nachweise“ mit allen offenen Lücken",
+             "<strong>Alle Lücken auf einen Blick.</strong> „Fehlende Nachweise“ listet jede offene Lücke über alle Wareneingänge und Aufträge."),
             ("app-supplier-authorisation.png", "Lieferant mit Ermächtigung ohne Ablaufdatum und interner Prüferinnerung",
              "<strong>Erinnerung ist kein Ablaufdatum.</strong> Diese Ermächtigung nennt kein Ende; die interne Erinnerung zur erneuten Prüfung ist getrennt davon."),
         ],
@@ -185,7 +187,7 @@ T = {
         ],
         "ex_eyebrow": "Example with fictional data",
         "ex_h": "What it looks like in <span class=\"serif gold\">IPPC Ledger</span>.",
-        "ex_lede": "Real screens of the application with invented companies and sample documents. The interface is currently in English; help and e-mails are bilingual.",
+        "ex_lede": "Real screens of the application with invented companies and sample documents. The application is available in German and English; these images show the English interface.",
         "shots": [
             ("app-delivery-incomplete.png", "Delivery WE-DEMO-002 marked incomplete: no treatment evidence attached",
              "<strong>Missing evidence, with the reason.</strong> The fictional delivery WE-DEMO-002 is incomplete because its treatment evidence is missing. Once it is attached, the status changes."),
@@ -319,7 +321,7 @@ def nav(c: dict, lang: str, other: str, items: list[tuple[str, str]]) -> str:
       <nav class="nav__links" aria-label="{'Hauptnavigation' if lang == 'de' else 'Primary'}">
 {links}
         <a href="{other}" hreflang="{c["switch_lang"]}" lang="{c["switch_lang"]}">{c["switch"]}</a>
-        <a href="{APP}/login">{c["login"]}</a>
+        <a href="{APP}/login?lang={lang}">{c["login"]}</a>
       </nav>
       <a class="btn btn--primary btn--sm nav__cta" href="{APP}/pilot?lang={lang}">{c["pilot_btn"]}</a>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><span></span></button>
@@ -328,7 +330,7 @@ def nav(c: dict, lang: str, other: str, items: list[tuple[str, str]]) -> str:
   <div class="mobile-menu" id="mobile-menu">
 {mobile}
     <a href="{other}" hreflang="{c["switch_lang"]}" lang="{c["switch_lang"]}">{c["switch"]}</a>
-    <a href="{APP}/login">{c["login"]}</a>
+    <a href="{APP}/login?lang={lang}">{c["login"]}</a>
     <a class="btn btn--primary" href="{APP}/pilot?lang={lang}">{c["pilot_btn"]}</a>
   </div>
 '''
@@ -375,7 +377,7 @@ def product(lang: str) -> str:
     steps = lambda items: '<ol class="steps steps--flow">' + "".join(  # noqa: E731
         f'<li class="step" data-reveal><span class="step__n">0{i + 1}</span><h3>{e(h)}</h3><p>{e(p)}</p></li>'
         for i, (h, p) in enumerate(items)) + "</ol>"
-    sample = f'<a class="btn btn--ghost" href="{SAMPLE}" download>{c["pack_dl"]}</a>'
+    sample = f'<a class="btn btn--ghost" href="{SAMPLE[lang]}" download>{c["pack_dl"]}</a>'
     main = f"""  <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="gridbg" aria-hidden="true"></div>
@@ -396,7 +398,7 @@ def product(lang: str) -> str:
     </section>
 {sec("problem", c["problem_eyebrow"], c["problem_h"], cards(c["problem"], "features features--plain"))}
 {sec("flow", c["flow_eyebrow"], c["flow_h"], steps(c["flow"]))}
-{sec("example", c["ex_eyebrow"], c["ex_h"], f'<p class="lede">{e(c["ex_lede"])}</p><div class="shots">' + "".join(figure(*s) for s in c["shots"]) + "</div>")}
+{sec("example", c["ex_eyebrow"], c["ex_h"], f'<p class="lede">{e(c["ex_lede"])}</p><div class="shots">' + "".join(figure(*s, lang) for s in c["shots"]) + "</div>")}
 {sec("export", c["pack_eyebrow"], c["pack_h"], f'<p class="lede">{e(c["pack_lede"])}</p><ul class="pack" data-reveal>' + "".join(f"<li><code>{e(f)}</code><span>{e(d)}</span></li>" for f, d in c["pack"]) + f'</ul><p class="note">{e(c["pack_note"])}</p><p class="btn-row">{sample}</p>')}
 {sec("features", c["feat_eyebrow"], c["feat_h"], cards(c["features"]))}
 {sec("start", c["gs_eyebrow"], c["gs_h"], '<ul class="bring">' + "".join(f"<li><strong>{e(h)}</strong> {e(p)}</li>" for h, p in c["gs_items"]) + f'</ul><p class="lede">{c["gs_text"].format(gs=c["gs"])}</p>')}
@@ -421,13 +423,13 @@ GS = {
            "lede": "Erfassen, anhängen, korrigieren, exportieren: so kommen Ihre ersten Datensätze in die Anwendung.",
            "steps": [
                ("Anmelden", "Sie erhalten eine Einladung per E-Mail. Über den Link legen Sie Ihr Passwort fest und melden sich mit Ihrer E-Mail-Adresse an. Die Startseite zeigt eine Checkliste der ersten Schritte."),
-               ("Lieferant anlegen", "Suppliers → Add supplier. Darunter „Add authorisation evidence“: Nummer und Behörde aus der Ermächtigung, Gültigkeit nur, wenn das Dokument sie nennt, und das PDF oder Foto.", "app-supplier-authorisation.png"),
-               ("Wareneingang erfassen", "Deliveries → Add delivery: Empfangsdatum, Lieferant, Lieferscheinnummer, Behandlungsverfahren und -angaben, je Materialposition Holzart, Menge mit Einheit und/oder Masse in kg. Lieferschein und Behandlungsnachweis gleich mit hochladen."),
-               ("Fehlendes sehen und beheben", "Fehlt etwas, zeigt die Lieferung den Grund. „Missing Evidence“ listet alles Offene. Unter „Review / verify“ markieren Sie Dokumente als geprüft oder abgelehnt.", "app-delivery-incomplete.png"),
-               ("Korrigieren", "Edit auf der Lieferung. Ändern Sie einen erfassten Wert, geben Sie den Grund an; der Verlauf zeigt alten und neuen Wert, Person, Zeit und Grund.", "app-history-correction.png"),
-               ("Auftrag verknüpfen", "Jobs → Add job, dann Material über die Lieferungsnummer suchen und mit der verwendeten Menge in der Einheit der Lieferung verknüpfen.", "app-job-trace.png"),
-               ("Exportieren", "„Export evidence“ auf einem Auftrag oder Exports → Zeitraum. Ohne Lieferungen im Zeitraum gibt es einen Hinweis statt eines leeren Archivs.", "app-exports.png"),
-               ("Tabellen übernehmen", "Settings → Import: Vorlage herunterladen, ausfüllen, hochladen, Spalten prüfen, Vorschau ansehen, bestätigen. Daten mit Schrägstrich (05/03/2026) werden als mehrdeutig abgelehnt; schreiben Sie 05.03.2026."),
+               ("Lieferant anlegen", "Lieferanten → Lieferant anlegen. Danach auf der Seite des Lieferanten „Ermächtigung erfassen“: Nummer und Behörde aus der Ermächtigung, Gültigkeit nur, wenn das Dokument sie nennt, und das PDF oder Foto.", "app-supplier-authorisation.png"),
+               ("Wareneingang erfassen", "Wareneingänge → Wareneingang erfassen: Eingangsdatum, Lieferant, Lieferscheinnummer, Behandlungsverfahren und -angaben, je Materialposition Holzart, Menge mit Einheit und/oder Masse in kg. Lieferschein und Behandlungsnachweis gleich mit hochladen."),
+               ("Fehlendes sehen und beheben", "Fehlt etwas, zeigt die Lieferung den Grund. „Fehlende Nachweise“ listet alles Offene. Unter „Prüfen / abgleichen“ markieren Sie Dokumente als geprüft oder abgelehnt.", "app-delivery-incomplete.png"),
+               ("Korrigieren", "„Bearbeiten“ auf dem Wareneingang. Ändern Sie einen erfassten Wert, geben Sie den Grund an; der Verlauf zeigt alten und neuen Wert, Person, Zeit und Grund.", "app-history-correction.png"),
+               ("Auftrag verknüpfen", "Aufträge → Auftrag anlegen, dann Material über die Wareneingangs-Nr. suchen und mit der verwendeten Menge in der Einheit der Lieferung verknüpfen.", "app-job-trace.png"),
+               ("Exportieren", "„Nachweise exportieren“ auf einem Auftrag oder Exporte → Zeitraum. Ohne Lieferungen im Zeitraum gibt es einen Hinweis statt eines leeren Archivs.", "app-exports.png"),
+               ("Tabellen übernehmen", "Einstellungen → Import: Vorlage herunterladen, ausfüllen, hochladen, Spalten prüfen, Vorschau ansehen, bestätigen. Daten mit Schrägstrich (05/03/2026) werden als mehrdeutig abgelehnt; schreiben Sie 05.03.2026."),
            ],
            "help": "Fragen? <a href=\"mailto:logicalknight0@gmail.com\">logicalknight0@gmail.com</a> · <a href=\"/de/ippc-ledger/\">Zurück zu " + IP + "</a>"},
     "en": {"title": "Getting started with IPPC Ledger · Logical Knight", "h1": "Getting started with " + IP,
@@ -451,7 +453,7 @@ def getting_started(lang: str) -> str:
     items = []
     for i, step in enumerate(g["steps"]):
         h, p = step[0], step[1]
-        pic = figure(step[2], h, "Beispiel mit fiktiven Daten" if lang == "de" else "Example with fictional data") if len(step) > 2 else ""
+        pic = figure(step[2], h, "Beispiel mit fiktiven Daten" if lang == "de" else "Example with fictional data", lang) if len(step) > 2 else ""
         items.append(f'<li class="gs__step"><h2 class="h3"><span class="step__n">0{i + 1}</span> {e(h)}</h2><p>{e(p)}</p>{pic}</li>')
     body = f'''  <main id="main" class="legal product" lang="{lang}">
     <div class="container legal__inner legal__inner--wide">
@@ -547,7 +549,7 @@ HOME_DE = [
           Datensätze, und Sie können jederzeit alles exportieren."""),
     ('pilot?lang=en">Request a pilot</a>', 'pilot?lang=de">Pilot anfragen</a>'),
     ('href="/en/ippc-ledger/#example">See an example</a>', 'href="/de/ippc-ledger/#beispiel">Beispiel ansehen</a>'),
-    ('login">Customer login</a>', 'login">Kundenanmeldung</a>'),
+    ('login?lang=en">Customer login</a>', 'login?lang=de">Kundenanmeldung</a>'),
     ('<span class="rule"></span>Our approach</p>', '<span class="rule"></span>Unser Vorgehen</p>'),
     ('We start with <span class="serif gold">the problem.</span>', 'Wir beginnen mit <span class="serif gold">dem Problem.</span>'),
     ("Not with a technology looking for a use. Each product begins as a real workflow that is slow, costly or unreliable today.",
