@@ -20,7 +20,7 @@ STAFF = "https://staff.logicalknight.com"
 # e-mail and show no login links (nothing points at an address that does not exist). When the application is online,
 # set True and rebuild; the site check (--live) then verifies every application link before the pages can be published.
 APP_ONLINE = False
-EMAIL = "logicalknight0@gmail.com"
+EMAIL = "hello@logicalknight.com"
 SUBJECT = {"de": "Pilot%20IPPC%20Ledger", "en": "IPPC%20Ledger%20pilot"}
 
 
@@ -136,7 +136,7 @@ T = {
             ("Ihre laufenden Aufträge", "mit Auftragsnummer, optional Kunde und Kundenreferenz."),
             ("Vorhandene Tabellen, falls es sie gibt", "Lieferanten, Wareneingänge oder Aufträge als CSV/Excel; Vorlagen stehen in der Anwendung bereit."),
         ],
-        "gs_text": "Sie erfassen in der Anwendung oder importieren Tabellen. PDFs werden angehängt, nicht automatisch ausgelesen. Eine Checkliste auf der Startseite führt durch die ersten Schritte; die <a href=\"{gs}\">Anleitung</a> zeigt Erfassen, Anhängen, Korrigieren und Exportieren. Fragen per E-Mail an <a href=\"mailto:logicalknight0@gmail.com\">logicalknight0@gmail.com</a>.",
+        "gs_text": "Sie erfassen in der Anwendung oder importieren Tabellen. PDFs werden angehängt, nicht automatisch ausgelesen. Eine Checkliste auf der Startseite führt durch die ersten Schritte; die <a href=\"{gs}\">Anleitung</a> zeigt Erfassen, Anhängen, Korrigieren und Exportieren. Fragen per E-Mail an <a href=\"mailto:hello@logicalknight.com\">hello@logicalknight.com</a>.",
         "data_eyebrow": "Daten und Zugriff",
         "data_h": "Ihre Daten bleiben <span class=\"serif gold\">Ihre Daten.</span>",
         "data": [
@@ -168,10 +168,10 @@ T = {
             ("Was enthält der Export?", "Die Originaldateien, eine PDF-Übersicht, die Datensätze als CSV, die Zuordnung jeder Datei, alle offenen Lücken und den Verlauf mit Korrekturgründen. Den Inhalt zeigt der Beispiel-Export oben."),
             ("Wer kann unsere Daten sehen?", "Die Personen, die der Inhaber Ihres Betriebs einlädt, jeweils mit ihrer Rolle. Andere Betriebe sehen nichts davon. Logical Knight richtet Zugänge ein, liest Ihre Dokumente aber nicht."),
             ("Können wir unsere Daten mitnehmen, wenn wir aufhören?", "Ja. Der vollständige Export enthält alle Datensätze, alle Dokumentversionen und den gesamten Verlauf. Nach einer Kündigung bleibt der Zugang 30 Tage bestehen, danach werden die Daten gelöscht."),
-            ("Wie fragen wir einen Pilot an?", ("Per E-Mail an logicalknight0@gmail.com („Pilot anfragen“)." if not APP_ONLINE else "Über das Formular „Pilot anfragen“.") + " Wir antworten per E-Mail; danach erhalten Sie eine Einladung zu Ihrem eigenen Bereich."),
+            ("Wie fragen wir einen Pilot an?", ("Per E-Mail an hello@logicalknight.com („Pilot anfragen“)." if not APP_ONLINE else "Über das Formular „Pilot anfragen“.") + " Wir antworten per E-Mail; danach erhalten Sie eine Einladung zu Ihrem eigenen Bereich."),
         ],
         "final_h": "Lieber selbst ansehen?",
-        "final_text": "Schauen Sie sich den Beispiel-Export an, oder fragen Sie einen Pilot an. Fragen gern an <a href=\"mailto:logicalknight0@gmail.com\">logicalknight0@gmail.com</a>.",
+        "final_text": "Schauen Sie sich den Beispiel-Export an, oder fragen Sie einen Pilot an. Fragen gern an <a href=\"mailto:hello@logicalknight.com\">hello@logicalknight.com</a>.",
         "staff": "Mitarbeiterzugang", "legal": [("/impressum/", "Impressum"), ("/datenschutz/", "Datenschutz"), ("/kontakt/", "Kontakt")],
         "fictional": "Alle Beispiele, Firmen und Dokumente auf dieser Seite sind erfunden.",
     },
@@ -253,7 +253,7 @@ T = {
             ("Your current jobs", "with job number, optionally customer and customer reference."),
             ("Existing spreadsheets, if you have them", "suppliers, deliveries or jobs as CSV/Excel; templates are in the application."),
         ],
-        "gs_text": "You enter records in the application or import spreadsheets. PDFs are attached, not read automatically. A checklist on the start page leads through the first steps; the <a href=\"{gs}\">guide</a> shows entering, attaching, correcting and exporting. Questions by e-mail to <a href=\"mailto:logicalknight0@gmail.com\">logicalknight0@gmail.com</a>.",
+        "gs_text": "You enter records in the application or import spreadsheets. PDFs are attached, not read automatically. A checklist on the start page leads through the first steps; the <a href=\"{gs}\">guide</a> shows entering, attaching, correcting and exporting. Questions by e-mail to <a href=\"mailto:hello@logicalknight.com\">hello@logicalknight.com</a>.",
         "data_eyebrow": "Data and access",
         "data_h": "Your data stays <span class=\"serif gold\">your data.</span>",
         "data": [
@@ -285,10 +285,10 @@ T = {
             ("What does the export contain?", "The original files, a PDF summary, the records as CSV, where each file belongs, every open gap and the history with correction reasons. The sample export above shows the contents."),
             ("Who can access our records?", "The people your business's owner invites, each with their role. Other businesses see none of it. Logical Knight sets up access but does not read your documents."),
             ("Can we export our records when leaving?", "Yes. The complete export holds every record, every document version and the full history. After you close the account, access stays for 30 days; then the data is deleted."),
-            ("How do we request and start a pilot?", ("By e-mail to logicalknight0@gmail.com (“Request a pilot”)." if not APP_ONLINE else "With the “Request a pilot” form.") + " We reply by e-mail; then you receive an invitation to your own area."),
+            ("How do we request and start a pilot?", ("By e-mail to hello@logicalknight.com (“Request a pilot”)." if not APP_ONLINE else "With the “Request a pilot” form.") + " We reply by e-mail; then you receive an invitation to your own area."),
         ],
         "final_h": "Rather see for yourself?",
-        "final_text": "Look at the sample export, or request a pilot. Questions to <a href=\"mailto:logicalknight0@gmail.com\">logicalknight0@gmail.com</a>.",
+        "final_text": "Look at the sample export, or request a pilot. Questions to <a href=\"mailto:hello@logicalknight.com\">hello@logicalknight.com</a>.",
         "staff": "Staff access", "legal": [("/impressum/", "Legal notice"), ("/datenschutz/", "Privacy"), ("/kontakt/", "Contact")],
         "fictional": "All examples, companies and documents on this page are invented.",
     },
@@ -450,7 +450,7 @@ GS = {
                ("Exportieren", "„Nachweise exportieren“ auf einem Auftrag oder Exporte → Zeitraum. Ohne Lieferungen im Zeitraum gibt es einen Hinweis statt eines leeren Archivs.", "app-exports.png"),
                ("Tabellen übernehmen", "Einstellungen → Import: Vorlage herunterladen, ausfüllen, hochladen, Spalten prüfen, Vorschau ansehen, bestätigen. Daten mit Schrägstrich (05/03/2026) werden als mehrdeutig abgelehnt; schreiben Sie 05.03.2026."),
            ],
-           "help": "Fragen? <a href=\"mailto:logicalknight0@gmail.com\">logicalknight0@gmail.com</a> · <a href=\"/de/ippc-ledger/\">Zurück zu " + IP + "</a>"},
+           "help": "Fragen? <a href=\"mailto:support@logicalknight.com\">support@logicalknight.com</a> · <a href=\"/de/ippc-ledger/\">Zurück zu " + IP + "</a>"},
     "en": {"title": "Getting started with IPPC Ledger · Logical Knight", "h1": "Getting started with " + IP,
            "lede": "Enter, attach, correct, export: how your first records get into the application.",
            "steps": [
@@ -463,7 +463,7 @@ GS = {
                ("Export", "“Export evidence” on a job, or Exports → a period. A period without deliveries gives a message instead of an empty archive.", "app-exports.png"),
                ("Bring spreadsheets", "Settings → Import: download a template, fill it in, upload, check the columns, review the preview, confirm. Dates with slashes (05/03/2026) are refused as ambiguous; write 05.03.2026."),
            ],
-           "help": "Questions? <a href=\"mailto:logicalknight0@gmail.com\">logicalknight0@gmail.com</a> · <a href=\"/en/ippc-ledger/\">Back to " + IP + "</a>"},
+           "help": "Questions? <a href=\"mailto:support@logicalknight.com\">support@logicalknight.com</a> · <a href=\"/en/ippc-ledger/\">Back to " + IP + "</a>"},
 }
 
 
