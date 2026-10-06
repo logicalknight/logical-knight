@@ -4,13 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Logical Knight — Technology for problems worth solving</title>
-  <meta name="description" content="Logical Knight builds practical technology for difficult real-world problems. Agent Research, our first public product, turns business questions into verified intelligence for humans and agents, automatically monitored and re-verified on a schedule.">
+  <meta name="description" content="Logical Knight builds practical software for difficult real-world problems, starting from how the work is actually done.">
   <link rel="canonical" href="https://logicalknight.com/">
+  <link rel="alternate" hreflang="en" href="https://logicalknight.com/">
+  <link rel="alternate" hreflang="de" href="https://logicalknight.com/de/">
   <meta name="theme-color" content="#0a0a0b">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Logical Knight">
   <meta property="og:title" content="Logical Knight — Technology for problems worth solving">
-  <meta property="og:description" content="Focused software, AI, automation and data products for difficult real-world problems.">
+  <meta property="og:description" content="Practical software for difficult real-world problems.">
   <meta property="og:url" content="https://logicalknight.com/">
   <meta property="og:image" content="https://logicalknight.com/assets/img/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -32,26 +34,26 @@
         <span>Logical Knight</span>
       </a>
       <nav class="nav__links" aria-label="Primary">
-        <a href="#products">Products</a>
         <a href="#approach">Approach</a>
+        <a href="/en/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span></a>
         <a href="#company">Company</a>
         <a href="#contact">Contact</a>
+        <a href="/de/" hreflang="de" lang="de">Deutsch</a>
       </nav>
-      <a class="btn btn--primary btn--sm nav__cta" href="/agent-research/">Explore <span translate="no" class="notranslate">Agent Research</span>
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a class="btn btn--primary btn--sm nav__cta" href="mailto:logicalknight0@gmail.com">Email us</a>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span></button>
     </div>
   </header>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#products">Products <span>01</span></a>
-    <a href="#approach">Approach <span>02</span></a>
-    <a href="#company">Company <span>03</span></a>
+    <a href="#approach">Approach <span>01</span></a>
+    <a href="#company">Company <span>02</span></a>
+    <a href="/en/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span> <span>03</span></a>
     <a href="#contact">Contact <span>04</span></a>
-    <a class="btn btn--primary" href="/agent-research/">Explore <span translate="no" class="notranslate">Agent Research</span></a>
+    <a href="/de/" hreflang="de" lang="de">Deutsch</a>
+    <a class="btn btn--primary" href="mailto:logicalknight0@gmail.com">Email us</a>
   </div>
 
   <main id="main">
-    <!-- ================= HERO ================= -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="gridbg" aria-hidden="true"></div>
       <div class="container">
@@ -60,595 +62,52 @@
           <aside class="hero__status" aria-label="Company status">
             <span class="k">Status</span>
             <ul>
-              <li><span class="dot dot--live" aria-hidden="true"></span><span class="notranslate" translate="no">Agent Research</span><em>Free beta</em></li>
+              <li><span class="dot dot--live" aria-hidden="true"></span><a href="/en/ippc-ledger/" translate="no" class="notranslate">IPPC Ledger</a><em>Pilot phase</em></li>
               <li><span class="dot dot--off" aria-hidden="true"></span><span>More products</span><em>Private development</em></li>
             </ul>
           </aside>
           <h1 class="display hero__title" id="hero-title">Technology for problems <span class="serif">worth solving.</span></h1>
           <div class="hero__row">
-            <p class="lede"><span translate="no" class="notranslate">Logical Knight</span> builds focused <strong>software, AI, automation and data products</strong> for difficult real-world problems — where existing workflows are manual, fragmented, expensive or inadequate.</p>
+            <p class="lede"><span translate="no" class="notranslate">Logical Knight</span> builds focused <strong>software</strong> for difficult real-world problems — where existing workflows are manual, fragmented, expensive or inadequate.</p>
             <div class="btn-row">
-              <a class="btn btn--primary" href="/agent-research/">Explore <span translate="no" class="notranslate">Agent Research</span>
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              <a class="btn btn--primary" href="#product"><span>Explore <span translate="no" class="notranslate">IPPC Ledger</span></span></a>
               <a class="btn btn--ghost" href="#approach">Our approach</a>
             </div>
           </div>
         </div>
 
-        <figure class="system" data-reveal aria-label="Illustration: how Logical Knight turns scattered information into a verified, useful outcome">
-          <div class="panel-bar">
-            <span class="panel-bar__title"><span class="dot dot--live" aria-hidden="true"></span>Signal system</span>
-            <span class="badge badge--demo hide-sm">Illustrative</span>
-            <span class="panel-bar__spacer"></span>
-            <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false">
-              <svg class="i-pause" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".6"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".6"/></svg>
-              <svg class="i-play" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true" hidden><path d="M3 1.8v8.4L10 6z"/></svg>
-              <span data-label>Pause</span><span class="visually-hidden"> animation</span>
-            </button>
-          </div>
-          <div class="system__grid">
-            <div class="stage">
-              <div class="stage__label"><span>Problem</span><b>01</b></div>
-              <ul class="frags" aria-label="Scattered inputs">
-                <li class="frag">newsroom <i>214 items</i></li>
-                <li class="frag">site list <i>html</i></li>
-                <li class="frag">press.pdf <i>fr</i></li>
-                <li class="frag">careers <i>38 roles</i></li>
-                <li class="frag">archive <i>unsorted</i></li>
-              </ul>
-              <p class="stage__desc">Relevant information is scattered across pages, formats and languages.</p>
-            </div>
-            <div class="stage">
-              <div class="stage__label"><span>Signal</span><b>02</b></div>
-              <svg class="signal-svg" viewBox="0 0 200 220" aria-hidden="true">
-                <path class="track" d="M0 30 C 90 30, 110 110, 200 110"/>
-                <path class="track" d="M0 110 L 200 110"/>
-                <path class="track" d="M0 190 C 90 190, 110 110, 200 110"/>
-                <path class="track" d="M0 70 C 45 70, 60 62, 92 62"/>
-                <path class="track" d="M0 150 C 45 150, 60 158, 92 158"/>
-                <path class="flow" d="M0 110 L 200 110"/>
-                <path class="flow f2" d="M0 30 C 90 30, 110 110, 200 110"/>
-                <path class="flow f3" d="M0 190 C 90 190, 110 110, 200 110"/>
-                <circle class="node" cx="3" cy="30" r="3.5"/><circle class="node" cx="3" cy="70" r="3.5"/><circle class="node" cx="3" cy="110" r="3.5"/><circle class="node" cx="3" cy="150" r="3.5"/><circle class="node" cx="3" cy="190" r="3.5"/>
-                <path d="M88 58l8 8M96 58l-8 8M88 154l8 8M96 154l-8 8" stroke="#5a5852" stroke-width="1.3"/>
-                <circle class="node--hot" cx="196" cy="110" r="5"/>
-              </svg>
-              <p class="stage__desc">Separate the changes that matter from the noise.</p>
-            </div>
-            <div class="stage">
-              <div class="stage__label"><span>Verification</span><b>03</b></div>
-              <ul class="checks">
-                <li class="check check--on"><span class="check__box"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span>Source confirmed</li>
-                <li class="check check--on"><span class="check__box"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span>Evidence preserved</li>
-                <li class="check check--on"><span class="check__box"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span>Context classified</li>
-              </ul>
-              <div class="verify-seal">
-                <span class="verify-seal__ring"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span>
-                <div><strong>VERIFIED</strong><span>Traceable to its origin</span></div>
-              </div>
-              <p class="stage__desc">Every claim points back to where it came from.</p>
-            </div>
-            <div class="stage">
-              <div class="stage__label"><span>Useful outcome</span><b>04</b></div>
-              <div class="stack">
-                <div class="record" data-cycle>
-                  <div class="record__head">
-                    <span class="record__type swap" data-f="type">Facility opening</span>
-                    <span class="ok"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg>VERIFIED</span>
-                  </div>
-                  <dl>
-                    <dt>entity</dt><dd class="swap" data-f="entity">Acme Example Industries</dd>
-                    <dt>where</dt><dd class="swap" data-f="where">Bremen, DE</dd>
-                    <dt>when</dt><dd class="swap" data-f="when">28 Sep 2026</dd>
-                    <dt>evidence</dt><dd class="swap record__quote" data-f="quote">“Our new Bremen facility will begin operations…”</dd>
-                  </dl>
-                </div>
-              </div>
-              <p class="stage__desc">A structured result, useful to people and to software.</p>
-            </div>
-          </div>
-          <div class="system__foot" aria-hidden="true">
-            <span>Problem</span><span>Signal</span><span>Verification</span><span>Outcome</span>
-          </div>
-        </figure>
       </div>
     </section>
 
-    <!-- ================= FLAGSHIP ================= -->
-    <section class="section" id="products" aria-labelledby="flagship-title">
-      <div class="container">
-        <div class="flagship__head">
-          <div>
-            <div class="flagship__meta">
-              <span translate="no" class="flagship__name notranslate">Agent Research</span>
-              <span class="badge badge--gold"><span class="dot dot--live" aria-hidden="true"></span>Free beta</span>
-            </div>
-            <h2 class="h1" id="flagship-title" data-reveal>Ask the business question. <span class="muted">Get verified intelligence.</span></h2>
-          </div>
-          <div class="flagship__aside" data-reveal="2">
-            <p class="lede"><span translate="no" class="notranslate">Agent Research</span> monitors the evidence behind your business questions and returns structured, source-linked events — with verification requirements, explicit coverage and a clear line between fact and interpretation. Verified business-event intelligence for humans and agents.</p>
-            <div class="btn-row">
-              <a class="btn btn--primary" href="/agent-research/">Explore <span translate="no" class="notranslate">Agent Research</span>
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-              <a class="btn btn--ghost" href="#how">How it works</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Live demo -->
-        <section class="demo" data-demo data-reveal aria-label="Agent Research demo with fictional data">
-          <div class="panel-bar">
-            <span class="panel-bar__title"><span class="dot dot--live" aria-hidden="true"></span><span class="hide-sm"><span translate="no" class="notranslate">Agent Research</span> ·</span> console</span>
-            <span class="badge badge--demo">Demo · fictional data</span>
-            <div class="demo__tabs" role="tablist" aria-label="Demo scenario" data-shared>
-              <button class="scenario-tab" role="tab" type="button" aria-selected="true" aria-controls="demo-output">Facility</button>
-              <button class="scenario-tab" role="tab" type="button" aria-selected="false" aria-controls="demo-output">Launch</button>
-              <button class="scenario-tab" role="tab" type="button" aria-selected="false" aria-controls="demo-output">Partnership</button>
-            </div>
-          </div>
-          <div class="demo__body">
-            <div class="demo__col demo__col--src">
-              <div class="col-label"><span>Sources</span><span>3 watched</span></div>
-              <ul class="sources">
-                <li class="source"><span class="source__url">acme.example/de/news</span><span class="source__meta"><span class="source__status"><span class="dot"></span><span class="source__label">Monitoring</span></span><span class="source__checked">checked 14s ago</span></span></li>
-                <li class="source"><span class="source__url">acme.example/en/sites</span><span class="source__meta"><span class="source__status"><span class="dot"></span><span class="source__label">Monitoring</span></span><span class="source__checked">checked 41s ago</span></span></li>
-                <li class="source"><span class="source__url">acme.example/fr/press</span><span class="source__meta"><span class="source__status"><span class="dot"></span><span class="source__label">Monitoring</span></span><span class="source__checked">checked 8s ago</span></span></li>
-              </ul>
-              <p class="source-note">Company, URLs and quotes are fictional. The demo runs locally in your browser.</p>
-            </div>
-            <div class="demo__col demo__col--pipe">
-              <div class="col-label"><span>Research</span></div>
-              <ol class="pipeline">
-                <li class="pstep"><span class="pstep__dot">01</span><div><div class="pstep__name">Plan</div><div class="pstep__detail">—</div></div></li>
-                <li class="pstep"><span class="pstep__dot">02</span><div><div class="pstep__name">Monitor</div><div class="pstep__detail">—</div></div></li>
-                <li class="pstep"><span class="pstep__dot">03</span><div><div class="pstep__name">Verify</div><div class="pstep__detail">—</div></div></li>
-                <li class="pstep"><span class="pstep__dot">04</span><div><div class="pstep__name">Result</div><div class="pstep__detail">—</div></div></li>
-              </ol>
-            </div>
-            <div class="demo__col" id="demo-output">
-              <div class="col-label">
-                <span>Verified event</span>
-                <div class="out-tabs" role="tablist" aria-label="Output format" data-tabs>
-                  <button class="out-tab" role="tab" type="button" aria-selected="true" aria-controls="demo-event">Event</button>
-                  <button class="out-tab" role="tab" type="button" aria-selected="false" aria-controls="demo-json">JSON</button>
-                </div>
-              </div>
-              <div class="event-wrap" id="demo-event" role="tabpanel" aria-label="Event card">
-                <article class="event">
-                  <div class="event__head">
-                    <div class="event__top"><span class="event__type">Facility opening</span><span class="badge badge--gold">Verified</span></div>
-                    <div class="event__company">Acme Example Industries</div>
-                    <div class="event__place">Bremen, Germany</div>
-                  </div>
-                  <div class="event__fields">
-                    <div><span class="k">Detected</span><span class="v">28 Sep 2026</span></div>
-                    <div><span class="k">Language</span><span class="v mono">EN</span></div>
-                    <div><span class="k">Event type</span><span class="v mono">facility_opening</span></div>
-                  </div>
-                  <div class="event__evidence">
-                    <span class="k">Observed fact · original evidence</span>
-                    <blockquote class="event__quote">“Our new Bremen facility will begin operations in the fourth quarter.”</blockquote>
-                    <span class="event__src">Source · acme.example/en/sites</span>
-                  </div>
-                </article>
-              </div>
-              <pre class="json" id="demo-json" role="tabpanel" aria-label="Event as JSON" tabindex="0" hidden></pre>
-            </div>
-          </div>
-          <div class="demo__foot">
-            <button class="motion-toggle" type="button" data-demo-play aria-pressed="false">
-              <svg class="i-pause" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".6"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".6"/></svg>
-              <svg class="i-play" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true" hidden><path d="M3 1.8v8.4L10 6z"/></svg>
-              <span data-label>Pause</span><span class="visually-hidden"> demo</span>
-            </button>
-            <button class="motion-toggle" type="button" data-demo-replay>Replay</button>
-            <span class="demo__progress" aria-hidden="true"><i></i></span>
-            <span class="spacer"></span>
-            <span>Illustrative · no live backend</span>
-            <span class="visually-hidden" aria-live="polite" data-demo-live></span>
-          </div>
-        </section>
-      </div>
-    </section>
-
-    <!-- ================= WHY ================= -->
-    <section class="section" id="why" aria-labelledby="why-title">
-      <div class="container">
-        <div class="section-head section-head--split">
-          <p class="eyebrow"><span class="idx">01</span><span class="rule"></span>Why <span translate="no" class="notranslate">Agent Research</span></p>
-          <h2 class="h2" id="why-title" data-reveal>“Page changed” is where the work begins.</h2>
-          <p class="lede" data-reveal="2">Page monitoring tells you that something moved. <span translate="no" class="notranslate">Agent Research</span> tells you what happened, who it affects and where the proof is — in a form your team and your software can use.</p>
-        </div>
-        <div class="compare">
-          <div class="cmp cmp--plain" data-reveal>
-            <span class="cmp__label">Simple page monitoring</span>
-            <div class="alert" role="group" aria-label="Example of a simple change alert">
-              <span class="alert__title">Page changed</span>
-              <span>acme.example/en/sites · 14 lines</span>
-              <span class="diffline del">&lt;div class="hero-banner v2"&gt;</span>
-              <span class="diffline add">&lt;div class="hero-banner v3"&gt;</span>
-              <span class="diffline add">&lt;p&gt;Our new Bremen facility will…</span>
-              <span class="diffline del">© 2025 Acme Example Industries</span>
-              <span class="diffline add">© 2026 Acme Example Industries</span>
-            </div>
-            <p class="q">Was it the footer, a layout tweak, or a new facility? Someone still has to read it, decide and write it up.</p>
-          </div>
-          <div class="cmp cmp--rich" data-reveal="2">
-            <span class="cmp__label">Verified business event</span>
-            <div class="facets">
-              <div class="facet"><span class="k">What changed</span><p>A new facility was announced.</p></div>
-              <div class="facet"><span class="k">Who it affects</span><p>Acme Example Industries · Bremen, DE</p></div>
-              <div class="facet"><span class="k">Event type</span><p class="mono">facility_opening</p></div>
-              <div class="facet"><span class="k">Original evidence</span><p>“Our new Bremen facility will begin operations…”</p></div>
-              <div class="facet"><span class="k">Source provenance</span><p class="mono">acme.example/en/sites · 28 Sep 2026</p></div>
-              <div class="facet"><span class="k">Structured delivery</span><p class="mono">JSON · API · webhook · agent</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= HOW ================= -->
-    <section class="section" id="how" aria-labelledby="how-title">
+    <!-- ================= PRODUCT ================= -->
+    <section class="section" id="product" aria-labelledby="product-title">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow"><span class="idx">02</span><span class="rule"></span>How it works</p>
-          <h2 class="h2" id="how-title" data-reveal>From a business question to verified intelligence.</h2>
+          <p class="eyebrow"><span translate="no" class="idx notranslate">IPPC Ledger</span><span class="rule"></span>Pilot phase</p>
+          <h2 class="h1" id="product-title" data-reveal>Keep timber deliveries and ISPM 15 records <span class="serif gold">together.</span></h2>
+          <p class="lede" data-reveal="2">For wood-packaging businesses that buy treated timber. Connect deliveries with supplier
+            evidence, see which documents are missing and export the records for a selected period.</p>
         </div>
-        <ol class="flow flow--6" data-reveal>
-          <li class="fstep">
-            <span class="fstep__num">01</span><span class="fstep__node" aria-hidden="true"></span>
-            <h3>ASK</h3>
-            <p>Describe the business question in plain language.</p>
-            <div class="fstep__art" aria-hidden="true"><em>“New factories</em><br><em>in Europe?”</em></div>
-          </li>
-          <li class="fstep">
-            <span class="fstep__num">02</span><span class="fstep__node" aria-hidden="true"></span>
-            <h3>PLAN</h3>
-            <p>A structured research plan or watch proposal you review first.</p>
-            <div class="fstep__art" aria-hidden="true">entities <b>✓</b><br>sources <b>✓</b><br>gaps shown</div>
-          </li>
-          <li class="fstep">
-            <span class="fstep__num">03</span><span class="fstep__node" aria-hidden="true"></span>
-            <h3>MONITOR</h3>
-            <p>Sources are checked for relevant changes, again and again.</p>
-            <div class="fstep__art" aria-hidden="true">/news <em>●</em><br>/sites <em>●</em><br>/press <em>●</em></div>
-          </li>
-          <li class="fstep">
-            <span class="fstep__num">04</span><span class="fstep__node" aria-hidden="true"></span>
-            <h3>VERIFY</h3>
-            <p>Evidence is tested against your verification requirements.</p>
-            <div class="fstep__art" aria-hidden="true">official <b>✓</b><br>independent <b>✓</b><br>fresh <b>✓</b></div>
-          </li>
-          <li class="fstep">
-            <span class="fstep__num">05</span><span class="fstep__node" aria-hidden="true"></span>
-            <h3>UNDERSTAND</h3>
-            <p>Fact, inference, relevance and uncertainty stay separate.</p>
-            <div class="fstep__art" aria-hidden="true">fact<br>inference<br>relevance</div>
-          </li>
-          <li class="fstep">
-            <span class="fstep__num">06</span><span class="fstep__node" aria-hidden="true"></span>
-            <h3>ACT</h3>
-            <p>Results reach people, APIs, webhooks and agents.</p>
-            <div class="fstep__art" aria-hidden="true">→ <em>team</em><br>→ <em>API / webhook</em><br>→ <em>agent</em></div>
-          </li>
-        </ol>
-        <p class="foundation" data-reveal><span class="k">Foundation</span><span>Source-linked evidence · provenance · state history — under every step</span></p>
-      </div>
-    </section>
-
-    <!-- ================= EVIDENCE ================= -->
-    <section class="section" id="evidence" aria-labelledby="evidence-title">
-      <div class="container">
-        <div class="section-head section-head--split">
-          <p class="eyebrow"><span class="idx">03</span><span class="rule"></span>Evidence</p>
-          <h2 class="h2" id="evidence-title" data-reveal>Don’t just get an alert. <span class="serif gold">Get the evidence.</span></h2>
-          <p class="lede" data-reveal="2">Every event keeps the exact sentence that triggered it — in its original language, with the source and the time it was detected — so anyone can check it in seconds.</p>
-        </div>
-        <div class="evidence">
-          <div class="doc hl-wait" data-reveal>
-            <div class="doc__chrome">
-              <span class="doc__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="doc__url"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1"/><path d="M4 5.5V4a2 2 0 014 0v1.5"/></svg>acme.example/en/sites</span>
-            </div>
-            <div class="doc__page">
-              <span class="doc__crumb">Acme Example Industries · Our sites</span>
-              <p class="doc__h">Locations across Europe</p>
-              <p class="doc__p">We operate production and service sites in six countries. Each site is certified to the same quality standard and supports customers in its region.
-                <mark class="hl">Our new Bremen facility will begin operations in the fourth quarter.</mark>
-                It will serve customers across northern Europe.</p>
-              <p class="doc__p">For site-specific enquiries, please contact the regional office listed below.</p>
-            </div>
-            <div class="doc__meta">
-              <div><span class="k">Language</span><span class="v mono">EN · original</span></div>
-              <div><span class="k">Detected</span><span class="v mono">2026-09-28 09:14 UTC</span></div>
-              <div><span class="k">Classification</span><span class="v mono">facility_opening</span></div>
-              <div><span class="k">State</span><span class="tag-verified"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg>VERIFIED</span></div>
-            </div>
-          </div>
-          <div class="bridge" aria-hidden="true">
-            <svg viewBox="0 0 90 200" preserveAspectRatio="none" class="bridge--h"><path d="M0 100 L 90 100"/></svg>
-            <svg viewBox="0 0 200 88" preserveAspectRatio="none" class="bridge--v"><path d="M100 0 L 100 88"/></svg>
-            <span class="bridge__a"></span><span class="bridge__b"></span>
-          </div>
-          <div class="evidence__event" data-reveal="2">
-            <article class="event">
-              <div class="event__head">
-                <div class="event__top"><span class="event__type">Facility opening</span><span class="badge badge--gold">Verified</span></div>
-                <div class="event__company">Acme Example Industries</div>
-                <div class="event__place">Bremen, Germany</div>
-              </div>
-              <div class="event__fields">
-                <div><span class="k">Detected</span><span class="v">28 Sep 2026</span></div>
-                <div><span class="k">Language</span><span class="v mono">EN</span></div>
-                <div><span class="k">Source</span><span class="v mono">/en/sites</span></div>
-              </div>
-              <div class="event__evidence">
-                <span class="k">Evidence</span>
-                <blockquote class="event__quote">“Our new Bremen facility will begin operations in the fourth quarter.”</blockquote>
-                <span class="event__src">acme.example/en/sites · captured 09:14 UTC</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= USE CASES ================= -->
-    <section class="section" id="use-cases" aria-labelledby="uc-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow"><span class="idx">04</span><span class="rule"></span>Use cases</p>
-          <h2 class="h2" id="uc-title" data-reveal>Built for teams who can’t afford to miss a change.</h2>
-        </div>
-        <div class="explorer">
-          <div class="uc-list" role="tablist" aria-orientation="vertical" aria-label="Use cases" data-tabs>
-            <button class="uc-tab" role="tab" type="button" id="uc-t1" aria-selected="true" aria-controls="uc-p1"><span class="n">01</span><span class="t">Competitive intelligence</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
-            <button class="uc-tab" role="tab" type="button" id="uc-t2" aria-selected="false" aria-controls="uc-p2"><span class="n">02</span><span class="t">Supplier &amp; market risk</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
-            <button class="uc-tab" role="tab" type="button" id="uc-t3" aria-selected="false" aria-controls="uc-p3"><span class="n">03</span><span class="t">Sales intelligence</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
-            <button class="uc-tab" role="tab" type="button" id="uc-t4" aria-selected="false" aria-controls="uc-p4"><span class="n">04</span><span class="t">AI agents</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
-          </div>
-          <div>
-            <div class="uc-panel" id="uc-p1" role="tabpanel" aria-labelledby="uc-t1">
-              <div class="uc-panel__intro">
-                <p>Follow what competitors actually do — not what their homepage looks like this week.</p>
-                <ul class="chips"><li class="chip">New products</li><li class="chip">Price changes</li><li class="chip">Partnerships</li><li class="chip">Leadership changes</li></ul>
-              </div>
-              <div class="feed">
-                <div class="feed__row"><span class="feed__type">new_product</span><span class="feed__what">K7 series available across Europe<small>acme.example/de/news</small></span><span class="feed__lang">DE</span></div>
-                <div class="feed__row"><span class="feed__type">facility_opening</span><span class="feed__what">New service centre in Valencia<small>harbor.example/es/prensa</small></span><span class="feed__lang">ES</span></div>
-                <div class="feed__row"><span class="feed__type">partnership</span><span class="feed__what">Logistics partnership announced<small>vale.example/fr/presse</small></span><span class="feed__lang">FR</span></div>
-                <div class="feed__row"><span class="feed__type">leadership_change</span><span class="feed__what">New chief financial officer named<small>lumen.example/en/news</small></span><span class="feed__lang">EN</span></div>
-              </div>
-              <p class="panel-note">Fictional example events</p>
-            </div>
-            <div class="uc-panel" id="uc-p2" role="tabpanel" aria-labelledby="uc-t2" hidden>
-              <div class="uc-panel__intro">
-                <p>Know early when a supplier moves, changes ownership or stops offering what you buy.</p>
-                <ul class="chips"><li class="chip">Site closures</li><li class="chip">Acquisitions</li><li class="chip">Discontinued products</li><li class="chip">New suppliers</li></ul>
-              </div>
-              <div class="feed">
-                <div class="feed__row"><span class="feed__type">facility_closure</span><span class="feed__what">Milan warehouse to close in December<small>keel.example/it/notizie</small></span><span class="feed__lang">IT</span></div>
-                <div class="feed__row"><span class="feed__type">product_discontinued</span><span class="feed__what">Part series KX-20 discontinued<small>acme.example/de/produkte</small></span><span class="feed__lang">DE</span></div>
-                <div class="feed__row"><span class="feed__type">acquisition</span><span class="feed__what">Supplier acquired by a logistics group<small>harbor.example/nl/nieuws</small></span><span class="feed__lang">NL</span></div>
-                <div class="feed__row"><span class="feed__type">new_supplier</span><span class="feed__what">New component supplier announced<small>vale.example/en/updates</small></span><span class="feed__lang">EN</span></div>
-              </div>
-              <p class="panel-note">Fictional example events</p>
-            </div>
-            <div class="uc-panel" id="uc-p3" role="tabpanel" aria-labelledby="uc-t3" hidden>
-              <div class="uc-panel__intro">
-                <p>Reach accounts when something real has changed — a new site, a new product or new leadership.</p>
-                <ul class="chips"><li class="chip">New locations</li><li class="chip">Expansion</li><li class="chip">New products</li><li class="chip">Leadership activity</li></ul>
-              </div>
-              <div class="feed">
-                <div class="feed__row"><span class="feed__type">new_location</span><span class="feed__what">Second office opening in Rotterdam<small>lumen.example/nl/nieuws</small></span><span class="feed__lang">NL</span></div>
-                <div class="feed__row"><span class="feed__type">facility_opening</span><span class="feed__what">Production line opening in Lyon<small>keel.example/fr/actualites</small></span><span class="feed__lang">FR</span></div>
-                <div class="feed__row"><span class="feed__type">new_location</span><span class="feed__what">New branch in Madrid<small>harbor.example/es/noticias</small></span><span class="feed__lang">ES</span></div>
-                <div class="feed__row"><span class="feed__type">leadership_change</span><span class="feed__what">New head of sales for the Nordics<small>acme.example/en/news</small></span><span class="feed__lang">EN</span></div>
-              </div>
-              <p class="panel-note">Fictional example events</p>
-            </div>
-            <div class="uc-panel" id="uc-p4" role="tabpanel" aria-labelledby="uc-t4" hidden>
-              <div class="uc-panel__intro">
-                <p>Give software agents verified events with provenance and explicit coverage, rather than raw web pages they have to interpret.</p>
-                <ul class="chips"><li class="chip">Strict schemas</li><li class="chip">Evidence attached</li><li class="chip">Explicit coverage</li><li class="chip">Discoverable metadata</li></ul>
-              </div>
-              <div class="feed">
-                <div class="feed__row"><span class="feed__type">agent · asks</span><span class="feed__what">Plan: facility closures at named suppliers, last 30 days</span><span class="feed__lang">→</span></div>
-                <div class="feed__row"><span class="feed__type">reviews</span><span class="feed__what">Entities, sources, requirements and gaps — before running</span><span class="feed__lang">JSON</span></div>
-                <div class="feed__row"><span class="feed__type">receives</span><span class="feed__what">Events with state, evidence, and coverage per source</span><span class="feed__lang">JSON</span></div>
-                <div class="feed__row"><span class="feed__type">acts</span><span class="feed__what">Summarises, alerts or updates a system — citing evidence</span><span class="feed__lang">✓</span></div>
-              </div>
-              <p class="panel-note">Illustrative agent workflow</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= DELIVERY ================= -->
-    <section class="section" id="delivery" aria-labelledby="delivery-title">
-      <div class="container">
-        <div class="section-head section-head--split">
-          <p class="eyebrow"><span class="idx">05</span><span class="rule"></span>Delivery</p>
-          <h2 class="h2" id="delivery-title" data-reveal>One event. Built for people and for machines.</h2>
-          <p class="lede" data-reveal="2">The same verified results can land in a team’s workflow, arrive by webhook, or be discovered and called by software.</p>
-        </div>
-        <div class="duo">
-          <div class="lane" data-reveal>
-            <div class="lane__head">
-              <span class="lane__kicker">For teams &amp; systems</span>
-              <h3 class="h3">By API, webhook or briefing.</h3>
-            </div>
-            <ul class="lane__list">
-              <li><span>API</span><span>Events, status and history on demand</span></li>
-              <li><span>Webhooks</span><span>Signed, pushed when an event is found with evidence</span></li>
-              <li><span>Briefings</span><span>Daily or weekly, every item linked to evidence</span></li>
-            </ul>
-            <div class="mini-table" role="group" aria-label="Example event table with fictional data">
-              <div class="mini-table__row"><span>Company</span><span>Event</span><span>Where</span><span>State</span></div>
-              <div class="mini-table__row"><span>Acme Example</span><span class="t">facility_opening</span><span>Bremen</span><span class="ok">VERIFIED</span></div>
-              <div class="mini-table__row"><span>Harbor Example</span><span class="t">new_location</span><span>Madrid</span><span class="ok">VERIFIED</span></div>
-              <div class="mini-table__row"><span>Vale Example</span><span class="t">partnership</span><span>Lyon</span><span>DISPUTED</span></div>
-            </div>
-          </div>
-          <div class="lane" data-reveal="2">
-            <div class="lane__head">
-              <span class="lane__kicker">For agents</span>
-              <h3 class="h3">Discoverable, strictly typed, explicit about gaps.</h3>
-            </div>
-            <ul class="lane__list">
-              <li><span>Discoverable</span><span>Capabilities described at a well-known address</span></li>
-              <li><span>Strict schemas</span><span>Documented inputs, outputs and error codes</span></li>
-              <li><span>Deterministic states</span><span>Verified, disputed, coverage incomplete…</span></li>
-            </ul>
-            <div class="exchange" role="group" aria-label="Machine payments status">
-              <div class="exchange__row"><span class="who">Today</span><span>Agents use an early-access API key</span></div>
-              <div class="exchange__row"><span class="who">In development</span><span>Machine-to-machine payment (<em>x402</em>) — not yet available</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= DEVELOPERS ================= -->
-    <section class="section" id="developers" aria-labelledby="dev-title">
-      <div class="container devx">
-        <div>
-          <p class="eyebrow"><span class="idx">06</span><span class="rule"></span>For developers</p>
-          <h2 class="h2" id="dev-title" style="margin-top:22px" data-reveal>Events your code can trust.</h2>
-          <ul class="devx__points">
-            <li><b>01</b><p><strong>One consistent shape.</strong> Every event carries the same core fields, whatever the source language.</p></li>
-            <li><b>02</b><p><strong>Evidence travels with the data.</strong> The original quote and source URL are part of every event.</p></li>
-            <li><b>03</b><p><strong>Pull or push.</strong> Query by API or receive signed webhooks.</p></li>
-          </ul>
-          <p class="muted" style="margin-top:24px;font-size:.95rem">API: <span class="mono">https://api.logicalknight.com</span> · <a class="link-arrow" href="/agent-research/#api">More examples</a></p>
-        </div>
-        <div class="code" data-reveal="2">
-          <div class="code__bar">
-            <div class="code__tabs" role="tablist" aria-label="Example" data-tabs>
-              <button class="code__tab" role="tab" type="button" aria-selected="true" aria-controls="code-req">Request</button>
-              <button class="code__tab" role="tab" type="button" aria-selected="false" aria-controls="code-res">Response</button>
-            </div>
-            <button class="code__copy" type="button" data-copy aria-label="Copy example to clipboard"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4.5" y="4.5" width="7" height="7" rx="1.5"/><path d="M9.5 4.5V3a1 1 0 00-1-1H3a1 1 0 00-1 1v5.5a1 1 0 001 1h1.5"/></svg><span>Copy</span></button>
-          </div>
-          <pre id="code-req" role="tabpanel" aria-label="Request" tabindex="0" data-hl="lines">
-GET https://api.logicalknight.com/v1/events?event_type=facility_opening
-X-API-Key: YOUR_KEY</pre>
-          <pre id="code-res" role="tabpanel" aria-label="Response" tabindex="0" data-hl="lines" hidden>
-HTTP/1.1 200 OK
-
-{
-  "items": [
-    {
-      "event_type": "facility_opening",
-      "claim": "Acme Example Industries is opening a facility in Bremen.",
-      "evidence_excerpt": "Our new Bremen facility will begin operations…",
-      "language": "en",
-      "source_url": "https://acme.example/en/sites",
-      "verification_state": "evidence_backed",
-      "first_seen_at": "2026-09-28T09:14:03Z"
-    }
-  ],
-  "next_cursor": null
-}</pre>
-          <div class="code__note"><span class="dot" style="color:var(--gold)" aria-hidden="true"></span>Real route and field names · abridged · fictional data</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= MULTILINGUAL ================= -->
-    <section class="section" id="languages" aria-labelledby="lang-title">
-      <div class="container">
-        <div class="section-head section-head--split">
-          <p class="eyebrow"><span class="idx">07</span><span class="rule"></span>Multilingual</p>
-          <h2 class="h2" id="lang-title" data-reveal>Evidence stays in its language. Events speak one structure.</h2>
-          <p class="lede" data-reveal="2">The same announcement published in six languages becomes one consistent event — while the quote is kept exactly as it was written.</p>
-        </div>
-        <div class="langs" data-langs>
-          <div class="lang-card" data-reveal>
-            <div class="lang-tabs" role="tablist" aria-label="Source language" data-shared>
-              <button class="lang-tab" role="tab" type="button" data-lang="de" aria-selected="false" aria-controls="lang-panel">DE</button>
-              <button class="lang-tab" role="tab" type="button" data-lang="en" aria-selected="true" aria-controls="lang-panel">EN</button>
-              <button class="lang-tab" role="tab" type="button" data-lang="fr" aria-selected="false" aria-controls="lang-panel">FR</button>
-              <button class="lang-tab" role="tab" type="button" data-lang="it" aria-selected="false" aria-controls="lang-panel">IT</button>
-              <button class="lang-tab" role="tab" type="button" data-lang="es" aria-selected="false" aria-controls="lang-panel">ES</button>
-              <button class="lang-tab" role="tab" type="button" data-lang="nl" aria-selected="false" aria-controls="lang-panel">NL</button>
-            </div>
-            <div id="lang-panel" role="tabpanel" aria-label="Source evidence" style="display:grid;gap:18px">
-              <span class="k">Original source text</span>
-              <p class="lang-card__quote" data-lang-quote lang="en">“Our new Bremen facility will begin operations in the fourth quarter.”</p>
-              <span class="lang-card__src" data-lang-src>Source · acme.example/en/sites</span>
-            </div>
-          </div>
-          <div class="lang-card" data-reveal="2">
-            <span class="k">Structured event · same shape in every language</span>
-            <pre class="json" data-lang-json data-hl tabindex="0" aria-label="Structured event JSON">{
-  "event_type": "facility_opening",
-  "facts": { "location": { "text": "Bremen" } },
-  "language": "en",
-  "source_url": "https://acme.example/en/sites",
-  "verification_state": "evidence_backed"
-}</pre>
-            <span class="lang-card__src">Fictional example</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PRINCIPLES ================= -->
-    <section class="section" id="principles" aria-labelledby="principles-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow"><span class="idx">08</span><span class="rule"></span>Product principles</p>
-          <h2 class="visually-hidden" id="principles-title">Product principles</h2>
-        </div>
-        <div class="principles">
-          <div class="principle" data-reveal><span class="principle__n">P.01</span><h3>Evidence first.</h3><p>Every useful event should point back to exactly what changed.</p></div>
-          <div class="principle" data-reveal><span class="principle__n">P.02</span><h3>Noise matters.</h3><p>A monitoring system that sends everything is not intelligence.</p></div>
-          <div class="principle" data-reveal><span class="principle__n">P.03</span><h3>Built for systems.</h3><p>Events should be useful to both humans and software.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PROOF ================= -->
-    <section class="section" id="proof" aria-labelledby="proof-title">
-      <div class="container">
-        <div class="section-head section-head--split">
-          <p class="eyebrow"><span class="idx">09</span><span class="rule"></span>What exists today</p>
-          <h2 class="h2" id="proof-title" data-reveal>We’re early. Here’s what <span translate="no" class="notranslate">Agent Research</span> does.</h2>
-          <p class="lede" data-reveal="2">No borrowed logos or inflated numbers — just the capabilities the product has today.</p>
-        </div>
-        <div class="sheet" data-reveal>
-          <div class="sheet__row"><span class="n">01</span><h3>Plain-English watches and research plans</h3><p>Describe a business question; review the proposed plan and its gaps before anything runs.</p><span class="sheet__state"><span class="dot"></span>Available in the free beta</span></div>
-          <div class="sheet__row"><span class="n">02</span><h3>Verification requirements and coverage</h3><p>You set what counts as verified; results say when coverage was incomplete.</p><span class="sheet__state"><span class="dot"></span>Available in the free beta</span></div>
-          <div class="sheet__row"><span class="n">03</span><h3>Evidence-backed, multilingual events</h3><p>Original text, source and capture time in six languages; fact kept apart from inference.</p><span class="sheet__state"><span class="dot"></span>Available</span></div>
-          <div class="sheet__row"><span class="n">04</span><h3>API, webhooks and briefings</h3><p>Pull results, receive signed webhooks, or read daily and weekly briefings.</p><span class="sheet__state"><span class="dot"></span>Available in the free beta</span></div>
-          <div class="sheet__row"><span class="n">05</span><h3>Machine-to-machine payment</h3><p>Paying per result with x402, for software agents.</p><span class="sheet__state"><span class="dot"></span>In development</span></div>
-          <p class="sheet__foot"><span translate="no" class="notranslate">Agent Research</span> is currently available as a free beta — no fixed end date, no automatic switch to a paid plan.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= CTA ================= -->
-    <section class="section section--tight" id="early-access" aria-labelledby="cta-title">
-      <div class="container">
-        <div class="cta" data-reveal>
-          <div class="cta__copy">
-            <span class="badge badge--gold" style="width:fit-content"><span class="dot dot--live" aria-hidden="true"></span>Free beta</span>
-            <h2 class="h1" id="cta-title">Ask the question. Get the evidence.</h2>
-            <p class="lede">Tell us which companies, questions and events matter to you. We are opening <span translate="no" class="notranslate">Agent Research</span> to a small number of early users.</p>
-            <div class="btn-row">
-              <a class="btn btn--primary" href="mailto:logicalknight0@gmail.com?subject=Agent%20Research%20Free%20Beta&amp;body=Questions%20or%20companies%20to%20monitor%3A%0A%0AEvents%20that%20matter%3A%0A%0APreferred%20delivery%20(API%2C%20webhook%2C%20briefing%2C%20agent)%3A%0A">Request beta access
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-              <a class="btn btn--ghost" href="/agent-research/#demo">Learn how it works</a>
-            </div>
-          </div>
-          <div class="cta__mail" role="group" aria-label="What to include in your request">
-            <div class="cta__mail-row"><span class="k">To</span><span class="v">logicalknight0@gmail.com</span></div>
-            <div class="cta__mail-row"><span class="k">Subject</span><span class="v"><span translate="no" class="notranslate">Agent Research</span> Free Beta</span></div>
-            <div class="cta__mail-body"><b>Questions</b> or companies you want to follow<br><b>Events</b> that matter to you<br><b>Delivery</b> — API, webhook, briefing or agent</div>
-          </div>
+        <ul class="features">
+          <li data-reveal><h3>Suppliers and authorisations</h3><p>Each treatment provider's authorisation with its document and
+            validity. An end date only when the document states one; an internal review reminder is kept separate.</p></li>
+          <li data-reveal><h3>Deliveries and material</h3><p>Receipt date, sender, wood type, piece count or mass with its unit,
+            treatment method and details.</p></li>
+          <li data-reveal><h3>Evidence documents</h3><p>Delivery notes, invoices and treatment evidence as PDF or image, with
+            versions. Present, reviewed by a person and verified are recorded separately.</p></li>
+          <li data-reveal><h3>Jobs and traceability</h3><p>Which material went into which job, in the unit it was delivered in;
+            nothing is converted, and a line cannot be used twice over.</p></li>
+          <li data-reveal><h3>Missing evidence</h3><p>A deterministic check names every gap and its reason. It describes the
+            records; it is not a legal assessment.</p></li>
+          <li data-reveal><h3>Corrections and export</h3><p>Every correction of a recorded value keeps its reason in the history.
+            Exports for a job or period: original files, CSV records and a PDF summary.</p></li>
+        </ul>
+        <p class="note" data-reveal>Honest status: <span translate="no" class="notranslate">IPPC Ledger</span> is in a pilot phase and not generally available. It is not an
+          authority, issues no certificates and verifies nothing automatically. A pilot covers one site and your own records,
+          and you can export everything at any time.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="mailto:logicalknight0@gmail.com?subject=IPPC%20Ledger%20pilot">Request a pilot</a>
+          <a class="btn btn--ghost" href="/en/ippc-ledger/#example">See an example</a>
         </div>
       </div>
     </section>
@@ -658,7 +117,7 @@ HTTP/1.1 200 OK
       <div class="container">
         <div class="approach">
           <div class="approach__lead">
-            <p class="eyebrow"><span class="idx">10</span><span class="rule"></span>Our approach</p>
+            <p class="eyebrow"><span class="idx">02</span><span class="rule"></span>Our approach</p>
             <h2 class="h1" id="approach-title" data-reveal>We start with <span class="serif gold">the problem.</span></h2>
             <p class="lede" data-reveal="2">Not with a technology looking for a use. Each product begins as a real workflow that is slow, costly or unreliable today.</p>
           </div>
@@ -672,8 +131,9 @@ HTTP/1.1 200 OK
         </div>
 
         <div class="company" id="company">
-          <p class="company__statement" data-reveal><span translate="no" class="notranslate">Logical Knight</span> builds practical technology for difficult real-world problems. <span class="dim"><span translate="no" class="notranslate">Agent Research</span> is our first public product.</span></p>
+          <p class="company__statement" data-reveal><span translate="no" class="notranslate">Logical Knight</span> builds practical technology for difficult real-world problems.</p>
           <div class="company__side" data-reveal="2">
+            <p><a class="link-arrow" href="/en/ippc-ledger/"><span><span translate="no" class="notranslate">IPPC Ledger</span>: timber deliveries and ISPM 15 records in one place (pilot phase)</span></a></p>
             <p class="private"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4" y="9" width="12" height="8" rx="2"/><path d="M7 9V6.5a3 3 0 016 0V9"/></svg>More products are currently in private development.</p>
           </div>
         </div>
@@ -690,34 +150,25 @@ HTTP/1.1 200 OK
           <a class="link-arrow" href="mailto:logicalknight0@gmail.com">logicalknight0@gmail.com</a>
         </div>
         <div>
-          <h2>Product</h2>
-          <ul>
-            <li><a class="notranslate" translate="no" href="/agent-research/">Agent Research</a></li>
-            <li><a href="/agent-research/#demo">Live demo</a></li>
-            <li><a href="/agent-research/#evidence">Evidence</a></li>
-            <li><a href="/agent-research/#early-access">Free beta</a></li>
-          </ul>
-        </div>
-        <div>
           <h2>Company</h2>
           <ul>
             <li><a href="/#approach">Approach</a></li>
             <li><a href="/#company">Company</a></li>
-            <li><a href="/#principles">Principles</a></li>
+            <li><a href="/en/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span></a></li>
+            <li><a href="/en/ippc-ledger/getting-started/">Getting started</a></li>
           </ul>
         </div>
         <div>
           <h2>Contact</h2>
           <ul>
-            <li><a href="mailto:logicalknight0@gmail.com">Email us</a></li><li><a href="/kontakt/">Contact form</a></li>
-            <li><a href="/kontakt/">Request beta access</a></li>
+            <li><a href="mailto:logicalknight0@gmail.com">Email us</a></li>
+            <li><a href="/kontakt/">Kontakt / Contact</a></li>
           </ul>
         </div>
       </div>
-      <nav aria-label="Rechtliches / Legal"><ul class="legal-links"><li><a href="/datenschutz/">Datenschutz</a></li><li><a href="/nutzungsbedingungen/">Nutzungsbedingungen</a></li><li><a href="/acceptable-use/">Acceptable Use</a></li><li><a href="/ki-transparenz/">Transparenz</a></li><li><a href="/security/">Security</a></li><li><a href="/kontakt/">Kontakt</a></li></ul></nav>
+      <nav aria-label="Rechtliches / Legal"><ul class="legal-links"><li><a href="/datenschutz/">Datenschutz</a></li><li><a href="/kontakt/">Kontakt</a></li></ul></nav>
       <div class="footer__bottom">
         <span>© <span data-year>2026</span> <span translate="no" class="notranslate">Logical Knight</span>. All rights reserved.</span>
-        <span>Demo data, companies and URLs shown on this site are fictional.</span>
       </div>
       <p translate="no" class="footer__word notranslate" aria-hidden="true">Logical Knight</p>
     </div>
