@@ -1,6 +1,6 @@
 """Local preview of the website, served like GitHub Pages: /dir/ -> dir/index.html, unknown paths -> 404.html with
-status 404. Links into the application (https://app.logicalknight.com) point at a local IPPC Ledger instead, so login
-and pilot request work in the preview. Nothing here is published (dot directory).
+status 404. Links into the application (https://app.logicalknight.com) point at a local IPPC Ledger, and staff links
+(https://staff.logicalknight.com) at a local Growth Desk, so login and pilot request work in the preview. Nothing here is published (dot directory).
 
     python .github/scripts/preview.py [--port 8766] [--app http://127.0.0.1:8765]
 """
@@ -14,10 +14,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PUBLIC_APP = "https://app.logicalknight.com"
+PUBLIC_STAFF = "https://staff.logicalknight.com"
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     app_origin = "http://127.0.0.1:8765"
+    staff_origin = "http://127.0.0.1:8080"
 
     def _target(self) -> Path | None:
         path = Path(self.translate_path(self.path))
@@ -38,7 +40,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             target, status = ROOT / "404.html", 404
         body = target.read_bytes()
         if target.suffix == ".html":
-            body = body.replace(PUBLIC_APP.encode(), self.app_origin.encode())
+            body = body.replace(PUBLIC_APP.encode(), self.app_origin.encode()).replace(PUBLIC_STAFF.encode(), self.staff_origin.encode())
         self.send_response(status)
         self.send_header("Content-Type", self.guess_type(str(target)))
         self.send_header("Content-Length", str(len(body)))
@@ -54,8 +56,10 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--port", type=int, default=8766)
     parser.add_argument("--app", default="http://127.0.0.1:8765")
+    parser.add_argument("--staff", default="http://127.0.0.1:8080")
     args = parser.parse_args()
     Handler.app_origin = args.app.rstrip("/")
+    Handler.staff_origin = args.staff.rstrip("/")
     server = http.server.ThreadingHTTPServer(("127.0.0.1", args.port), partial(Handler, directory=str(ROOT)))
     print(f"website preview: http://127.0.0.1:{args.port}/  (application links -> {Handler.app_origin})")
     server.serve_forever()

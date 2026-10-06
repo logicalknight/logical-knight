@@ -12,7 +12,7 @@
    refers to the discontinued service by its former address).
 6. No unfinished owner input: "TODO-OWNER" marks details only the owner can supply (Impressum, hosting provider). A
    page with such a marker must not be published.
-7. With --live: every link into the application (https://app.logicalknight.com/...) answers. Run in CI, so a page that
+7. With --live: every link into the application or staff area (https://app. / staff.logicalknight.com/...) answers. Run in CI, so a page that
    links to the application cannot pass before the application is deployed.
 """
 
@@ -124,7 +124,7 @@ def check_retired(path: Path) -> list[str]:
 
 
 OWNER_MARKER = "TODO-OWNER"
-APP_LINK = re.compile(r'href="(https://app\.logicalknight\.com/[^"]*)"')
+APP_LINK = re.compile(r'href="(https://(?:app|staff)\.logicalknight\.com/[^"]*)"')
 
 
 def check_owner_markers(path: Path) -> list[str]:
