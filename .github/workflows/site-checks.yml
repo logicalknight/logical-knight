@@ -17,3 +17,5 @@ jobs:
           python-version: "3.12"
       # brand names protected from machine translation, the rest translatable, logo alt, no unreleased product names
       - run: python .github/scripts/check_site.py
+      # links into the application must answer before such a page can be published
+      - run: python .github/scripts/check_site.py --live
