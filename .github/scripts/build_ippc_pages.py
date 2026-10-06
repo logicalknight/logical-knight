@@ -605,7 +605,18 @@ def german_home() -> str:
     return html
 
 
+def email_off(html: str) -> str:
+    """Cloudflare's Email Address Obfuscation would hide addresses behind a script; legal and contact details must stay
+    readable without JavaScript (Cloudflare honours these markers)."""
+    if "<!--email_off-->" in html:
+        return html
+    i = html.index("<body>") + len("<body>")
+    j = html.rindex("</body>")
+    return html[:i] + "\n<!--email_off-->" + html[i:j] + "<!--/email_off-->\n" + html[j:]
+
+
 def write(rel: str, html: str) -> None:
+    html = email_off(html)
     p = ROOT / rel / "index.html"
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(html, encoding="utf-8", newline="\n")
