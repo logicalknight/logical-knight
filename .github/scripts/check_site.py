@@ -127,6 +127,14 @@ OWNER_MARKER = "TODO-OWNER"
 APP_LINK = re.compile(r'href="(https://(?:app|staff)\.logicalknight\.com/[^"]*)"')
 
 
+def check_email_off(path: Path) -> list[str]:
+    """Cloudflare's Email Address Obfuscation must not hide contact or legal addresses (needs <!--email_off-->)."""
+    text = path.read_text(encoding="utf-8", errors="replace")
+    if "@logicalknight.com" in text and "<!--email_off-->" not in text:
+        return [f"{path.relative_to(ROOT).as_posix()}: addresses without <!--email_off--> (Cloudflare would obfuscate them)"]
+    return []
+
+
 def check_owner_markers(path: Path) -> list[str]:
     n = path.read_text(encoding="utf-8", errors="replace").count(OWNER_MARKER)
     return [f"{path.relative_to(ROOT).as_posix()}: {n} detail(s) still need the owner ({OWNER_MARKER})"] if n else []
@@ -158,6 +166,8 @@ def main() -> int:
         if path.suffix in PUBLISHED and path.name != "check_site.py":
             findings += check_retired(path)
             findings += check_owner_markers(path)
+        if path.suffix == ".html":
+            findings += check_email_off(path)
     if "--live" in sys.argv:
         findings += check_live(files)
     for f in findings:
