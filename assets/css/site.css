@@ -1760,3 +1760,10 @@ body.menu-open { overflow: hidden; }
 .legal a.btn { text-decoration: none; }
 .legal a.btn--primary { color: var(--gold-ink); }
 .legal a.btn--ghost { color: var(--text); }
+
+/* homepage product section */
+.features { list-style: none; margin: 0 0 32px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+.features li { border: 1px solid var(--line-2); border-radius: 12px; padding: 20px; background: rgba(255,255,255,0.015); }
+.features h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.features p { margin: 0; color: var(--text-2); line-height: 1.6; }
+#product .note { border-left: 2px solid var(--gold); padding: 10px 14px; color: var(--text-2); margin: 0 0 24px; max-width: 60rem; }

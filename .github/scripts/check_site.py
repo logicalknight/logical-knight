@@ -8,8 +8,8 @@
 3. Logo: the mark inside a brand link is decorative (alt=""), since the link text names the brand; the link is protected.
 4. No unreleased product names anywhere in the published files. They are compared as SHA-256 hashes of each word, so
    this public file does not contain them.
-5. Retired product: no links to its pages or API, no payment protocol, and its name only on the retirement notice and
-   the privacy policy.
+5. Retired product: no links to its pages or API, no payment protocol, and its name nowhere (the privacy policy
+   refers to the discontinued service by its former address).
 6. No unfinished owner input: "TODO-OWNER" marks details only the owner can supply (Impressum, hosting provider). A
    page with such a marker must not be published.
 7. With --live: every link into the application (https://app.logicalknight.com/...) answers. Run in CI, so a page that
@@ -25,7 +25,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-BRANDS = ("Logical Knight", "Agent Research", "IPPC Ledger")
+BRANDS = ("Logical Knight", "IPPC Ledger")
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 NOT_TEXT = {"head", "script", "style", "title", "noscript", "template", "svg"}
 PRIVATE_NAME_HASHES = {
@@ -112,8 +112,8 @@ def check_private_names(path: Path) -> list[str]:
     return [f"{path.relative_to(ROOT)}: unreleased product name present ({len(hits)} distinct)"] if hits else []
 
 
-RETIRED_ALLOWED = {"agent-research/index.html", "datenschutz/index.html"}
-RETIRED_TERMS = ("api.logicalknight.com", "x402", 'href="/agent-research/', "og-agent-research", "Agent Research")
+RETIRED_ALLOWED: set[str] = set()
+RETIRED_TERMS = ("https://api.logicalknight.com", "x402", 'href="/agent-research/', "og-agent-research", "Agent Research")
 
 
 def check_retired(path: Path) -> list[str]:
