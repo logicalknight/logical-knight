@@ -19,7 +19,7 @@ STAFF = "https://staff.logicalknight.com"
 # False until https://app.logicalknight.com and https://staff.logicalknight.com answer: the pages then offer the pilot by
 # e-mail and show no login links (nothing points at an address that does not exist). When the application is online,
 # set True and rebuild; the site check (--live) then verifies every application link before the pages can be published.
-APP_ONLINE = False
+APP_ONLINE = True
 EMAIL = "hello@logicalknight.com"
 SUBJECT = {"de": "Pilot%20IPPC%20Ledger", "en": "IPPC%20Ledger%20pilot"}
 
