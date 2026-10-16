@@ -1,6 +1,6 @@
 """Site checks (stdlib only): python .github/scripts/check_site.py  -> exit 1 on any finding.
 
-1. Brand translation: every *visible* occurrence of "Logical Knight" and "Agent Research" in page text is inside an
+1. Brand translation: every *visible* occurrence of "Logical Knight", "IPPC Ledger" and "Data Workbench" in page text is inside an
    element with translate="no" (and class "notranslate", which some translators use instead). Head metadata, scripts,
    styles and attribute values are not text a translator can be told to skip, so they are not checked.
 2. The rest of the site stays translatable: no page-wide opt-out (<meta name="google" content="notranslate">, or
@@ -12,7 +12,7 @@
    refers to the discontinued service by its former address).
 6. No unfinished owner input: "TODO-OWNER" marks details only the owner can supply (Impressum, hosting provider). A
    page with such a marker must not be published.
-7. With --live: every link into the application or staff area (https://app. / staff.logicalknight.com/...) answers. Run in CI, so a page that
+7. With --live: every link into an application or the staff area (https://app. / staff. / workbench.logicalknight.com/...) answers. Run in CI, so a page that
    links to the application cannot pass before the application is deployed.
 """
 
@@ -25,7 +25,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-BRANDS = ("Logical Knight", "IPPC Ledger")
+BRANDS = ("Logical Knight", "IPPC Ledger", "Data Workbench")
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 NOT_TEXT = {"head", "script", "style", "title", "noscript", "template", "svg"}
 PRIVATE_NAME_HASHES = {
@@ -124,7 +124,7 @@ def check_retired(path: Path) -> list[str]:
 
 
 OWNER_MARKER = "TODO-OWNER"
-APP_LINK = re.compile(r'href="(https://(?:app|staff)\.logicalknight\.com/[^"]*)"')
+APP_LINK = re.compile(r'href="(https://(?:app|staff|workbench)\.logicalknight\.com/[^"]*)"')
 
 
 def check_email_off(path: Path) -> list[str]:
