@@ -3,178 +3,171 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Logical Knight — Technik für Probleme, die es wert sind</title>
-  <meta name="description" content="Logical Knight entwickelt praktische Software für schwierige Probleme aus der Praxis, ausgehend davon, wie die Arbeit tatsächlich gemacht wird.">
+  <title>Logical Knight: schwierige Probleme, einfache Software</title>
+  <meta name="description" content="Logical Knight ist ein kleines, inhabergeführtes Softwareunternehmen. Wir entwickeln praktische Software für kleine und wachsende Unternehmen: IPPC Ledger und Data Workbench.">
   <link rel="canonical" href="https://logicalknight.com/de/">
   <link rel="alternate" hreflang="en" href="https://logicalknight.com/">
   <link rel="alternate" hreflang="de" href="https://logicalknight.com/de/">
-  <meta name="theme-color" content="#0a0a0b">
+  <link rel="alternate" hreflang="x-default" href="https://logicalknight.com/">
+  <meta name="theme-color" content="#FFFFFF">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Logical Knight">
-  <meta property="og:title" content="Logical Knight — Technik für Probleme, die es wert sind">
-  <meta property="og:description" content="Praktische Software für schwierige Probleme aus der Praxis.">
+  <meta property="og:title" content="Logical Knight: schwierige Probleme, einfache Software">
+  <meta property="og:description" content="Logical Knight ist ein kleines, inhabergeführtes Softwareunternehmen. Wir entwickeln praktische Software für kleine und wachsende Unternehmen: IPPC Ledger und Data Workbench.">
   <meta property="og:url" content="https://logicalknight.com/de/">
-  <meta property="og:image" content="https://logicalknight.com/assets/img/og.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <meta property="og:image" content="https://logicalknight.com/assets/img/logical-knight-logo.png">
+  <meta property="og:locale" content="de_DE">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="/assets/img/logical-knight-logo.png">
+  <link rel="apple-touch-icon" href="/assets/img/logical-knight-logo.png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script>document.documentElement.classList.add("js")</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Logical Knight","url":"https://logicalknight.com/","logo":"https://logicalknight.com/assets/img/apple-touch-icon.png","email":"hello@logicalknight.com"}</script>
 </head>
-<body>
+<body class="page-home">
 <!--email_off-->
   <a class="skip-link" href="#main">Zum Inhalt</a>
-
-  <header class="nav">
-    <div class="container nav__inner">
-      <a translate="no" class="brand notranslate" href="/de/" aria-label="Logical Knight — Startseite">
-        <img src="/assets/img/mark-64.png" width="30" height="30" alt="">
-        <span>Logical Knight</span>
-      </a>
-      <nav class="nav__links" aria-label="Hauptnavigation">
-        <a href="#approach">Vorgehen</a>
-        <a href="/de/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span></a>
-        <a href="#company">Unternehmen</a>
-        <a href="#contact">Kontakt</a>
-        <a href="/" hreflang="en" lang="en">English</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a translate="no" class="brand notranslate" href="/de/" aria-label="Logical Knight, Startseite"><img src="/assets/img/logical-knight-logo.png" width="138" height="134" alt=""><span>Logical Knight</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__bars" aria-hidden="true"></span><span class="nav-toggle__label">Menü</span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
+        <ul class="site-nav__links"><li><a href="/de/unternehmen/">Unternehmen</a></li><li><a href="/de/produkte/">Produkte</a></li><li><a href="/de/unternehmen/#so-arbeiten-wir">So arbeiten wir</a></li><li><a href="/de/kontakt/">Kontakt</a></li></ul>
+        <div class="lang" role="group" aria-label="Sprache"><a class="lang__item" href="/" hreflang="en" lang="en" aria-label="English">EN</a><span class="lang__item" aria-current="true" lang="de" title="Deutsch">DE</span></div>
+        <a class="btn btn--primary btn--sm site-nav__cta" href="/de/produkte/">Unsere Produkte</a>
       </nav>
-      <a class="btn btn--primary btn--sm nav__cta" href="mailto:hello@logicalknight.com">E-Mail schreiben</a>
-      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menü öffnen"><span></span></button>
     </div>
   </header>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="#approach">Vorgehen <span>01</span></a>
-    <a href="#company">Unternehmen <span>02</span></a>
-    <a href="/de/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span> <span>03</span></a>
-    <a href="#contact">Kontakt <span>04</span></a>
-    <a href="/" hreflang="en" lang="en">English</a>
-    <a class="btn btn--primary" href="mailto:hello@logicalknight.com">E-Mail schreiben</a>
-  </div>
-
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="gridbg" aria-hidden="true"></div>
-      <div class="container">
-        <div class="hero__top">
-          <p class="eyebrow"><span translate="no" class="idx notranslate">Logical Knight</span><span class="rule"></span>Unternehmen für angewandte Technik</p>
-          <aside class="hero__status" aria-label="Stand">
-            <span class="k">Stand</span>
-            <ul>
-              <li><span class="dot dot--live" aria-hidden="true"></span><a href="/de/ippc-ledger/" translate="no" class="notranslate">IPPC Ledger</a><em>Pilotphase</em></li>
-              <li><span class="dot dot--off" aria-hidden="true"></span><span>Weitere Produkte</span><em>In Entwicklung, nicht öffentlich</em></li>
-            </ul>
-          </aside>
-          <h1 class="display hero__title" id="hero-title">Technik für Probleme, <span class="serif">die es wert sind.</span></h1>
-          <div class="hero__row">
-            <p class="lede"><span translate="no" class="notranslate">Logical Knight</span> entwickelt gezielte <strong>Software</strong> für schwierige Probleme aus der Praxis, dort, wo Abläufe heute von Hand, verstreut, teuer oder unzureichend sind.</p>
-            <div class="btn-row">
-              <a class="btn btn--primary" href="#product"><span><span translate="no" class="notranslate">IPPC Ledger</span> ansehen</span></a>
-              <a class="btn btn--ghost" href="#approach">Unser Vorgehen</a>
-            </div>
-          </div>
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="seal">
+          <span class="seal__rings" aria-hidden="true"></span>
+          <img class="seal__crest" src="/assets/img/logical-knight-logo.png" width="138" height="134" alt="" fetchpriority="high">
         </div>
-
+        <p class="seal__word notranslate" translate="no">Logical Knight</p>
+        <h1 id="hero-title">Schwierige Probleme.<br>Einfache Software.</h1>
+        <p class="lede"><span translate="no" class="notranslate">Logical Knight</span> entwickelt praktische Software für kleine und wachsende Unternehmen. Aus langsamer, mühsamer Arbeit machen wir Werkzeuge, die verständlich sind, sich einfach bedienen lassen und denen man vertrauen kann.</p>
+        <p class="btn-row btn-row--center">
+          <a class="btn btn--primary" href="/de/produkte/">Unsere Produkte ansehen</a>
+          <a class="btn btn--secondary" href="/de/kontakt/">Problem schildern</a>
+        </p>
       </div>
     </section>
 
-    <!-- ================= PRODUCT ================= -->
-    <section class="section" id="product" aria-labelledby="product-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow"><span translate="no" class="idx notranslate">IPPC Ledger</span><span class="rule"></span>Pilotphase</p>
-          <h2 class="h1" id="product-title" data-reveal>Wareneingänge und ISPM-15-Nachweise <span class="serif gold">an einem Ort.</span></h2>
-          <p class="lede" data-reveal="2">Für Holzverpackungsbetriebe, die behandeltes Holz zukaufen: Verknüpfen Sie Lieferungen mit
-            Lieferantennachweisen, behalten Sie fehlende Unterlagen im Blick und stellen Sie die Dokumentation für einen ausgewählten Zeitraum zusammen.</p>
-        </div>
-        <ul class="features">
-          <li data-reveal><h3>Lieferanten und Ermächtigungen</h3><p>Die Ermächtigung jedes Behandlungsbetriebs mit Dokument und
-            Gültigkeit. Ein Ablaufdatum nur, wenn das Dokument eines nennt; eine interne Prüferinnerung bleibt davon getrennt.</p></li>
-          <li data-reveal><h3>Wareneingänge und Material</h3><p>Empfangsdatum, Absender, Holzart, Stückzahl oder Masse mit Einheit,
-            Behandlungsverfahren und -angaben.</p></li>
-          <li data-reveal><h3>Nachweisdokumente</h3><p>Lieferscheine, Rechnungen und Behandlungsnachweise als PDF oder Bild, mit
-            Versionen. Vorhanden, von einer Person geprüft und mit der Quelle abgeglichen werden getrennt erfasst.</p></li>
-          <li data-reveal><h3>Aufträge und Rückverfolgung</h3><p>Welches Material in welchem Auftrag steckt, in der Einheit der Lieferung;
-            es wird nichts umgerechnet, und eine Position lässt sich nicht doppelt verbrauchen.</p></li>
-          <li data-reveal><h3>Fehlende Nachweise</h3><p>Eine feste Regelprüfung nennt jede Lücke mit Grund. Sie beschreibt die
-            Datensätze; sie ist keine rechtliche Bewertung.</p></li>
-          <li data-reveal><h3>Korrekturen und Export</h3><p>Jede Korrektur eines erfassten Werts behält ihren Grund im Verlauf.
-            Exporte für einen Auftrag oder Zeitraum: Originaldateien, Datensätze als CSV und eine PDF-Übersicht.</p></li>
-        </ul>
-        <p class="note" data-reveal>Ehrlicher Stand: <span translate="no" class="notranslate">IPPC Ledger</span> ist in der Pilotphase und noch nicht allgemein verfügbar. Es ist keine
-          Behörde, stellt keine Bescheinigungen aus und prüft nichts automatisch. Ein Pilot umfasst einen Standort und Ihre eigenen
-          Datensätze, und Sie können jederzeit alles exportieren.</p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href="mailto:hello@logicalknight.com?subject=Pilot%20IPPC%20Ledger">Pilot anfragen</a>
-          <a class="btn btn--ghost" href="/de/ippc-ledger/#beispiel">Beispiel ansehen</a>
+    <section class="section" aria-labelledby="real-title">
+      <div class="container split">
+        <h2 id="real-title" class="h-xl" data-reveal>Wir bauen Software für echte Arbeit.</h2>
+        <div class="split__body" data-reveal>
+          <div class="prose prose--lg"><p>Viele Unternehmen haben Probleme, die große Software nicht gut löst. Für ein großes Produkt sind sie zu speziell, aber zu wichtig, um sie liegen zu lassen.</p><p>Genau hier setzen wir an. Wir bauen gezielte Werkzeuge, die ein Problem richtig lösen.</p></div>
+          <p class="mini-label">Welche Arbeit wir meinen</p>
+          <ul class="ticks"><li>Nachweise, die stimmen müssen und sich auf Nachfrage schnell zeigen lassen.</li><li>Informationen, verteilt auf Ordner, Postfächer und Tabellen.</li><li>Dateien, die man erst prüfen muss, bevor man ihnen trauen kann.</li></ul>
         </div>
       </div>
     </section>
 
-    <!-- ================= APPROACH / COMPANY ================= -->
-    <section class="section" id="approach" aria-labelledby="approach-title">
+    <section class="section section--tint" aria-labelledby="build-title">
       <div class="container">
-        <div class="approach">
-          <div class="approach__lead">
-            <p class="eyebrow"><span class="idx">02</span><span class="rule"></span>Unser Vorgehen</p>
-            <h2 class="h1" id="approach-title" data-reveal>Wir beginnen mit <span class="serif gold">dem Problem.</span></h2>
-            <p class="lede" data-reveal="2">Nicht mit einer Technik, die einen Zweck sucht. Jedes Produkt beginnt bei einem echten Ablauf, der heute langsam, teuer oder unzuverlässig ist.</p>
-          </div>
-          <ol class="steps">
-            <li class="step" data-reveal><span class="step__n">01</span><h3>Ein echtes Problem finden</h3><p>Wo Abläufe heute von Hand, verstreut, teuer oder unzureichend sind.</p></li>
-            <li class="step" data-reveal><span class="step__n">02</span><h3>Den Ablauf verstehen</h3><p>Erst lernen, wie die Arbeit tatsächlich gemacht wird, dann entscheiden, was gebaut wird.</p></li>
-            <li class="step" data-reveal><span class="step__n">03</span><h3>Das kleinste nützliche System bauen</h3><p>Das Kernproblem richtig lösen, ohne unnötigen Umfang.</p></li>
-            <li class="step" data-reveal><span class="step__n">04</span><h3>Erproben</h3><p>Mit den Menschen testen, die das Problem haben, und aus der echten Nutzung lernen.</p></li>
-            <li class="step" data-reveal><span class="step__n">05</span><h3>Ein verlässliches Produkt daraus machen</h3><p>Was funktioniert, so festigen, dass Menschen und Systeme sich darauf verlassen können.</p></li>
-          </ol>
+        <div class="section-intro" data-reveal>
+          <h2 id="build-title" class="h-xl">Was wir bauen.</h2>
+          <p class="lede">Bisher zwei Produkte. Jedes hat mit einem einzigen, echten Problem angefangen.</p>
         </div>
+        <div class="products">
+        <article class="product" data-reveal>
+          <div class="product__text">
+            <p class="product__meta"><span class="pill">Pilotphase</span><span>Für Holzverpackungsbetriebe</span></p>
+            <h3 class="product__name"><a href="/de/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span></a></h3>
+            <dl class="product__facts">
+              <div><dt>Das Problem</dt><dd>Lieferscheine, Ermächtigungen und Behandlungsangaben liegen in Ordnern, Postfächern und Tabellen. Lücken fallen deshalb spät auf.</dd></div>
+              <div><dt>Was es tut</dt><dd><span translate="no" class="notranslate">IPPC Ledger</span> hält Wareneingänge und ihre ISPM-15-Nachweise zusammen, zeigt, was fehlt und warum, und exportiert die Dokumentation für einen Auftrag oder Zeitraum.</dd></div>
+            </dl>
+            <p><a class="link-arrow" href="/de/ippc-ledger/">Mehr erfahren<span class="sr-only">: <span translate="no" class="notranslate">IPPC Ledger</span></span></a></p>
+          </div>
+          <div class="product__visual"><figure class="shot"><a href="/assets/img/ippc/de/app-dashboard.png"><img src="/assets/img/ippc/de/app-dashboard.png" width="1280" height="1124" loading="lazy" alt="Startseite von IPPC Ledger mit Kennzahlen zu Wareneingängen, offenen Aufträgen und unvollständigen Datensätzen"></a><figcaption>Echter Bildschirm, erfundene Daten.</figcaption></figure></div>
+        </article>
+        <article class="product" data-reveal>
+          <div class="product__text">
+            <p class="product__meta"><span class="pill">Kostenloser Vorabzugang</span><span>Für Teams, die mit CSV- und Excel-Dateien arbeiten</span></p>
+            <h3 class="product__name"><a href="/de/data-workbench/"><span translate="no" class="notranslate">Data Workbench</span></a></h3>
+            <dl class="product__facts">
+              <div><dt>Das Problem</dt><dd>Geschäftsdaten kommen als unordentliche CSV- und Excel-Dateien. Nach dem Bereinigen von Hand weiß niemand mehr genau, was sich geändert hat.</dd></div>
+              <div><dt>Was es tut</dt><dd><span translate="no" class="notranslate">Data Workbench</span> prüft und bereitet diese Dateien auf, zeigt jede Änderung vorher und nachher und arbeitet nur mit Daten weiter, die eine Person freigegeben hat.</dd></div>
+            </dl>
+            <p><a class="link-arrow" href="/de/data-workbench/">Mehr erfahren<span class="sr-only">: <span translate="no" class="notranslate">Data Workbench</span></span></a></p>
+          </div>
+          <div class="product__visual"><figure class="illus">
+          <div class="illus__frame">
+            <p class="illus__title">Änderungen prüfen</p>
+            <table class="illus__table"><thead><tr><th scope="col">Feld</th><th scope="col">Original</th><th scope="col">Vorbereitet</th><th scope="col">Status</th></tr></thead><tbody><tr><td><code>sku</code></td><td><code>00123</code></td><td><code>00123</code></td><td><span class="tag tag--ok">✓ Als Text behalten</span></td></tr><tr><td><code>price</code></td><td><code>12,50</code></td><td><code>12.50</code></td><td><span class="tag tag--ok">✓ Dezimalkomma</span></td></tr><tr><td><code>title</code></td><td><code>␣Oak box␣</code></td><td><code>Oak box</code></td><td><span class="tag tag--ok">✓ Leerzeichen entfernt</span></td></tr><tr><td><code>price</code></td><td><code>twelve</code></td><td><code>—</code></td><td><span class="tag tag--ask">! Ihre Entscheidung nötig</span></td></tr></tbody></table>
+          </div>
+          <figcaption>Darstellung des Prüfschritts mit Beispielwerten. Kein Bildschirmfoto, keine Kundendaten.</figcaption>
+        </figure></div>
+        </article>
+        </div>
+        <div class="more" data-reveal>
+          <h3>Weitere folgen.</h3>
+          <p>Wir suchen weiter nach echten Problemen, die sich zu lösen lohnen. Wenn wir eins finden, bauen wir dafür.</p>
+        </div>
+      </div>
+    </section>
 
-        <div class="company" id="company">
-          <p class="company__statement" data-reveal><span translate="no" class="notranslate">Logical Knight</span> entwickelt praktische Technik für schwierige Probleme aus der Praxis.</p>
-          <div class="company__side" data-reveal="2">
-            <p><a class="link-arrow" href="/de/ippc-ledger/"><span><span translate="no" class="notranslate">IPPC Ledger</span>: Wareneingänge und ISPM-15-Nachweise an einem Ort (Pilotphase)</span></a></p>
-            <p class="private"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4" y="9" width="12" height="8" rx="2"/><path d="M7 9V6.5a3 3 0 016 0V9"/></svg>Weitere Produkte sind derzeit nicht öffentlich in Entwicklung.</p>
-          </div>
+    <section class="section" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-intro" data-reveal>
+          <h2 id="how-title" class="h-xl">So arbeiten wir.</h2>
+          <p class="lede">Produkte fangen klein an, kommen früh zu echten Nutzern und werden mit dem besser, was wir dabei lernen.</p>
         </div>
+        <div data-reveal><ol class="steps"><li><span class="steps__n" aria-hidden="true">01</span><h3>Zuhören</h3><p>Wir beginnen bei den Menschen, die das Problem haben, und bei der Arbeit, wie sie heute läuft.</p></li><li><span class="steps__n" aria-hidden="true">02</span><h3>Bauen</h3><p>Wir bauen die kleinste Version, die wirklich hilft. Nichts darüber hinaus.</p></li><li><span class="steps__n" aria-hidden="true">03</span><h3>Testen</h3><p>Echte Nutzer probieren es mit echter Arbeit aus. Dabei lernen wir am meisten.</p></li><li><span class="steps__n" aria-hidden="true">04</span><h3>Verbessern</h3><p>Wir beheben, was unklar ist, behalten, was funktioniert, und bauen darauf auf.</p></li></ol></div>
+      </div>
+    </section>
+
+    <section class="section section--soft" aria-labelledby="users-title">
+      <div class="container split">
+        <h2 id="users-title" class="h-xl" data-reveal>Mit echten Nutzern gebaut.</h2>
+        <div class="split__body prose prose--lg" data-reveal><p>Manche Produkte starten mit einem kostenlosen Vorabzugang. So können Unternehmen die Software schon nutzen, während wir lernen, was funktioniert, was unklar ist und was wirklich hilft.</p><p>Der kostenlose Vorabzugang ist zeitlich begrenzt. Er ist kein Versprechen, dass ein Produkt immer kostenlos bleibt.</p><p class="note">Derzeit: <a href="/de/data-workbench/"><span translate="no" class="notranslate">Data Workbench</span></a> ist im kostenlosen Vorabzugang, <a href="/de/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span></a> läuft als Pilot.</p></div>
+      </div>
+    </section>
+
+    <section class="section ask" aria-labelledby="ask-title">
+      <div class="container ask__inner" data-reveal>
+        <h2 id="ask-title" class="h-xl">Haben Sie ein Problem, das Software lösen sollte?</h2>
+        <ul class="ask__lines"><li>Vielleicht erledigt Ihr Team etwas noch von Hand.</li><li>Vielleicht braucht eine Aufgabe fünf Tabellen.</li><li>Vielleicht gehen wichtige Informationen immer wieder verloren.</li></ul>
+        <p class="ask__say">Erzählen Sie uns davon.</p>
+        <p class="ask__text">Vielleicht arbeiten wir schon an etwas Ähnlichem. Manchmal beginnen die besten Produktideen mit einem echten Problem. Wir können nicht alles bauen, aber wir sagen Ihnen ehrlich, ob wir helfen können.</p>
+        <p class="ask__also">Auch Fachleute, Beraterinnen und Berater und mögliche Partner sind willkommen.</p>
+        <p class="btn-row btn-row--center"><a class="btn btn--primary" href="/de/kontakt/">Schildern Sie, was nicht funktioniert</a></p>
+      </div>
+    </section>
+
+    <section class="section company-band" aria-labelledby="company-title">
+      <div class="container company-band__inner" data-reveal>
+        <h2 id="company-title" class="h-xl">Kleines Unternehmen. Große Sorgfalt.</h2>
+        <div class="prose prose--lg"><p><span translate="no" class="notranslate">Logical Knight</span> ist ein kleines, inhabergeführtes Softwareunternehmen. Wir bauen sorgfältig, testen mit echten Menschen, achten darauf, was funktioniert, und verbessern von dort aus.</p><p>Wir bauen keine Software, nur weil sie beeindruckend klingt. Wir bauen sie, weil jemand sie braucht.</p></div>
+        <p><a class="link-arrow" href="/de/unternehmen/">Mehr über das Unternehmen</a></p>
       </div>
     </section>
   </main>
-
-  <footer class="footer" id="contact">
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <a translate="no" class="brand notranslate" href="/de/" aria-label="Logical Knight — Startseite"><img src="/assets/img/mark-64.png" width="30" height="30" alt=""><span>Logical Knight</span></a>
-          <p>Praktische Technik für schwierige Probleme aus der Praxis.</p>
-          <a class="link-arrow" href="mailto:hello@logicalknight.com">hello@logicalknight.com</a>
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a translate="no" class="brand notranslate" href="/de/" aria-label="Logical Knight, Startseite"><img src="/assets/img/logical-knight-logo.png" width="138" height="134" alt=""><span>Logical Knight</span></a>
+          <p>Schwierige Probleme. Einfache Software.</p>
+          <p><a href="mailto:hello@logicalknight.com">hello@logicalknight.com</a></p>
         </div>
-        <div>
-          <h2>Unternehmen</h2>
-          <ul>
-            <li><a href="/de/#approach">Vorgehen</a></li>
-            <li><a href="/de/#company">Unternehmen</a></li>
-            <li><a href="/de/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span></a></li>
-            <li><a href="/de/ippc-ledger/erste-schritte/">Erste Schritte</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2>Kontakt</h2>
-          <ul>
-            <li><a href="mailto:hello@logicalknight.com">E-Mail schreiben</a></li>
-            <li><a href="/kontakt/">Kontakt</a></li>
-          </ul>
-        </div>
+        <nav class="site-footer__nav" aria-label="Fußbereich">
+          <div><h2>Unternehmen</h2><ul><li><a href="/de/unternehmen/">Unternehmen</a></li><li><a href="/de/produkte/">Produkte</a></li><li><a href="/de/unternehmen/#so-arbeiten-wir">So arbeiten wir</a></li><li><a href="/de/kontakt/">Kontakt</a></li></ul></div>
+          <div><h2>Produkte</h2><ul><li><a href="/de/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span></a></li><li><a href="/de/data-workbench/"><span translate="no" class="notranslate">Data Workbench</span></a></li></ul></div>
+          <div><h2>Rechtliches</h2><ul><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li></ul></div>
+        </nav>
       </div>
-      <nav aria-label="Rechtliches / Legal"><ul class="legal-links"><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li><li><a href="/kontakt/">Kontakt</a></li></ul></nav>
-      <div class="footer__bottom">
-        <span>© <span data-year>2026</span> <span translate="no" class="notranslate">Logical Knight</span>. Alle Rechte vorbehalten.</span>
+      <div class="site-footer__bottom">
+        <p>© <span data-year>2026</span> <span translate="no" class="notranslate">Logical Knight</span>. Alle Rechte vorbehalten.</p>
+        <div class="lang" role="group" aria-label="Sprache"><a class="lang__item" href="/" hreflang="en" lang="en" aria-label="English">EN</a><span class="lang__item" aria-current="true" lang="de" title="Deutsch">DE</span></div>
       </div>
-      <p translate="no" class="footer__word notranslate" aria-hidden="true">Logical Knight</p>
     </div>
   </footer>
-
   <script src="/assets/js/site.js" defer></script>
 <!--/email_off-->
 </body>

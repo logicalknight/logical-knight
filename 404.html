@@ -4,26 +4,69 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page not found · Logical Knight</title>
+  <meta name="description" content="This page does not exist.">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#0a0a0b">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Logical Knight">
+  <meta property="og:title" content="Page not found · Logical Knight">
+  <meta property="og:description" content="This page does not exist.">
+  <meta property="og:url" content="https://logicalknight.com/404.html">
+  <meta property="og:image" content="https://logicalknight.com/assets/img/logical-knight-logo.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="/assets/img/logical-knight-logo.png">
+  <link rel="apple-touch-icon" href="/assets/img/logical-knight-logo.png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
-<body>
+<body class="page-inner">
 <!--email_off-->
-  <main id="main" class="hero" style="min-height:100vh;display:grid;align-items:center">
-    <div class="gridbg" aria-hidden="true"></div>
-    <div class="container" style="display:grid;gap:28px">
-      <a translate="no" class="brand notranslate" href="/" aria-label="Logical Knight — home"><img src="/assets/img/mark-64.png" width="30" height="30" alt=""><span>Logical Knight</span></a>
-      <p class="eyebrow"><span class="idx">404</span><span class="rule"></span>Not found</p>
-      <h1 class="h1">No signal <span class="serif gold">at this address.</span></h1>
-      <p class="lede">The page you’re looking for doesn’t exist or has moved.</p>
-      <div class="btn-row">
-        <a class="btn btn--primary" href="/">Back to <span translate="no" class="notranslate">Logical Knight</span></a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a translate="no" class="brand notranslate" href="/" aria-label="Logical Knight, home"><img src="/assets/img/logical-knight-logo.png" width="138" height="134" alt=""><span>Logical Knight</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__bars" aria-hidden="true"></span><span class="nav-toggle__label">Menu</span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__links"><li><a href="/en/company/">Company</a></li><li><a href="/en/products/">Products</a></li><li><a href="/en/company/#how-we-build">How we build</a></li><li><a href="/en/contact/">Contact</a></li></ul>
+        <div class="lang" role="group" aria-label="Language"><span class="lang__item" aria-current="true" lang="en" title="English">EN</span><a class="lang__item" href="/de/" hreflang="de" lang="de" aria-label="Deutsch">DE</a></div>
+        <a class="btn btn--primary btn--sm site-nav__cta" href="/en/products/">See our products</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="section notfound">
+      <div class="container narrow notfound__inner">
+        <img class="notfound__crest" src="/assets/img/logical-knight-logo.png" width="138" height="134" alt="">
+        <h1 class="h-lg">This page does not exist.</h1>
+        <p class="lede">It may have moved. Try the <a href="/">homepage</a> or our <a href="/en/products/">products</a>.</p>
+        <h2 class="h-md" lang="de">Diese Seite gibt es nicht.</h2>
+        <p class="lede" lang="de">Vielleicht ist sie umgezogen. Zur <a href="/de/">Startseite</a> oder zu unseren <a href="/de/produkte/">Produkten</a>.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a translate="no" class="brand notranslate" href="/" aria-label="Logical Knight, home"><img src="/assets/img/logical-knight-logo.png" width="138" height="134" alt=""><span>Logical Knight</span></a>
+          <p>Hard problems. Simple software.</p>
+          <p><a href="mailto:hello@logicalknight.com">hello@logicalknight.com</a></p>
+        </div>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <div><h2>Company</h2><ul><li><a href="/en/company/">Company</a></li><li><a href="/en/products/">Products</a></li><li><a href="/en/company/#how-we-build">How we build</a></li><li><a href="/en/contact/">Contact</a></li></ul></div>
+          <div><h2>Products</h2><ul><li><a href="/en/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span></a></li><li><a href="/en/data-workbench/"><span translate="no" class="notranslate">Data Workbench</span></a></li></ul></div>
+          <div><h2>Legal</h2><ul><li><a href="/impressum/#legal-notice">Impressum</a></li><li><a href="/datenschutz/#privacy-policy">Privacy</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>© <span data-year>2026</span> <span translate="no" class="notranslate">Logical Knight</span>. All rights reserved.</p>
+        <div class="lang" role="group" aria-label="Language"><span class="lang__item" aria-current="true" lang="en" title="English">EN</span><a class="lang__item" href="/de/" hreflang="de" lang="de" aria-label="Deutsch">DE</a></div>
       </div>
     </div>
-  </main>
-  <footer class="footer footer--legal"><div class="container"><nav aria-label="Rechtliches / Legal"><ul class="legal-links"><li><a href="/datenschutz/">Datenschutz</a></li><li><a href="/nutzungsbedingungen/">Nutzungsbedingungen</a></li><li><a href="/acceptable-use/">Acceptable Use</a></li><li><a href="/ki-transparenz/">Transparenz</a></li><li><a href="/security/">Security</a></li><li><a href="/kontakt/">Kontakt</a></li></ul></nav></div></footer>
+  </footer>
+  <script src="/assets/js/site.js" defer></script>
 <!--/email_off-->
 </body>
 </html>

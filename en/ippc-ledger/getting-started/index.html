@@ -8,59 +8,70 @@
   <link rel="canonical" href="https://logicalknight.com/en/ippc-ledger/getting-started/">
   <link rel="alternate" hreflang="en" href="https://logicalknight.com/en/ippc-ledger/getting-started/">
   <link rel="alternate" hreflang="de" href="https://logicalknight.com/de/ippc-ledger/erste-schritte/">
-  <meta name="theme-color" content="#0a0a0b">
+  <link rel="alternate" hreflang="x-default" href="https://logicalknight.com/en/ippc-ledger/getting-started/">
+  <meta name="theme-color" content="#FFFFFF">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Logical Knight">
   <meta property="og:title" content="Getting started with IPPC Ledger · Logical Knight">
   <meta property="og:description" content="Enter, attach, correct, export: how your first records get into the application.">
   <meta property="og:url" content="https://logicalknight.com/en/ippc-ledger/getting-started/">
-  <meta property="og:image" content="https://logicalknight.com/assets/img/og.png">
+  <meta property="og:image" content="https://logicalknight.com/assets/img/logical-knight-logo.png">
   <meta property="og:locale" content="en_GB">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="preload" href="/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="/assets/img/logical-knight-logo.png">
+  <link rel="apple-touch-icon" href="/assets/img/logical-knight-logo.png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
-<body>
+<body class="page-inner">
 <!--email_off-->
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="nav">
-    <div class="container nav__inner">
-      <a translate="no" class="brand notranslate" href="/" aria-label="Logical Knight — home">
-        <img src="/assets/img/mark-64.png" width="30" height="30" alt="">
-        <span>Logical Knight</span>
-      </a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="/en/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span></a>
-        <a href="/de/ippc-ledger/erste-schritte/" hreflang="de" lang="de">Deutsch</a>
-        <a href="https://app.logicalknight.com/login?lang=en">Log in</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a translate="no" class="brand notranslate" href="/" aria-label="Logical Knight, home"><img src="/assets/img/logical-knight-logo.png" width="138" height="134" alt=""><span>Logical Knight</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__bars" aria-hidden="true"></span><span class="nav-toggle__label">Menu</span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__links"><li><a href="/en/company/">Company</a></li><li><a href="/en/products/" aria-current="page">Products</a></li><li><a href="/en/company/#how-we-build">How we build</a></li><li><a href="/en/contact/">Contact</a></li></ul>
+        <div class="lang" role="group" aria-label="Language"><span class="lang__item" aria-current="true" lang="en" title="English">EN</span><a class="lang__item" href="/de/ippc-ledger/erste-schritte/" hreflang="de" lang="de" aria-label="Deutsch">DE</a></div>
+        <a class="btn btn--primary btn--sm site-nav__cta" href="https://app.logicalknight.com/pilot?lang=en">Request a pilot</a>
       </nav>
-      <a class="btn btn--primary btn--sm nav__cta" href="https://app.logicalknight.com/pilot?lang=en">Request a pilot</a>
-      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><span></span></button>
     </div>
   </header>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="/en/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span> <span>01</span></a>
-    <a href="/de/ippc-ledger/erste-schritte/" hreflang="de" lang="de">Deutsch</a>
-    <a href="https://app.logicalknight.com/login?lang=en">Log in</a>
-    <a class="btn btn--primary" href="https://app.logicalknight.com/pilot?lang=en">Request a pilot</a>
-  </div>
-  <main id="main" class="legal product" lang="en">
-    <div class="container legal__inner legal__inner--wide">
-      <h1>Getting started with <span translate="no" class="notranslate">IPPC Ledger</span></h1>
-      <p class="lede">Enter, attach, correct, export: how your first records get into the application.</p>
-      <ol class="gs"><li class="gs__step"><h2 class="h3"><span class="step__n">01</span> Log in</h2><p>You receive an invitation by e-mail. Its link lets you set your password; then log in with your e-mail address. The start page shows a checklist of the first steps.</p></li><li class="gs__step"><h2 class="h3"><span class="step__n">02</span> Add a supplier</h2><p>Suppliers → Add supplier. Below, “Add authorisation evidence”: number and authority from the authorisation, a validity only if the document states one, and the PDF or photo.</p><figure class="shot" data-reveal><a href="/assets/img/ippc/en/app-supplier-authorisation.png"><img src="/assets/img/ippc/en/app-supplier-authorisation.png" width="1152" height="407" loading="lazy" alt="Add a supplier"></a><figcaption>Example with fictional data</figcaption></figure></li><li class="gs__step"><h2 class="h3"><span class="step__n">03</span> Record a delivery</h2><p>Deliveries → Add delivery: receipt date, supplier, delivery-note number, treatment method and details, and per material line the wood type, a quantity with its unit and/or the mass in kg. Upload the delivery note and treatment evidence right away.</p></li><li class="gs__step"><h2 class="h3"><span class="step__n">04</span> See and fix what is missing</h2><p>If something is missing, the delivery shows the reason. “Missing Evidence” lists everything open. Under “Review / verify” you mark documents as reviewed or rejected.</p><figure class="shot" data-reveal><a href="/assets/img/ippc/en/app-delivery-incomplete.png"><img src="/assets/img/ippc/en/app-delivery-incomplete.png" width="1200" height="233" loading="lazy" alt="See and fix what is missing"></a><figcaption>Example with fictional data</figcaption></figure></li><li class="gs__step"><h2 class="h3"><span class="step__n">05</span> Correct</h2><p>Edit on the delivery. When you change a recorded value, give the reason; the history shows the old and new value, person, time and reason.</p><figure class="shot" data-reveal><a href="/assets/img/ippc/en/app-history-correction.png"><img src="/assets/img/ippc/en/app-history-correction.png" width="1152" height="1071" loading="lazy" alt="Correct"></a><figcaption>Example with fictional data</figcaption></figure></li><li class="gs__step"><h2 class="h3"><span class="step__n">06</span> Link to a job</h2><p>Jobs → Add job, then find material by delivery reference and link it with the quantity used, in the delivery&#x27;s unit.</p><figure class="shot" data-reveal><a href="/assets/img/ippc/en/app-job-trace.png"><img src="/assets/img/ippc/en/app-job-trace.png" width="1200" height="1346" loading="lazy" alt="Link to a job"></a><figcaption>Example with fictional data</figcaption></figure></li><li class="gs__step"><h2 class="h3"><span class="step__n">07</span> Export</h2><p>“Export evidence” on a job, or Exports → a period. A period without deliveries gives a message instead of an empty archive.</p><figure class="shot" data-reveal><a href="/assets/img/ippc/en/app-exports.png"><img src="/assets/img/ippc/en/app-exports.png" width="1200" height="650" loading="lazy" alt="Export"></a><figcaption>Example with fictional data</figcaption></figure></li><li class="gs__step"><h2 class="h3"><span class="step__n">08</span> Bring spreadsheets</h2><p>Settings → Import: download a template, fill it in, upload, check the columns, review the preview, confirm. Dates with slashes (05/03/2026) are refused as ambiguous; write 05.03.2026.</p></li></ol>
-      <p>Questions? <a href="mailto:support@logicalknight.com">support@logicalknight.com</a> · <a href="/en/ippc-ledger/">Back to <span translate="no" class="notranslate">IPPC Ledger</span></a></p>
-    </div>
+  <div class="watermark" aria-hidden="true"></div>
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow"><span translate="no" class="notranslate">IPPC Ledger</span></p>
+        <h1>Getting started with <span translate="no" class="notranslate">IPPC Ledger</span></h1>
+        <p class="lede">Enter, attach, correct, export: how your first records get into the application.</p>
+      </div>
+    </section>
+
+    <section class="section section--flush">
+      <div class="container narrow">
+        <ol class="guide"><li class="guide__step"><h2 class="h-sm"><span class="steps__n" aria-hidden="true">01</span> Log in</h2><p>You receive an invitation by e-mail. Its link lets you set your password; then log in with your e-mail address. The start page shows a checklist of the first steps.</p></li><li class="guide__step"><h2 class="h-sm"><span class="steps__n" aria-hidden="true">02</span> Add a supplier</h2><p>Suppliers → Add supplier. Below, “Add authorisation evidence”: number and authority from the authorisation, a validity only if the document states one, and the PDF or photo.</p><figure class="shot"><a href="/assets/img/ippc/en/app-supplier-authorisation.png"><img src="/assets/img/ippc/en/app-supplier-authorisation.png" width="1152" height="407" loading="lazy" alt="Add a supplier"></a><figcaption>Example with invented data</figcaption></figure></li><li class="guide__step"><h2 class="h-sm"><span class="steps__n" aria-hidden="true">03</span> Record a delivery</h2><p>Deliveries → Add delivery: receipt date, supplier, delivery-note number, treatment method and details, and per material line the wood type, a quantity with its unit and/or the mass in kg. Upload the delivery note and treatment evidence right away.</p></li><li class="guide__step"><h2 class="h-sm"><span class="steps__n" aria-hidden="true">04</span> See and fix what is missing</h2><p>If something is missing, the delivery shows the reason. “Missing Evidence” lists everything open. Under “Review / verify” you mark documents as reviewed or rejected.</p><figure class="shot"><a href="/assets/img/ippc/en/app-delivery-incomplete.png"><img src="/assets/img/ippc/en/app-delivery-incomplete.png" width="1200" height="233" loading="lazy" alt="See and fix what is missing"></a><figcaption>Example with invented data</figcaption></figure></li><li class="guide__step"><h2 class="h-sm"><span class="steps__n" aria-hidden="true">05</span> Correct</h2><p>Edit on the delivery. When you change a recorded value, give the reason; the history shows the old and new value, person, time and reason.</p><figure class="shot"><a href="/assets/img/ippc/en/app-history-correction.png"><img src="/assets/img/ippc/en/app-history-correction.png" width="1152" height="1071" loading="lazy" alt="Correct"></a><figcaption>Example with invented data</figcaption></figure></li><li class="guide__step"><h2 class="h-sm"><span class="steps__n" aria-hidden="true">06</span> Link to a job</h2><p>Jobs → Add job, then find material by delivery reference and link it with the quantity used, in the delivery's unit.</p><figure class="shot"><a href="/assets/img/ippc/en/app-job-trace.png"><img src="/assets/img/ippc/en/app-job-trace.png" width="1200" height="1346" loading="lazy" alt="Link to a job"></a><figcaption>Example with invented data</figcaption></figure></li><li class="guide__step"><h2 class="h-sm"><span class="steps__n" aria-hidden="true">07</span> Export</h2><p>“Export evidence” on a job, or Exports → a period. A period without deliveries gives a message instead of an empty archive.</p><figure class="shot"><a href="/assets/img/ippc/en/app-exports.png"><img src="/assets/img/ippc/en/app-exports.png" width="1200" height="650" loading="lazy" alt="Export"></a><figcaption>Example with invented data</figcaption></figure></li><li class="guide__step"><h2 class="h-sm"><span class="steps__n" aria-hidden="true">08</span> Bring spreadsheets</h2><p>Settings → Import: download a template, fill it in, upload, check the columns, review the preview, confirm. Dates with slashes (05/03/2026) are refused as ambiguous; write 05.03.2026.</p></li></ol>
+        <p class="prose">Questions? <a href="mailto:support@logicalknight.com">support@logicalknight.com</a> · <a href="/en/ippc-ledger/">Back to <span translate="no" class="notranslate">IPPC Ledger</span></a></p>
+      </div>
+    </section>
   </main>
-  <footer class="footer footer--legal">
+  <footer class="site-footer">
     <div class="container">
-      <nav aria-label="Rechtliches / Legal"><ul class="legal-links"><li><a href="/impressum/">Legal notice</a></li><li><a href="/datenschutz/">Privacy</a></li><li><a href="/kontakt/">Contact</a></li><li><a href="https://staff.logicalknight.com/login">Staff access</a></li></ul></nav>
-      <div class="footer__bottom">
-        <span>© <span data-year>2026</span> <span translate="no" class="notranslate">Logical Knight</span> · Leo King</span>
-        <span>All examples, companies and documents on this page are invented.</span>
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a translate="no" class="brand notranslate" href="/" aria-label="Logical Knight, home"><img src="/assets/img/logical-knight-logo.png" width="138" height="134" alt=""><span>Logical Knight</span></a>
+          <p>Hard problems. Simple software.</p>
+          <p><a href="mailto:hello@logicalknight.com">hello@logicalknight.com</a></p>
+        </div>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <div><h2>Company</h2><ul><li><a href="/en/company/">Company</a></li><li><a href="/en/products/">Products</a></li><li><a href="/en/company/#how-we-build">How we build</a></li><li><a href="/en/contact/">Contact</a></li></ul></div>
+          <div><h2>Products</h2><ul><li><a href="/en/ippc-ledger/"><span translate="no" class="notranslate">IPPC Ledger</span></a></li><li><a href="/en/data-workbench/"><span translate="no" class="notranslate">Data Workbench</span></a></li></ul></div>
+          <div><h2>Legal</h2><ul><li><a href="/impressum/#legal-notice">Impressum</a></li><li><a href="/datenschutz/#privacy-policy">Privacy</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>© <span data-year>2026</span> <span translate="no" class="notranslate">Logical Knight</span>. All rights reserved.</p>
+        <div class="lang" role="group" aria-label="Language"><span class="lang__item" aria-current="true" lang="en" title="English">EN</span><a class="lang__item" href="/de/ippc-ledger/erste-schritte/" hreflang="de" lang="de" aria-label="Deutsch">DE</a></div>
       </div>
     </div>
   </footer>
