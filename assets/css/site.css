@@ -118,8 +118,8 @@ a.lang__item:hover { background: var(--lk-surface-cool); color: var(--text); }
 /* ---------- Sections ---------- */
 .section { position: relative; padding: clamp(3.5rem, 2.5rem + 4vw, 6.5rem) 0; }
 .section--flush { padding-top: 0; }
-.section--tint { background: linear-gradient(180deg, var(--lk-canvas), var(--lk-white)); border-top: 1px solid var(--border); }
-.section--soft { background: var(--lk-canvas); }
+.section--tint { background: linear-gradient(180deg, rgba(247, 251, 253, 0.75), rgba(255, 255, 255, 0.4)); border-top: 1px solid var(--border); }
+.section--soft { background: rgba(247, 251, 253, 0.75); }
 .section-intro { max-width: 760px; margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem); }
 .section-intro .lede { margin-top: var(--space-4); }
 .section-intro .eyebrow { margin-bottom: var(--space-3); }
@@ -179,7 +179,7 @@ a.lang__item:hover { background: var(--lk-surface-cool); color: var(--text); }
 .facts dd { font-size: var(--text-xl); font-weight: var(--weight-medium); color: var(--text); letter-spacing: -0.01em; }
 @media (max-width: 759px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .facts dd { font-size: var(--text-lg); } }
 
-/* ---------- Homepage hero with the crest as a seal ---------- */
+/* ---------- Homepage hero ---------- */
 .hero { position: relative; overflow: hidden; text-align: center; padding: clamp(3rem, 2rem + 4vw, 5.5rem) 0 clamp(4rem, 3rem + 5vw, 7.5rem); }
 .hero__bg { position: absolute; inset: 0; pointer-events: none;
   background:
@@ -189,24 +189,10 @@ a.lang__item:hover { background: var(--lk-surface-cool); color: var(--text); }
   -webkit-mask-image: radial-gradient(70% 70% at 50% 30%, #000 25%, transparent 75%);
   mask-image: radial-gradient(70% 70% at 50% 30%, #000 25%, transparent 75%); }
 .hero__inner { position: relative; display: flex; flex-direction: column; align-items: center; }
-.seal { position: relative; display: grid; place-items: center; width: 244px; height: 244px; margin-bottom: var(--space-5); }
-.seal__rings, .seal__rings::before, .seal__rings::after { position: absolute; inset: 0; border-radius: 50%; }
-.seal__rings { border: 1px solid var(--border); background: radial-gradient(circle, #fff 55%, rgba(223, 245, 252, 0.6) 100%); box-shadow: 0 30px 60px -36px rgba(8, 119, 158, 0.45); }
-.seal__rings::before { content: ""; inset: 16px; border: 1px solid var(--border); }
-.seal__rings::after { content: ""; inset: 5px;
-  background: repeating-conic-gradient(from 0deg, var(--lk-sky) 0 0.7deg, transparent 0.7deg 7.5deg);
-  -webkit-mask: radial-gradient(circle, transparent 108px, #000 109px 112px, transparent 113px);
-  mask: radial-gradient(circle, transparent 108px, #000 109px 112px, transparent 113px);
-  opacity: 0.6; }
-.seal__crest { position: relative; width: 138px; height: auto; filter: drop-shadow(0 6px 10px rgba(11, 18, 32, 0.12)); }
-.seal__word { margin: 0 0 var(--space-5); font-size: var(--text-sm); font-weight: var(--weight-strong); letter-spacing: 0.34em; text-transform: uppercase; color: var(--text); padding-left: 0.34em; }
+.hero__word { margin: 0 0 var(--space-5); font-size: var(--text-sm); font-weight: var(--weight-strong); letter-spacing: 0.34em; text-transform: uppercase; color: var(--text); padding-left: 0.34em; }
 .hero h1 { font-size: var(--text-hero); line-height: 1.04; letter-spacing: -0.035em; max-width: 16ch; }
 .hero .lede { margin: var(--space-5) auto 0; max-width: 58ch; }
 @media (max-width: 599px) {
-  .seal { width: 188px; height: 188px; }
-  .seal__crest { width: 112px; }
-  .seal__rings::after { -webkit-mask: radial-gradient(circle, transparent 80px, #000 81px 84px, transparent 85px); mask: radial-gradient(circle, transparent 80px, #000 81px 84px, transparent 85px); }
-  .seal__rings::before { inset: 12px; }
   .hero h1 { font-size: clamp(2.3rem, 1.4rem + 5vw, 3rem); }
   .btn-row--center .btn { flex: 1 1 100%; }
 }
@@ -257,33 +243,50 @@ a.lang__item:hover { background: var(--lk-surface-cool); color: var(--text); }
 .tag--ask { background: var(--lk-violet-soft); color: var(--lk-violet-deep); }
 
 /* ---------- Homepage: the problem invitation and the company band ---------- */
-.ask { background: linear-gradient(180deg, var(--lk-white), var(--lk-surface-cool)); border-top: 1px solid var(--border); }
+.ask { background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(238, 248, 252, 0.75)); border-top: 1px solid var(--border); }
 .ask__inner { text-align: center; max-width: 820px; }
 .ask__inner h2 { margin: 0 auto var(--space-6); max-width: 18ch; }
 .ask__lines { display: grid; gap: var(--space-2); font-size: clamp(1.15rem, 1rem + 0.7vw, 1.5rem); font-weight: var(--weight-medium); color: var(--text); letter-spacing: -0.01em; }
 .ask__say { margin: var(--space-5) 0; font-size: clamp(1.15rem, 1rem + 0.7vw, 1.5rem); font-weight: var(--weight-strong); color: var(--lk-violet-deep); }
 .ask__text { color: var(--text-secondary); font-size: var(--text-lg); max-width: 60ch; margin-left: auto; margin-right: auto; }
 .ask__also { color: var(--text-muted); font-size: var(--text-sm); }
-.company-band { background: var(--lk-canvas); border-top: 1px solid var(--border); }
+.company-band { background: rgba(247, 251, 253, 0.75); border-top: 1px solid var(--border); }
 .company-band__inner { max-width: 820px; text-align: center; }
 .company-band__inner h2 { margin-bottom: var(--space-5); }
 .company-band__inner .prose p { margin-left: auto; margin-right: auto; }
 .company-band__inner .link-arrow { margin-top: var(--space-5); }
 
 /* ---------- Inner pages ---------- */
-.page-inner main { position: relative; z-index: 1; }
 .page-head { padding: clamp(3rem, 2rem + 4vw, 6rem) 0 clamp(2.5rem, 2rem + 3vw, 4.5rem); }
 .page-head h1 { max-width: 20ch; }
 .page-head .lede { margin-top: var(--space-5); }
 .page-head .eyebrow .notranslate { color: var(--text); font-weight: var(--weight-strong); font-size: var(--text-md); }
 
-/* The approved crest as a faint watermark behind inner pages: CSS only, the file itself is unchanged. Fixed and
-   centred like a seal on a formal document; behind content, never interactive, hidden from assistive technology. */
-.watermark { position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background: url("/assets/img/logical-knight-logo.png") center 56% / min(520px, 68vw) auto no-repeat;
-  opacity: 0.032; }
-@media (max-width: 599px) { .watermark { opacity: 0.03; background-size: 78vw auto; } }
-@media print { .watermark { display: none; } }
+/* ---------- Persistent brand seal ----------
+   One fixed layer in the middle of the viewport on every real page, behind the content (z-index 0; main and footer
+   sit at 1, the header at 50). The approved crest stays still; only the inscription ring and the outer geometry turn.
+   Opacity is set per layer, never on the whole seal. Full-width bands use translucent tints so the seal shows through;
+   cards, forms and screenshots stay opaque so their content always reads cleanly. */
+.brand-seal { --seal-size: 400px; position: fixed; left: 50%; top: 50%; z-index: 0; width: var(--seal-size); height: var(--seal-size); transform: translate(-50%, -50%); pointer-events: none; user-select: none; }
+.brand-seal__svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.brand-seal__crest { position: absolute; left: 50%; top: 50%; width: 34%; height: auto; transform: translate(-50%, -50%); opacity: 0.32; }
+.seal__guide { stroke: rgba(70, 145, 175, 0.1); stroke-width: 0.6; fill: none; }
+.seal__arc { stroke: rgba(70, 145, 175, 0.16); stroke-width: 0.8; fill: none; }
+.seal__dots { stroke: rgba(70, 145, 175, 0.34); stroke-width: 1.4; stroke-linecap: round; stroke-dasharray: 0 1.8; fill: none; }
+.seal__fine { stroke: rgba(70, 145, 175, 0.2); stroke-width: 0.7; fill: none; }
+.seal__fine--strong { stroke: rgba(70, 145, 175, 0.3); }
+.seal__mark { fill: rgba(70, 145, 175, 0.32); }
+.seal__line { stroke: rgba(70, 145, 175, 0.24); stroke-width: 0.7; fill: none; }
+.seal__disc { fill: rgba(255, 255, 255, 0.55); stroke: rgba(70, 145, 175, 0.18); stroke-width: 0.7; }
+.seal__text, .seal__micro { font-family: Georgia, "Times New Roman", Times, serif; font-weight: 400; text-transform: uppercase; }
+.seal__text { font-size: 12.5px; letter-spacing: 0.2em; fill: rgba(60, 130, 160, 0.4); }
+.seal__micro { font-size: 6.5px; letter-spacing: 0.3em; fill: rgba(60, 130, 160, 0.24); }
+.seal__ring, .seal__outer { transform-box: view-box; transform-origin: 50% 50%; }
+@media (max-width: 1099px) { .brand-seal { --seal-size: 330px; } }
+@media (max-width: 599px) { .brand-seal { --seal-size: 250px; } .brand-seal__crest { opacity: 0.28; } }
+@media print { .brand-seal { display: none; } }
+main, .site-footer { position: relative; z-index: 1; }
+.site-header.is-open { background: #fff; }
 
 .closing { border-top: 1px solid var(--border); }
 .closing__inner { text-align: center; max-width: 760px; }
@@ -313,7 +316,7 @@ a.lang__item:hover { background: var(--lk-surface-cool); color: var(--text); }
 
 /* ---------- Contact ---------- */
 .contact { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-8); align-items: start; }
-.contact__form { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(1.25rem, 1rem + 2vw, 2.5rem); box-shadow: var(--shadow-md); }
+.contact__form { background: rgba(255, 255, 255, 0.84); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(1.25rem, 1rem + 2vw, 2.5rem); box-shadow: var(--shadow-md); }
 .contact__form h2 { margin-bottom: var(--space-5); }
 .contact__side h2 { margin: var(--space-6) 0 var(--space-3); }
 .contact__side h2:first-child { margin-top: 0; }
@@ -347,12 +350,11 @@ a.lang__item:hover { background: var(--lk-surface-cool); color: var(--text); }
 
 /* ---------- 404 ---------- */
 .notfound__inner { text-align: center; }
-.notfound__crest { width: 96px; margin: 0 auto var(--space-6); }
 .notfound h2 { margin-top: var(--space-7); }
 .notfound .lede { margin: var(--space-3) auto 0; }
 
 /* ---------- Footer ---------- */
-.site-footer { position: relative; z-index: 1; border-top: 1px solid var(--border); background: var(--lk-white); padding: var(--space-8) 0 var(--space-6); font-size: var(--text-sm); }
+.site-footer { border-top: 1px solid var(--border); background: rgba(255, 255, 255, 0.6); padding: var(--space-8) 0 var(--space-6); font-size: var(--text-sm); }
 .site-footer__grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: var(--space-7); }
 .site-footer__brand p { margin: var(--space-3) 0 0; color: var(--text-secondary); }
 .site-footer__nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
@@ -369,19 +371,20 @@ a.lang__item:hover { background: var(--lk-surface-cool); color: var(--text); }
 
 /* ---------- Motion: calm and optional ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  .seal { animation: seal-in 900ms var(--ease-out) both; }
-  .seal__word, .hero h1, .hero .lede, .hero .btn-row { animation: rise 700ms var(--ease-out) both; }
-  .seal__word { animation-delay: 150ms; }
+  .hero__word, .hero h1, .hero .lede, .hero .btn-row { animation: rise 700ms var(--ease-out) both; }
+  .hero__word { animation-delay: 150ms; }
   .hero h1 { animation-delay: 220ms; }
   .hero .lede { animation-delay: 320ms; }
   .hero .btn-row { animation-delay: 400ms; }
-  .seal__rings::after { animation: turn 240s linear infinite; }
+  .seal__ring { animation: turn 44s linear infinite; }
+  .seal__outer { animation: turn-back 64s linear infinite; }
   [data-reveal] { transition: opacity var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out); }
   .is-pending { opacity: 0; transform: translateY(14px); }
 }
-@keyframes seal-in { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: none; } }
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @keyframes turn { to { transform: rotate(360deg); } }
+@keyframes turn-back { to { transform: rotate(-360deg); } }
 @media (prefers-reduced-motion: reduce) {
+  .seal__ring, .seal__outer { animation: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

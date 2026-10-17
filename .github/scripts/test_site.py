@@ -191,7 +191,7 @@ class Crest(unittest.TestCase):
         imgs = {p.name for p in (ROOT / "assets/img").glob("*.png")} | {p.name for p in ROOT.glob("*.png")}
         self.assertEqual(imgs, {"logical-knight-logo.png"})
 
-    def test_lockup_seal_and_watermark(self):
+    def test_lockup_and_one_persistent_seal_on_every_real_page(self):
         for f in CONTENT:
             text = f.read_text(encoding="utf-8")
             doc = parse(f)
@@ -200,21 +200,62 @@ class Crest(unittest.TestCase):
                 self.assertTrue(brand, "header lockup")
                 icons = [a["href"] for a in doc.all("link") if a.get("rel") in ("icon", "apple-touch-icon")]
                 self.assertEqual(set(icons), {site.CREST})
-                is_home = f in (page_file("/"), page_file("/de/"))
-                if is_home:
-                    self.assertIn('class="seal__crest"', text)
-                    self.assertNotIn('class="watermark"', text)
-                elif f.name != "404.html":
-                    self.assertIn('<div class="watermark" aria-hidden="true"></div>', text)
+                self.assertEqual(text.count('<div class="brand-seal" aria-hidden="true">'), 1)
+                self.assertEqual(text.count('class="brand-seal__crest" src="/assets/img/logical-knight-logo.png"'), 1)
+                self.assertEqual(len([e for e in doc.all("img") if e.get("class") == "brand-seal__crest"][0].get("alt")), 0)
+        for f in REDIRECT_FILES:
+            with self.subTest(str(f.relative_to(ROOT))):
+                self.assertNotIn("brand-seal", f.read_text(encoding="utf-8"))
 
-    def test_watermark_never_takes_pointer_events_or_covers_content(self):
+    def test_old_hero_crest_and_watermark_are_gone(self):
         css = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
-        rule = re.search(r"\.watermark \{([^}]*)\}", css).group(1)
-        self.assertIn("pointer-events: none", rule)
-        self.assertIn("z-index: 0", rule)
-        opacity = float(re.search(r"opacity: ([\d.]+)", rule).group(1))
-        self.assertTrue(0.02 <= opacity <= 0.06, opacity)
-        self.assertRegex(css, r"\.page-inner main \{[^}]*z-index: 1")
+        for f in html_files():
+            text = f.read_text(encoding="utf-8")
+            with self.subTest(str(f.relative_to(ROOT))):
+                for old in ('class="seal"', 'class="seal__crest"', "seal__rings", 'class="watermark"', "notfound__crest"):
+                    self.assertNotIn(old, text)
+        for old in (".watermark", "\n.seal {", ".seal__rings", "\n.seal__crest"):
+            self.assertNotIn(old, css)
+
+    def test_seal_inscriptions(self):
+        words = {"en": ("WE BUILD WITH CARE", "SIMPLE SOFTWARE", "REAL PROBLEMS", "CLEAR SYSTEMS"),
+                 "de": ("MIT SORGFALT GEBAUT", "EINFACHE SOFTWARE", "ECHTE PROBLEME", "KLARE SYSTEME")}
+        for f in CONTENT:
+            text = f.read_text(encoding="utf-8")
+            lang = re.search(r'<html lang="(\w+)">', text).group(1)
+            with self.subTest(str(f.relative_to(ROOT))):
+                for w in words[lang]:
+                    self.assertIn(w, text)
+                for w in ("CURA", "CLARITAS", "OPUS", "FIDES"):
+                    self.assertIn(w, text)
+                self.assertEqual(text.count('<textPath href="#lk-seal-ring"'), 1)
+                self.assertEqual(text.count('id="lk-seal-ring"'), 1)
+
+    def test_seal_is_fixed_centred_and_never_interactive(self):
+        css = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
+        rule = re.search(r"\.brand-seal \{([^}]*)\}", css).group(1)
+        for decl in ("position: fixed", "left: 50%", "top: 50%", "transform: translate(-50%, -50%)", "pointer-events: none",
+                     "z-index: 0"):
+            self.assertIn(decl, rule)
+        self.assertRegex(css, r"main, \.site-footer \{[^}]*z-index: 1")
+        self.assertRegex(css, r"\.site-header \{[^}]*z-index: 50")
+
+    def test_seal_motion_rings_turn_crest_stays_still(self):
+        css = (ROOT / "assets/css/site.css").read_text(encoding="utf-8")
+        ring = re.search(r"\.seal__ring \{ animation: turn (\d+)s linear infinite; \}", css)
+        outer = re.search(r"\.seal__outer \{ animation: turn-back (\d+)s linear infinite; \}", css)
+        self.assertTrue(ring and outer)
+        self.assertTrue(38 <= int(ring.group(1)) <= 50, ring.group(1))
+        self.assertTrue(55 <= int(outer.group(1)) <= 75, outer.group(1))
+        self.assertIn("@keyframes turn { to { transform: rotate(360deg); } }", css)
+        self.assertIn("@keyframes turn-back { to { transform: rotate(-360deg); } }", css)
+        crest_rules = re.findall(r"\.brand-seal__crest \{([^}]*)\}", css)
+        self.assertTrue(crest_rules)
+        for r in crest_rules:
+            self.assertNotIn("animation", r)
+        reduced = css[css.index("@media (prefers-reduced-motion: reduce)"):]
+        self.assertIn(".seal__ring, .seal__outer { animation: none; }", reduced)
+        self.assertIn("@media (prefers-reduced-motion: no-preference)", css[:css.index(".seal__ring { animation")][-2000:])
 
 
 class Pages(unittest.TestCase):
@@ -282,6 +323,14 @@ class Copy(unittest.TestCase):
             found = set(re.findall(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+", f.read_text(encoding="utf-8")))
             with self.subTest(str(f.relative_to(ROOT))):
                 self.assertLessEqual(found, ALLOWED_EMAILS)
+
+    def test_no_founder_marketing(self):
+        terms = re.compile(r"founder|gründer|inhabergeführt|run by its founder|one-man", re.I)
+        for f in CONTENT:
+            if f.parent.name in ("impressum", "datenschutz"):
+                continue
+            with self.subTest(str(f.relative_to(ROOT))):
+                self.assertIsNone(terms.search(f.read_text(encoding="utf-8")))
 
     def test_postal_address_only_in_legal_pages(self):
         street = "Große Holl 32"

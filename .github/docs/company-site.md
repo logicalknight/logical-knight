@@ -4,8 +4,9 @@ Internal. Kept under `.github/` so GitHub Pages does not publish it.
 
 ## Positioning
 
-Logical Knight is the **company**: a small, founder-led software company that builds practical software for small and
-growing businesses. It looks for real business problems and builds focused tools around them. Products sit under the
+Logical Knight is the **company**: a small, focused software company that builds practical software for small and
+growing businesses. It works as a compact team that keeps decisions close to the work and moves quickly from a useful
+idea to a working version. It looks for real business problems and builds focused tools around them. Products sit under the
 company story, never in place of it.
 
 - Name: **Logical Knight**, singular, always. Protected from page translation (`translate="no"`).
@@ -14,13 +15,17 @@ company story, never in place of it.
   Access / Kostenloser Vorabzugang). Show nothing else as a product.
 - No invented size, team, offices, clients, partners, numbers, testimonials, awards or founding year. The founding
   year is not recorded anywhere; add it only after the owner confirms it.
+- No founder-centred marketing: never "founder-led", "run by its founder", "inhabergeführt" or "gründergeführt",
+  and nothing that reads as a one-person business ("we review every request personally"). Say "small, focused
+  software company", "compact team", "Kleines Team. Kurze Wege." `test_site.py` checks this. The provider's name in
+  the Impressum and Datenschutz is legal information, not marketing, and stays.
 
 ## Voice
 
 Short sentences, normal words, concrete examples. Warm and direct; understandable at B1/B2. No hype words (leverage,
 empower, transformative, cutting-edge, ecosystem, seamless, innovative, unlock, world-class...); `test_site.py` checks
-for them. German is written, not translated: natural, simple, "Sie", few English words ("inhabergeführt",
-"Vorabzugang", not "founder-led", "Early Access"; the Data Workbench page explains that the app itself is English and
+for them. German is written, not translated: natural, simple, "Sie", few English words ("Vorabzugang", not
+"Early Access"; the Data Workbench page explains that the app itself is English and
 calls the programme "Free Early Access").
 
 ## Information architecture
@@ -68,13 +73,27 @@ Only the approved crest, `assets/img/logical-knight-logo.png` (138 x 134, SHA-25
 resize, recolour, trace or regenerate it; tests pin the hash and refuse any other PNG logo. All presentation is CSS:
 
 - **Lockup** in header and footer: crest in a 40 px box + "Logical Knight".
-- **Homepage seal**: crest at its own pixel size (112 px on phones) in a CSS ring with fine ticks and a soft halo,
-  "LOGICAL KNIGHT" in spaced capitals below. Gentle entrance; the tick ring turns very slowly; both stop under
-  `prefers-reduced-motion`.
-- **Watermark** on inner pages: `<div class="watermark" aria-hidden="true">`, fixed and centred, the crest as a CSS
-  background at `min(520px, 68vw)`, opacity 0.032 (0.03 on phones), `pointer-events: none`, `z-index: 0` under
-  `main` (`z-index: 1`), hidden in print. Because the source file is small, the enlarged watermark is soft; a
-  higher-resolution export of the same crest from the owner would sharpen both seal and watermark.
+- **Persistent seal** (`seal()` in `build_site.py`): part of Logical Knight's identity. Exactly one per real page
+  (all content pages, legal pages, 404; not redirect stubs), inserted by the shared page builders, so every future
+  page gets it too. A fixed layer centred in the viewport (`position: fixed; left: 50%; top: 50%; translate(-50%,
+  -50%)`); it does not scroll with the content. Behind the content (`z-index: 0`; `main` and the footer at 1, the
+  header and its mobile menu at 50), `pointer-events: none`, `aria-hidden="true"`, never focusable, hidden in print.
+  Full-width bands use translucent tints so it shows through; cards, forms and screenshots stay opaque.
+- Structure (inline SVG, 400 x 400 view box): faint partial outer arcs, a dotted ring, four small diamond cardinal
+  marks and outer ticks; the main inscription between two fine circles; a Latin micro-inscription; fine inner radial
+  ticks; a near-white central disc; faint compass guide lines; the exact crest (`<img>`) in the centre.
+- Inscriptions (SVG `textPath`, Georgia/Times serif, regular weight, spaced capitals, low opacity):
+  English "WE BUILD WITH CARE • SIMPLE SOFTWARE • REAL PROBLEMS • CLEAR SYSTEMS •",
+  German "MIT SORGFALT GEBAUT • EINFACHE SOFTWARE • ECHTE PROBLEME • KLARE SYSTEME •",
+  micro ring "CURA • CLARITAS • OPUS • FIDES •" (care, clarity, work, trust). Only real words.
+- Motion: **the crest never moves**. The inscription ring turns clockwise once every 44 s; the outer geometry turns
+  the other way once every 64 s. CSS only, linear, no scroll or pointer effects. Under `prefers-reduced-motion:
+  reduce` all rotation stops and the whole seal stays visible.
+- Size: 400 px on desktop, 330 px below 1100 px, 250 px below 600 px. Crest at 34 % of the seal (136 px on desktop,
+  below its own 138 px). Opacity is set per layer: crest 0.32 (0.28 on phones), inscription 0.4, micro inscription
+  0.24, fine geometry 0.1 to 0.34. Never one opacity on the whole seal.
+- The homepage hero has no separate crest; it opens with "LOGICAL KNIGHT" and the core line. There is no separate
+  watermark any more.
 - Favicon, touch icon and social preview image use the same file.
 
 ## Visual system
@@ -95,7 +114,7 @@ form would need a server-side endpoint, spam protection and a privacy-policy upd
 
 ```
 python .github/scripts/build_site.py     # writes every page from the source
-python .github/scripts/test_site.py      # routes, parity, links, crest, watermark, metadata, copy rules
+python .github/scripts/test_site.py      # routes, parity, links, crest, seal, metadata, copy rules
 python .github/scripts/check_site.py     # translation protection, retired names, owner markers (--live: app links)
 python .github/scripts/preview.py        # local preview at http://127.0.0.1:8766/
 ```

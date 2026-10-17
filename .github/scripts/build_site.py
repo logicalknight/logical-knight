@@ -11,6 +11,7 @@ directory). Standard library only.
 
 from __future__ import annotations
 
+import math
 import re
 from html import escape
 from pathlib import Path
@@ -22,7 +23,7 @@ SITE = "https://logicalknight.com"
 LEGAL_SRC = ROOT / ".github" / "site" / "legal"
 
 # The approved Logical Knight crest, byte-for-byte as supplied (138 x 134 px, transparent PNG). Never edited, resized
-# or re-encoded: all presentation (lockup, seal, watermark) is CSS around this file. Tests pin the SHA-256.
+# or re-encoded: all presentation (lockup, persistent seal) is HTML/CSS/SVG around this file. Tests pin the SHA-256.
 CREST = "/assets/img/logical-knight-logo.png"
 CREST_W, CREST_H = 138, 134
 
@@ -252,14 +253,71 @@ def footer(lang: str, en_href: str, de_href: str) -> str:
 '''
 
 
-WATERMARK = '  <div class="watermark" aria-hidden="true"></div>\n'
+# The persistent brand seal: one fixed layer in the middle of the viewport on every real page. The approved crest sits
+# still in the centre; the inscription ring turns slowly clockwise and the outer geometry slower the other way (CSS).
+# Decorative only: hidden from assistive technology, never focusable, never takes pointer events.
+SEAL_TEXT = {
+    "en": "WE BUILD WITH CARE \u2022 SIMPLE SOFTWARE \u2022 REAL PROBLEMS \u2022 CLEAR SYSTEMS \u2022",
+    "de": "MIT SORGFALT GEBAUT \u2022 EINFACHE SOFTWARE \u2022 ECHTE PROBLEME \u2022 KLARE SYSTEME \u2022",
+}
+# Classical Latin, used decoratively: care, clarity, work, trust.
+SEAL_MICRO = "CURA \u2022 CLARITAS \u2022 OPUS \u2022 FIDES \u2022 CURA \u2022 CLARITAS \u2022 OPUS \u2022 FIDES \u2022"
+
+
+def _seal_geometry() -> str:
+    """Static SVG pieces in a 400 x 400 view box centred on (200, 200)."""
+    def at(r: float, deg: float) -> tuple[float, float]:
+        a = math.radians(deg - 90)
+        return round(200 + r * math.cos(a), 2), round(200 + r * math.sin(a), 2)
+
+    def ticks(r1: float, r2: float, step: float) -> str:
+        return "".join(f'M{x1} {y1}L{x2} {y2}' for d in range(0, 360, int(step))
+                       for (x1, y1), (x2, y2) in [(at(r1, d), at(r2, d))])
+
+    def diamond(deg: float) -> str:
+        (cx, cy), (ox, oy), (ix, iy) = at(186, deg), at(194, deg), at(178, deg)
+        (lx, ly), (rx, ry) = at(186, deg - 1.9), at(186, deg + 1.9)
+        return f'M{ox} {oy}L{rx} {ry}L{ix} {iy}L{lx} {ly}Z'
+
+    outer = (f'<path class="seal__arc" d="M{at(197, 20)[0]} {at(197, 20)[1]}A197 197 0 0 1 {at(197, 70)[0]} {at(197, 70)[1]}'
+             f'M{at(197, 200)[0]} {at(197, 200)[1]}A197 197 0 0 1 {at(197, 250)[0]} {at(197, 250)[1]}"/>'
+             '<circle class="seal__dots" cx="200" cy="200" r="186" pathLength="360"/>'
+             f'<path class="seal__fine" d="{ticks(176, 181, 10)}"/>'
+             f'<path class="seal__mark" d="{"".join(diamond(d) for d in (0, 90, 180, 270))}"/>')
+    inner = (f'<path class="seal__fine" d="{ticks(110, 117, 6)}"/>'
+             f'<path class="seal__fine seal__fine--strong" d="{ticks(108, 118, 30)}"/>')
+    return outer, inner
+
+
+def seal(lang: str) -> str:
+    outer, inner = _seal_geometry()
+    return f'''  <div class="brand-seal" aria-hidden="true">
+    <svg class="brand-seal__svg" viewBox="0 0 400 400" focusable="false">
+      <defs>
+        <path id="lk-seal-ring" d="M200 44a156 156 0 1 1 0 312a156 156 0 1 1 0-312"/>
+        <path id="lk-seal-micro" d="M200 75a125 125 0 1 1 0 250a125 125 0 1 1 0-250"/>
+      </defs>
+      <path class="seal__guide" d="M200 8V392M8 200H392"/>
+      <g class="seal__outer">{outer}</g>
+      <g class="seal__ring">
+        <circle class="seal__line" cx="200" cy="200" r="172"/>
+        <circle class="seal__line" cx="200" cy="200" r="143"/>
+        <text class="seal__text"><textPath href="#lk-seal-ring" textLength="975" lengthAdjust="spacing">{SEAL_TEXT[lang]}</textPath></text>
+        <text class="seal__micro"><textPath href="#lk-seal-micro" textLength="780" lengthAdjust="spacing">{SEAL_MICRO}</textPath></text>
+      </g>
+      <circle class="seal__disc" cx="200" cy="200" r="104"/>
+      <g class="seal__inner">{inner}</g>
+    </svg>
+    <img class="brand-seal__crest" src="{CREST}" width="{CREST_W}" height="{CREST_H}" alt="">
+  </div>
+'''
 
 
 def page(lang: str, key: str, title: str, desc: str, main: str, current: str | None, cta=None) -> str:
     en_href, de_href = ROUTES[key]
     body_class = "page-home" if key == "home" else "page-inner"
     return (head(lang, title, desc, path(key, lang), {"en": en_href, "de": de_href}, body_class)
-            + header(lang, current, en_href, de_href, cta) + ("" if key == "home" else WATERMARK)
+            + header(lang, current, en_href, de_href, cta) + seal(lang)
             + main + footer(lang, en_href, de_href))
 
 
@@ -332,7 +390,7 @@ def product_visual(p: dict, lang: str) -> str:
 HOME = {
     "en": {
         "title": "Logical Knight: hard problems, simple software",
-        "desc": "Logical Knight is a small, founder-led software company. We build practical software for small and growing businesses: IPPC Ledger and Data Workbench.",
+        "desc": "Logical Knight is a small software company building practical tools for small and growing businesses, including IPPC Ledger and Data Workbench.",
         "h1": "Hard problems.<br>Simple software.",
         "lede": "Logical Knight builds practical software for small and growing businesses. We take slow, messy work and turn it into tools that are easier to understand, easier to use, and easier to trust.",
         "cta1": "See our products", "cta2": "Tell us your problem",
@@ -365,13 +423,14 @@ HOME = {
         "problem_also": "Specialists, consultants and possible partners are welcome to write too.",
         "problem_cta": "Tell us what is not working",
         "company_h": "Small company. Big care.",
-        "company": ["Logical Knight is a small, founder-led software company. We build carefully, test with real people, listen to what works, and improve from there.",
+        "company": ["Logical Knight is a small, focused software company. We work as a compact team, keep decisions close to the work and move quickly from a useful idea to a working version.",
+                    "Moving quickly does not mean rushing. We test what we build and pay attention to the details.",
                     "We do not build software just because it sounds impressive. We build it because someone needs it."],
         "company_cta": "More about the company",
     },
     "de": {
         "title": "Logical Knight: schwierige Probleme, einfache Software",
-        "desc": "Logical Knight ist ein kleines, inhabergeführtes Softwareunternehmen. Wir entwickeln praktische Software für kleine und wachsende Unternehmen: IPPC Ledger und Data Workbench.",
+        "desc": "Logical Knight ist ein kleines Softwareunternehmen und entwickelt praktische Werkzeuge für kleine und wachsende Unternehmen, darunter IPPC Ledger und Data Workbench.",
         "h1": "Schwierige Probleme.<br>Einfache Software.",
         "lede": "Logical Knight entwickelt praktische Software für kleine und wachsende Unternehmen. Aus langsamer, mühsamer Arbeit machen wir Werkzeuge, die verständlich sind, sich einfach bedienen lassen und denen man vertrauen kann.",
         "cta1": "Unsere Produkte ansehen", "cta2": "Problem schildern",
@@ -404,7 +463,8 @@ HOME = {
         "problem_also": "Auch Fachleute, Beraterinnen und Berater und mögliche Partner sind willkommen.",
         "problem_cta": "Schildern Sie, was nicht funktioniert",
         "company_h": "Kleines Unternehmen. Große Sorgfalt.",
-        "company": ["Logical Knight ist ein kleines, inhabergeführtes Softwareunternehmen. Wir bauen sorgfältig, testen mit echten Menschen, achten darauf, was funktioniert, und verbessern von dort aus.",
+        "company": ["Logical Knight ist ein kleines, fokussiertes Softwareunternehmen. Wir arbeiten als kompaktes Team, halten Entscheidungen nah an der Arbeit und machen aus einer guten Idee schnell eine funktionierende Version.",
+                    "Schnell zu arbeiten heißt für uns nicht, nachlässig zu arbeiten. Wir testen, was wir bauen, und achten auf die Details.",
                     "Wir bauen keine Software, nur weil sie beeindruckend klingt. Wir bauen sie, weil jemand sie braucht."],
         "company_cta": "Mehr über das Unternehmen",
     },
@@ -444,11 +504,7 @@ def home(lang: str) -> str:
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <div class="seal">
-          <span class="seal__rings" aria-hidden="true"></span>
-          <img class="seal__crest" src="{CREST}" width="{CREST_W}" height="{CREST_H}" alt="" fetchpriority="high">
-        </div>
-        <p class="seal__word notranslate" translate="no">Logical Knight</p>
+        <p class="hero__word notranslate" translate="no">Logical Knight</p>
         <h1 id="hero-title">{c["h1"]}</h1>
         <p class="lede">{b(c["lede"])}</p>
         <p class="btn-row btn-row--center">
@@ -532,7 +588,7 @@ def home(lang: str) -> str:
 COMPANY = {
     "en": {
         "title": "Company · Logical Knight",
-        "desc": "Who Logical Knight is, why it exists and how it builds software: a small, founder-led company making focused tools for small and growing businesses.",
+        "desc": "Who Logical Knight is, why the company exists and how it builds focused software for real business problems.",
         "eyebrow": "Company",
         "h1": "A small software company for real work.",
         "lede": "Logical Knight builds practical software for small and growing businesses. We look for real problems and build focused tools around them.",
@@ -542,9 +598,9 @@ COMPANY = {
         "care_h": "Problems we care about",
         "care": ["Work that is done by hand, again and again.", "Information spread over files, inboxes and binders.",
                  "Records that must be right, and must be easy to show.", "Data that nobody fully trusts yet."],
-        "founder_h": "What founder-led means here",
-        "founder": ["Logical Knight is run by its founder. The person who decides what gets built also talks to the people who use it. There is no sales team in between, and decisions are short.",
-                    "It also means we are small. We take on what we can do well, and we say so when we cannot."],
+        "team_h": "Small team. Short paths.",
+        "team": ["We work as a small, focused team. The people shaping a product stay close to the problem and to the work, so decisions can be made quickly and useful ideas can become working software without layers of delay.",
+                 "We move quickly, but not carelessly. We keep the scope clear, test what we build and improve what matters."],
         "principles_h": "What good software should do",
         "principles": [("Useful before impressive", "A tool should save time or prevent mistakes from the first week. Features that only look good in a demo can wait."),
                        ("Clear over complicated", "Plain words, clear screens, no surprises. If something needs a manual to understand, we have more work to do."),
@@ -562,7 +618,7 @@ COMPANY = {
     },
     "de": {
         "title": "Unternehmen · Logical Knight",
-        "desc": "Wer Logical Knight ist, warum es das Unternehmen gibt und wie es Software baut: ein kleines, inhabergeführtes Unternehmen mit gezielten Werkzeugen für kleine und wachsende Unternehmen.",
+        "desc": "Wer Logical Knight ist, warum es das Unternehmen gibt und wie daraus gezielte Software für echte Probleme im Arbeitsalltag entsteht.",
         "eyebrow": "Unternehmen",
         "h1": "Ein kleines Softwareunternehmen für echte Arbeit.",
         "lede": "Logical Knight entwickelt praktische Software für kleine und wachsende Unternehmen. Wir suchen echte Probleme und bauen gezielte Werkzeuge dafür.",
@@ -572,9 +628,9 @@ COMPANY = {
         "care_h": "Probleme, die uns interessieren",
         "care": ["Arbeit, die immer wieder von Hand erledigt wird.", "Informationen, verteilt auf Dateien, Postfächer und Ordner.",
                  "Nachweise, die stimmen müssen und sich leicht vorzeigen lassen sollen.", "Daten, denen noch niemand ganz traut."],
-        "founder_h": "Was inhabergeführt bei uns heißt",
-        "founder": ["Logical Knight wird von seinem Gründer geführt. Wer entscheidet, was gebaut wird, spricht auch mit den Menschen, die es benutzen. Es gibt keinen Vertrieb dazwischen, und die Wege sind kurz.",
-                    "Es heißt auch: Wir sind klein. Wir übernehmen, was wir gut können, und sagen offen, wenn wir etwas nicht können."],
+        "team_h": "Kleines Team. Kurze Wege.",
+        "team": ["Wir arbeiten als kleines, fokussiertes Team. Die Menschen, die ein Produkt gestalten, bleiben nah am Problem und an der täglichen Arbeit. So können wir schnell entscheiden und aus guten Ideen ohne lange Wege funktionierende Software machen.",
+                 "Wir arbeiten schnell, aber nicht nachlässig. Wir halten den Umfang klar, testen, was wir bauen, und verbessern, was wirklich zählt."],
         "principles_h": "Was gute Software leisten sollte",
         "principles": [("Nützlich vor beeindruckend", "Ein Werkzeug soll ab der ersten Woche Zeit sparen oder Fehler verhindern. Was nur in einer Vorführung gut aussieht, kann warten."),
                        ("Klar statt kompliziert", "Einfache Worte, klare Bildschirme, keine Überraschungen. Braucht etwas ein Handbuch, haben wir noch Arbeit vor uns."),
@@ -613,10 +669,10 @@ def company(lang: str) -> str:
       </div>
     </section>
 
-    <section class="section" aria-labelledby="founder-title">
+    <section class="section" aria-labelledby="team-title">
       <div class="container split">
-        <h2 id="founder-title" class="h-lg">{c["founder_h"]}</h2>
-        <div class="split__body prose prose--lg">{paras(c["founder"])}</div>
+        <h2 id="team-title" class="h-lg">{c["team_h"]}</h2>
+        <div class="split__body prose prose--lg">{paras(c["team"])}</div>
       </div>
     </section>
 
@@ -730,7 +786,7 @@ DW = {
         "h1": "Turn CSV and Excel files into checked, understandable data.",
         "lede": "Data Workbench helps small teams clean up messy spreadsheets without losing track of what changed. Your original file stays as it was. The changes that matter wait for you to approve them.",
         "cta1": "Request Free Early Access", "cta2": "Sign in",
-        "hero_note": "Free for now, while we learn from real use. We review every request personally.",
+        "hero_note": "Free for now, while we learn from real use. We review every request before granting access.",
         "lang_note": "",
         "problem_h": "Spreadsheets you cannot fully trust.",
         "problem": ["Files arrive from suppliers, shops and other systems. Prices use commas, product codes lose their leading zeros, and columns are empty or mean different things.",
@@ -756,7 +812,7 @@ DW = {
         "early_h": "Free Early Access.",
         "early_lede": "Free while we learn from real use.",
         "early": ["Early Access is currently free. It is not a permanent free plan.",
-                  "Access is controlled: we review every request and invite people personally.",
+                  "Access is controlled. We review requests and send invitations directly.",
                   "Each company gets its own private organisation.",
                   "Features may change as we learn.",
                   "You must have permission to upload the data you use."],
@@ -770,7 +826,7 @@ DW = {
         "h1": "Aus CSV- und Excel-Dateien werden geprüfte, verständliche Daten.",
         "lede": "Data Workbench hilft kleinen Teams, unordentliche Tabellen zu bereinigen, ohne den Überblick über die Änderungen zu verlieren. Ihre Originaldatei bleibt, wie sie ist. Wichtige Änderungen warten auf Ihre Freigabe.",
         "cta1": "Kostenlosen Vorabzugang anfragen", "cta2": "Anmelden",
-        "hero_note": "Derzeit kostenlos, solange wir aus der echten Nutzung lernen. Wir prüfen jede Anfrage persönlich.",
+        "hero_note": "Derzeit kostenlos, solange wir aus der echten Nutzung lernen. Wir prüfen jede Anfrage, bevor wir Zugang gewähren.",
         "lang_note": "Die Anwendung ist derzeit nur auf Englisch verfügbar. Dort heißt der Vorabzugang „Free Early Access“.",
         "problem_h": "Tabellen, denen man nicht ganz traut.",
         "problem": ["Dateien kommen von Lieferanten, aus Shops und anderen Systemen. Preise stehen mit Komma, Artikelnummern verlieren ihre führenden Nullen, und Spalten sind leer oder bedeuten Unterschiedliches.",
@@ -796,7 +852,7 @@ DW = {
         "early_h": "Kostenloser Vorabzugang.",
         "early_lede": "Kostenlos, solange wir aus der echten Nutzung lernen.",
         "early": ["Der Vorabzugang ist derzeit kostenlos. Er ist kein dauerhaft kostenloses Angebot.",
-                  "Der Zugang ist begrenzt: Wir prüfen jede Anfrage und laden persönlich ein.",
+                  "Der Zugang ist begrenzt. Wir prüfen Anfragen und versenden die Einladungen direkt.",
                   "Jedes Unternehmen bekommt einen eigenen, privaten Bereich.",
                   "Funktionen können sich ändern, während wir lernen.",
                   "Sie dürfen nur Daten hochladen, für die Sie die Erlaubnis haben."],
@@ -1098,7 +1154,7 @@ def legal(name: str) -> str:
   </main>
 '''
     return (head("de", title, desc, p, None, "page-inner page-legal") + header("de", None, en_href, de_href)
-            + WATERMARK + main + footer("de", en_href, de_href))
+            + seal("de") + main + footer("de", en_href, de_href))
 
 
 # --------------------------------------------------------------------------------------------------------------------
@@ -1109,7 +1165,6 @@ def not_found() -> str:
     main = f'''  <main id="main">
     <section class="section notfound">
       <div class="container narrow notfound__inner">
-        <img class="notfound__crest" src="{CREST}" width="{CREST_W}" height="{CREST_H}" alt="">
         <h1 class="h-lg">This page does not exist.</h1>
         <p class="lede">It may have moved. Try the <a href="/">homepage</a> or our <a href="/en/products/">products</a>.</p>
         <h2 class="h-md" lang="de">Diese Seite gibt es nicht.</h2>
@@ -1119,7 +1174,7 @@ def not_found() -> str:
   </main>
 '''
     return (head("en", "Page not found · Logical Knight", "This page does not exist.", "/404.html", None, "page-inner",
-                 robots="noindex") + header("en", None, "/", "/de/") + main + footer("en", "/", "/de/"))
+                 robots="noindex") + header("en", None, "/", "/de/") + seal("en") + main + footer("en", "/", "/de/"))
 
 
 def redirect(target: str) -> str:
