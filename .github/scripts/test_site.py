@@ -283,6 +283,15 @@ class Copy(unittest.TestCase):
             with self.subTest(str(f.relative_to(ROOT))):
                 self.assertLessEqual(found, ALLOWED_EMAILS)
 
+    def test_postal_address_only_in_legal_pages(self):
+        street = "Große Holl 32"
+        for route in site.LEGAL.values():
+            with self.subTest(route):
+                self.assertIn(street, page_file(route).read_text(encoding="utf-8"))
+        for route in site.ROUTES["contact"]:
+            with self.subTest(route):
+                self.assertNotIn(street, page_file(route).read_text(encoding="utf-8"))
+
     def test_no_secrets_or_tracking(self):
         pattern = re.compile(r"(api[_-]?key|secret|token|password)\s*[:=]\s*['\"][^'\"]{8,}|googletagmanager|google-analytics|"
                              r"gtag\(|plausible|matomo|hotjar|facebook\.net|localStorage|sessionStorage|document\.cookie", re.I)

@@ -987,7 +987,6 @@ CONTACT = {
                    ("Support for existing users", f'<a href="mailto:{SUPPORT}">{SUPPORT}</a>'),
                    ("IPPC Ledger pilot", f'<a href="{APP}/pilot?lang=en">Request a pilot</a>'),
                    ("Data Workbench", f'<a href="{WB_EARLY}">Request Free Early Access</a>')],
-        "postal_h": "Postal address",
         "privacy": "How we handle e-mail is described in the <a href=\"/datenschutz/#contact\">privacy policy</a>.",
     },
     "de": {
@@ -1018,14 +1017,9 @@ CONTACT = {
                    ("Support für bestehende Nutzer", f'<a href="mailto:{SUPPORT}">{SUPPORT}</a>'),
                    ("Pilot IPPC Ledger", f'<a href="{APP}/pilot?lang=de">Pilot anfragen</a>'),
                    ("Data Workbench", f'<a href="{WB_EARLY}">Kostenlosen Vorabzugang anfragen</a>')],
-        "postal_h": "Postanschrift",
         "privacy": "Wie wir mit E-Mails umgehen, steht in der <a href=\"/datenschutz/#kontakt\">Datenschutzerklärung</a>.",
     },
 }
-
-# Exactly as in the Impressum (impressum/index.html); not changed here.
-POSTAL = {"en": "Leo King · Logical Knight · Große Holl 32 · 22115 Hamburg · Germany",
-          "de": "Leo King · Logical Knight · Große Holl 32 · 22115 Hamburg · Deutschland"}
 
 
 def contact(lang: str) -> str:
@@ -1072,8 +1066,6 @@ def contact(lang: str) -> str:
           <p>{c["also"]}</p>
           <h2 class="h-sm">{c["direct_h"]}</h2>
           <dl class="contact__list">{direct}</dl>
-          <h2 class="h-sm">{c["postal_h"]}</h2>
-          <p>{b(POSTAL[lang])}</p>
           <p class="fineprint">{c["privacy"]}</p>
         </div>
       </div>
