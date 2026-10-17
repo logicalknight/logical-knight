@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://logicalknight.com/</loc></url>
-  <url><loc>https://logicalknight.com/de/</loc></url>
-  <url><loc>https://logicalknight.com/de/ippc-ledger/</loc></url>
-  <url><loc>https://logicalknight.com/en/ippc-ledger/</loc></url>
-  <url><loc>https://logicalknight.com/de/ippc-ledger/erste-schritte/</loc></url>
-  <url><loc>https://logicalknight.com/en/ippc-ledger/getting-started/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://logicalknight.com/</loc><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/"/><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/"/></url>
+  <url><loc>https://logicalknight.com/de/</loc><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/"/><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/"/></url>
+  <url><loc>https://logicalknight.com/en/company/</loc><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/company/"/><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/unternehmen/"/></url>
+  <url><loc>https://logicalknight.com/de/unternehmen/</loc><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/unternehmen/"/><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/company/"/></url>
+  <url><loc>https://logicalknight.com/en/products/</loc><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/products/"/><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/produkte/"/></url>
+  <url><loc>https://logicalknight.com/de/produkte/</loc><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/produkte/"/><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/products/"/></url>
+  <url><loc>https://logicalknight.com/en/data-workbench/</loc><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/data-workbench/"/><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/data-workbench/"/></url>
+  <url><loc>https://logicalknight.com/de/data-workbench/</loc><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/data-workbench/"/><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/data-workbench/"/></url>
+  <url><loc>https://logicalknight.com/en/ippc-ledger/</loc><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/ippc-ledger/"/><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/ippc-ledger/"/></url>
+  <url><loc>https://logicalknight.com/de/ippc-ledger/</loc><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/ippc-ledger/"/><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/ippc-ledger/"/></url>
+  <url><loc>https://logicalknight.com/en/ippc-ledger/getting-started/</loc><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/ippc-ledger/getting-started/"/><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/ippc-ledger/erste-schritte/"/></url>
+  <url><loc>https://logicalknight.com/de/ippc-ledger/erste-schritte/</loc><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/ippc-ledger/erste-schritte/"/><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/ippc-ledger/getting-started/"/></url>
+  <url><loc>https://logicalknight.com/en/contact/</loc><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/contact/"/><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/kontakt/"/></url>
+  <url><loc>https://logicalknight.com/de/kontakt/</loc><xhtml:link rel="alternate" hreflang="de" href="https://logicalknight.com/de/kontakt/"/><xhtml:link rel="alternate" hreflang="en" href="https://logicalknight.com/en/contact/"/></url>
   <url><loc>https://logicalknight.com/impressum/</loc></url>
-  <url><loc>https://logicalknight.com/kontakt/</loc></url>
   <url><loc>https://logicalknight.com/datenschutz/</loc></url>
 </urlset>

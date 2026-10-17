@@ -1,0 +1,119 @@
+/* Logical Knight design tokens (P4). The single source of colour, type, space, radius, shadow and motion values for
+   Data Workbench, written to be reusable unchanged on logicalknight.com (see docs/brand.md). No external fonts or
+   assets: the type stack uses fonts already on the device. Contrast ratios are listed in docs/brand.md. */
+:root {
+  /* canvas and surfaces: 60-70% of what people see */
+  --lk-white: #FFFFFF;
+  --lk-canvas: #F7FBFD;
+  --lk-surface-cool: #EEF8FC;
+
+  /* ink and neutrals: 20-30% */
+  --lk-ink: #0B1220;
+  --lk-text-secondary: #44505F;
+  --lk-text-muted: #5F6B78;          /* the #6B7785 reference darkened to keep 4.5:1 on the soft canvases */
+  --lk-charcoal: #222B36;
+
+  /* brand cyan carries the atmosphere; brand violet is the attention colour (5-10% together) */
+  --lk-cyan: #24B7E5;                /* decoration only: never text on white, never under white text */
+  --lk-sky: #5FA9C2;
+  --lk-cyan-deep: #08779E;           /* links and cyan text on white (5.1:1) */
+  --lk-cyan-ink: #066587;            /* cyan text on cyan tints (5.8:1 on the soft cyan) */
+  --lk-cyan-soft: #DFF5FC;
+  --lk-violet: #6D28D9;              /* primary action (7.1:1 under white text) */
+  --lk-violet-bright: #7C3AED;
+  --lk-violet-deep: #5B21B6;         /* primary action hover/pressed */
+  --lk-violet-soft: #EDE9FE;
+
+  /* semantic status colours: the application's established meanings, each with a tint */
+  --lk-success: #0B6B2B;
+  --lk-success-soft: #E7F6EC;
+  --lk-warning: #8A5A00;
+  --lk-warning-soft: #FFF4DE;
+  --lk-error: #A4161A;
+  --lk-error-soft: #FDECEC;
+
+  /* roles */
+  --canvas: var(--lk-canvas);
+  --surface: var(--lk-white);
+  --surface-elevated: var(--lk-white);
+  --surface-cool: var(--lk-surface-cool);
+  --surface-dark: var(--lk-ink);
+  --text: var(--lk-ink);
+  --text-secondary: var(--lk-text-secondary);
+  --text-muted: var(--lk-text-muted);
+  --text-on-dark: #FFFFFF;
+  --text-on-dark-muted: #C9D3DD;
+  --link: var(--lk-cyan-deep);
+  --border: #D5E3EA;                 /* decorative separators */
+  --border-strong: #7A8C9A;          /* form controls: 3.5:1 against white */
+  --grid-line: #E6EEF2;
+  --action-primary: var(--lk-violet);
+  --action-primary-hover: var(--lk-violet-deep);
+  --action-primary-text: #FFFFFF;
+  --action-secondary: var(--lk-white);
+  --action-secondary-hover: var(--lk-surface-cool);
+  --action-secondary-text: var(--lk-ink);
+  --focus: var(--lk-violet);
+  --focus-on-dark: #B7A4F5;
+  --selected: var(--lk-violet-soft);
+
+  /* type: a strong system stack, no downloaded font */
+  --font-sans: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-2xl: clamp(1.6rem, 1.3rem + 1.2vw, 2.25rem);
+  --text-3xl: clamp(2.2rem, 1.6rem + 2.6vw, 3.6rem);
+  --text-hero: clamp(2.6rem, 1.7rem + 4vw, 5rem);
+  --leading-tight: 1.08;
+  --leading-snug: 1.3;
+  --leading-body: 1.6;
+  --weight-regular: 400;
+  --weight-medium: 550;
+  --weight-strong: 680;
+
+  /* space: a 4px base scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 7rem;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --content-max: 1200px;
+
+  /* shape and depth */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(11, 18, 32, 0.06), 0 1px 1px rgba(11, 18, 32, 0.04);
+  --shadow-md: 0 6px 18px -6px rgba(11, 18, 32, 0.14), 0 2px 6px rgba(11, 18, 32, 0.05);
+  --shadow-lg: 0 24px 60px -24px rgba(8, 119, 158, 0.28), 0 8px 24px -12px rgba(11, 18, 32, 0.18);
+
+  /* motion: short, calm, never required to understand anything */
+  --duration-instant: 90ms;
+  --duration-fast: 160ms;
+  --duration-base: 260ms;
+  --duration-slow: 520ms;
+  --duration-ambient: 9s;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

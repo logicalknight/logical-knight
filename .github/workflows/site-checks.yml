@@ -15,7 +15,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      # the committed pages must be exactly what the source generates
+      - run: python .github/scripts/build_site.py && git diff --exit-code
+      # routes, EN/DE parity, language switch, links, crest hash, watermark, metadata, forms, copy rules
+      - run: python .github/scripts/test_site.py
       # brand names protected from machine translation, the rest translatable, logo alt, no unreleased product names
       - run: python .github/scripts/check_site.py
-      # links into the application must answer before such a page can be published
+      # links into the applications must answer before such a page can be published
       - run: python .github/scripts/check_site.py --live
