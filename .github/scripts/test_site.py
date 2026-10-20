@@ -354,5 +354,44 @@ class Copy(unittest.TestCase):
         self.assertEqual(bad, [])
 
 
+class Analytics(unittest.TestCase):
+    """Opt-in reach measurement (Datenschutz 3a): pages load only the consent script; the tracker is never in the HTML,
+    so nothing is requested before "Allow". Redirect stubs load nothing (no double counting)."""
+
+    def test_pages_load_only_the_consent_script(self):
+        for f in CONTENT:
+            with self.subTest(page=str(f.relative_to(ROOT))):
+                doc = parse(f)
+                srcs = [a.get("src") for a in doc.all("script") if a.get("src")]
+                self.assertIn("/assets/js/consent.js", srcs)
+                self.assertNotIn(site.UMAMI_SCRIPT, srcs)
+                self.assertNotIn("/assets/js/umami-campaign.js", srcs)
+                c = next(a for a in doc.all("script") if a.get("src") == "/assets/js/consent.js")
+                self.assertEqual(c.get("data-umami-src"), site.UMAMI_SCRIPT)
+                self.assertEqual(c.get("data-website-id"), site.UMAMI_WEBSITE_ID)
+                self.assertTrue([a for a in doc.all("button") if "data-privacy-settings" in a], "footer privacy settings")
+        for f in REDIRECT_FILES:
+            self.assertNotIn("consent.js", f.read_text(encoding="utf-8"))
+
+    def test_consent_script_strips_and_gates(self):
+        js = (ROOT / "assets/js/consent.js").read_text(encoding="utf-8")
+        for needle in ('"exclude-search": "true"', '"exclude-hash": "true"', '"do-not-track": "true"',
+                       '"before-send": "gdConsentBeforeSend"', "MAX_AGE_DAYS = 365"):
+            self.assertIn(needle, js)
+        self.assertNotIn("identify", js)
+
+    def test_campaign_codes_are_plain_codes(self):
+        for v in site.CAMPAIGN_CODES.values():
+            for code in filter(None, (c.strip() for c in v.split(","))):
+                self.assertRegex(code, r"^[a-z0-9][a-z0-9_-]{0,39}$")
+
+    def test_events_carry_only_a_name(self):
+        for f in CONTENT:
+            for _, a in parse(f).tags:
+                if "data-umami-event" in a:
+                    self.assertRegex(a["data-umami-event"], r"^[a-z0-9_]{1,40}$")
+                    self.assertFalse([k for k in a if k.startswith("data-umami-event-")], "no event properties")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

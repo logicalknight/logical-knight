@@ -35,6 +35,21 @@ WB_LOGIN = f"{WB}/login"
 
 BRANDS = ("Logical Knight", "IPPC Ledger", "Data Workbench")
 
+# Opt-in reach measurement with Umami, run by us on the company server (Growth Desk reads it; Datenschutz section
+# 3a). Pages load only assets/js/consent.js: it asks first and loads the tracker only after "Allow"; rejecting or
+# ignoring the notice loads nothing. The website id is public by design. The query string and fragment are stripped
+# before anything is sent; assets/js/umami-campaign.js then lets through only the campaign codes listed here (the
+# same list as Growth Desk's UMAMI_CAMPAIGN_CODES; 1-40 of a-z 0-9 - _). Empty = no campaign code is ever sent.
+UMAMI_SCRIPT = "https://stats.logicalknight.com/script.js"
+UMAMI_WEBSITE_ID = "45510b01-dd9d-4f28-a8f1-5f013c924c58"
+CAMPAIGN_CODES = {"utm-source": "", "utm-medium": "", "utm-campaign": ""}
+
+
+def analytics_tags() -> str:
+    codes = "".join(f' data-{k}="{escape(v)}"' for k, v in CAMPAIGN_CODES.items() if v)
+    return (f'\n  <script defer src="/assets/js/consent.js" data-umami-src="{UMAMI_SCRIPT}"'
+            f' data-website-id="{UMAMI_WEBSITE_ID}" data-domains="logicalknight.com"{codes}></script>')
+
 # Every page that exists in both languages: key -> (English path, German path). The language switch always leads to
 # the same page in the other language.
 ROUTES = {
@@ -89,7 +104,7 @@ UI = {
         "cta": "See our products", "tagline": "Hard problems. Simple software.",
         "f_company": "Company", "f_products": "Products", "f_legal": "Legal", "privacy": "Privacy",
         "impressum_href": "/impressum/#legal-notice", "privacy_href": "/datenschutz/#privacy-policy",
-        "rights": "All rights reserved.", "footer_label": "Footer",
+        "rights": "All rights reserved.", "privacy_settings": "Privacy settings", "footer_label": "Footer",
         "learn": "Learn more", "status": "Status", "problem": "The problem", "solution": "What it does",
     },
     "de": {
@@ -98,7 +113,7 @@ UI = {
         "cta": "Unsere Produkte", "tagline": "Schwierige Probleme. Einfache Software.",
         "f_company": "Unternehmen", "f_products": "Produkte", "f_legal": "Rechtliches", "privacy": "Datenschutz",
         "impressum_href": "/impressum/", "privacy_href": "/datenschutz/",
-        "rights": "Alle Rechte vorbehalten.", "footer_label": "Fußbereich",
+        "rights": "Alle Rechte vorbehalten.", "privacy_settings": "Datenschutz-Einstellungen", "footer_label": "Fußbereich",
         "learn": "Mehr erfahren", "status": "Stand", "problem": "Das Problem", "solution": "Was es tut",
     },
 }
@@ -167,7 +182,7 @@ def head(lang: str, title: str, desc: str, canonical: str, alternates: dict[str,
   <link rel="apple-touch-icon" href="{CREST}">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <script>document.documentElement.classList.add("js")</script>
+  <script>document.documentElement.classList.add("js")</script>{analytics_tags()}
 </head>
 <body class="{body_class}">
 <!--email_off-->
@@ -241,7 +256,7 @@ def footer(lang: str, en_href: str, de_href: str) -> str:
         </nav>
       </div>
       <div class="site-footer__bottom">
-        <p>© <span data-year>2026</span> {b("Logical Knight")}. {u["rights"]}</p>
+        <p>© <span data-year>2026</span> {b("Logical Knight")}. {u["rights"]} <button type="button" class="linkish js-only" data-privacy-settings>{u["privacy_settings"]}</button></p>
         {lang_switch(lang, en_href, de_href)}
       </div>
     </div>
@@ -868,7 +883,7 @@ def data_workbench(lang: str) -> str:
     lang_note = f'\n        <p class="note note--lang">{b(c["lang_note"])}</p>' if c["lang_note"] else ""
     extra = f'''
         <p class="btn-row">
-          <a class="btn btn--primary" href="{WB_EARLY}">{c["cta1"]}</a>
+          <a class="btn btn--primary" href="{WB_EARLY}" data-umami-event="dw_early_access_click">{c["cta1"]}</a>
           <a class="btn btn--secondary" href="{WB_LOGIN}">{c["cta2"]}</a>
         </p>
         <p class="hero-note">{c["hero_note"]}</p>{lang_note}'''
@@ -956,7 +971,7 @@ def ippc(lang: str) -> str:
     shots = "".join(figure(f"/assets/img/ippc/{lang}/{n}", alt, cap) for n, alt, cap in c["shots"])
     extra = f'''
         <p class="btn-row">
-          <a class="btn btn--primary" href="{pilot}">{c["pilot_btn"]}</a>
+          <a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a>
           <a class="btn btn--secondary" href="#{ids["example"]}">{c["example_btn"]}</a>
         </p>
         <p class="hero-note">{c["login_note"]} <a href="{login}">{c["login"]}</a></p>'''
@@ -975,13 +990,13 @@ def ippc(lang: str) -> str:
 {sec("features", c["feat_eyebrow"], c["feat_h"], ruled(c["features"]))}
 {sec("start", c["gs_eyebrow"], c["gs_h"], '<ul class="ticks ticks--lg">' + "".join(f"<li><strong>{e(h)}</strong> {e(p)}</li>" for h, p in c["gs_items"]) + f'</ul><p class="prose">{b(c["gs_text"].format(gs=gs))}</p>')}
 {sec("data", c["data_eyebrow"], c["data_h"], ruled(c["data"]))}
-{sec("pilot", c["pilot_eyebrow"], c["pilot_h"], f'<p class="lede">{e(c["pilot_scope"])}</p>' + steps_list(c["pilot_steps"], "steps steps--five") + f'<p class="btn-row"><a class="btn btn--primary" href="{pilot}">{c["pilot_btn"]}</a></p>')}
+{sec("pilot", c["pilot_eyebrow"], c["pilot_h"], f'<p class="lede">{e(c["pilot_scope"])}</p>' + steps_list(c["pilot_steps"], "steps steps--five") + f'<p class="btn-row"><a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a></p>')}
 {sec("faq", c["faq_eyebrow"], c["faq_h"], '<div class="faq">' + "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in c["faq"]) + "</div>")}
     <section class="section closing" aria-labelledby="closing-title">
       <div class="container closing__inner">
         <h2 id="closing-title" class="h-lg">{c["final_h"]}</h2>
         <p class="lede">{b(c["final_text"])}</p>
-        <p class="btn-row btn-row--center"><a class="btn btn--primary" href="{pilot}">{c["pilot_btn"]}</a> {sample}</p>
+        <p class="btn-row btn-row--center"><a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a> {sample}</p>
         <p class="fineprint">{c["fictional"]}</p>
       </div>
     </section>
@@ -1110,7 +1125,7 @@ def contact(lang: str) -> str:
               <textarea id="f-today" name="today" rows="3" maxlength="600"></textarea>
             </div>
             <p class="field__error" role="alert" hidden></p>
-            <p><button class="btn btn--primary" type="submit">{c["submit"]}</button></p>
+            <p><button class="btn btn--primary" type="submit" data-umami-event="contact_compose_click">{c["submit"]}</button></p>
             <p class="field__hint">{c["how"]}</p>
             <p class="compose__sent" role="status" hidden>{c["sent"]} <a href="mailto:{HELLO}">{HELLO}</a>.</p>
           </form>

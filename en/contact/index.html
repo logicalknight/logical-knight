@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script>document.documentElement.classList.add("js")</script>
+  <script defer src="/assets/js/consent.js" data-umami-src="https://stats.logicalknight.com/script.js" data-website-id="45510b01-dd9d-4f28-a8f1-5f013c924c58" data-domains="logicalknight.com"></script>
 </head>
 <body class="page-inner">
 <!--email_off-->
@@ -90,7 +91,7 @@
               <textarea id="f-today" name="today" rows="3" maxlength="600"></textarea>
             </div>
             <p class="field__error" role="alert" hidden></p>
-            <p><button class="btn btn--primary" type="submit">Open in my e-mail app</button></p>
+            <p><button class="btn btn--primary" type="submit" data-umami-event="contact_compose_click">Open in my e-mail app</button></p>
             <p class="field__hint">This opens your e-mail app with your message filled in. Nothing is sent from this page; it reaches us only when you press send there. We reply to the address you send from.</p>
             <p class="compose__sent" role="status" hidden>Your e-mail app should open now. If it does not, write to us directly at <a href="mailto:hello@logicalknight.com">hello@logicalknight.com</a>.</p>
           </form>
@@ -122,7 +123,7 @@
         </nav>
       </div>
       <div class="site-footer__bottom">
-        <p>© <span data-year>2026</span> <span translate="no" class="notranslate">Logical Knight</span>. All rights reserved.</p>
+        <p>© <span data-year>2026</span> <span translate="no" class="notranslate">Logical Knight</span>. All rights reserved. <button type="button" class="linkish js-only" data-privacy-settings>Privacy settings</button></p>
         <div class="lang" role="group" aria-label="Language"><span class="lang__item" aria-current="true" lang="en" title="English">EN</span><a class="lang__item" href="/de/kontakt/" hreflang="de" lang="de" aria-label="Deutsch">DE</a></div>
       </div>
     </div>
