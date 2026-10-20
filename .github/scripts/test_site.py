@@ -354,5 +354,35 @@ class Copy(unittest.TestCase):
         self.assertEqual(bad, [])
 
 
+class Analytics(unittest.TestCase):
+    """Reach measurement (Datenschutz 3a): every real page loads the campaign hook first, then the self-hosted Umami
+    tracker with the query string and fragment stripped; redirect stubs load nothing (no double counting)."""
+
+    def test_every_page_has_the_privacy_preserving_tracker(self):
+        for f in CONTENT:
+            with self.subTest(page=str(f.relative_to(ROOT))):
+                srcs = [a.get("src") for a in parse(f).all("script") if a.get("src")]
+                self.assertEqual(srcs[:2], ["/assets/js/umami-campaign.js", site.UMAMI_SCRIPT])
+                umami = next(a for a in parse(f).all("script") if a.get("src") == site.UMAMI_SCRIPT)
+                self.assertEqual(umami.get("data-website-id"), site.UMAMI_WEBSITE_ID)
+                for attr in ("data-exclude-search", "data-exclude-hash", "data-do-not-track"):
+                    self.assertEqual(umami.get(attr), "true", attr)
+                self.assertEqual(umami.get("data-before-send"), "gdUmamiBeforeSend")
+        for f in REDIRECT_FILES:
+            self.assertNotIn("script.js", f.read_text(encoding="utf-8"))
+
+    def test_campaign_codes_are_plain_codes(self):
+        for v in site.CAMPAIGN_CODES.values():
+            for code in filter(None, (c.strip() for c in v.split(","))):
+                self.assertRegex(code, r"^[a-z0-9][a-z0-9_-]{0,39}$")
+
+    def test_events_carry_only_a_name(self):
+        for f in CONTENT:
+            for _, a in parse(f).tags:
+                if "data-umami-event" in a:
+                    self.assertRegex(a["data-umami-event"], r"^[a-z0-9_]{1,40}$")
+                    self.assertFalse([k for k in a if k.startswith("data-umami-event-")], "no event properties")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)
