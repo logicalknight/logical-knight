@@ -355,21 +355,30 @@ class Copy(unittest.TestCase):
 
 
 class Analytics(unittest.TestCase):
-    """Reach measurement (Datenschutz 3a): every real page loads the campaign hook first, then the self-hosted Umami
-    tracker with the query string and fragment stripped; redirect stubs load nothing (no double counting)."""
+    """Opt-in reach measurement (Datenschutz 3a): pages load only the consent script; the tracker is never in the HTML,
+    so nothing is requested before "Allow". Redirect stubs load nothing (no double counting)."""
 
-    def test_every_page_has_the_privacy_preserving_tracker(self):
+    def test_pages_load_only_the_consent_script(self):
         for f in CONTENT:
             with self.subTest(page=str(f.relative_to(ROOT))):
-                srcs = [a.get("src") for a in parse(f).all("script") if a.get("src")]
-                self.assertEqual(srcs[:2], ["/assets/js/umami-campaign.js", site.UMAMI_SCRIPT])
-                umami = next(a for a in parse(f).all("script") if a.get("src") == site.UMAMI_SCRIPT)
-                self.assertEqual(umami.get("data-website-id"), site.UMAMI_WEBSITE_ID)
-                for attr in ("data-exclude-search", "data-exclude-hash", "data-do-not-track"):
-                    self.assertEqual(umami.get(attr), "true", attr)
-                self.assertEqual(umami.get("data-before-send"), "gdUmamiBeforeSend")
+                doc = parse(f)
+                srcs = [a.get("src") for a in doc.all("script") if a.get("src")]
+                self.assertIn("/assets/js/consent.js", srcs)
+                self.assertNotIn(site.UMAMI_SCRIPT, srcs)
+                self.assertNotIn("/assets/js/umami-campaign.js", srcs)
+                c = next(a for a in doc.all("script") if a.get("src") == "/assets/js/consent.js")
+                self.assertEqual(c.get("data-umami-src"), site.UMAMI_SCRIPT)
+                self.assertEqual(c.get("data-website-id"), site.UMAMI_WEBSITE_ID)
+                self.assertTrue([a for a in doc.all("button") if "data-privacy-settings" in a], "footer privacy settings")
         for f in REDIRECT_FILES:
-            self.assertNotIn("script.js", f.read_text(encoding="utf-8"))
+            self.assertNotIn("consent.js", f.read_text(encoding="utf-8"))
+
+    def test_consent_script_strips_and_gates(self):
+        js = (ROOT / "assets/js/consent.js").read_text(encoding="utf-8")
+        for needle in ('"exclude-search": "true"', '"exclude-hash": "true"', '"do-not-track": "true"',
+                       '"before-send": "gdConsentBeforeSend"', "MAX_AGE_DAYS = 365"):
+            self.assertIn(needle, js)
+        self.assertNotIn("identify", js)
 
     def test_campaign_codes_are_plain_codes(self):
         for v in site.CAMPAIGN_CODES.values():

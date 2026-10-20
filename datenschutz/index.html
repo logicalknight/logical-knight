@@ -20,8 +20,7 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script>document.documentElement.classList.add("js")</script>
-  <script defer src="/assets/js/umami-campaign.js"></script>
-  <script defer src="https://stats.logicalknight.com/script.js" data-website-id="45510b01-dd9d-4f28-a8f1-5f013c924c58" data-domains="logicalknight.com" data-do-not-track="true" data-exclude-search="true" data-exclude-hash="true" data-before-send="gdUmamiBeforeSend"></script>
+  <script defer src="/assets/js/consent.js" data-umami-src="https://stats.logicalknight.com/script.js" data-website-id="45510b01-dd9d-4f28-a8f1-5f013c924c58" data-domains="logicalknight.com"></script>
 </head>
 <body class="page-inner page-legal">
 <!--email_off-->
@@ -71,8 +70,8 @@ nicht vor.</p>
 
 <h2>2. Was wir nicht tun</h2>
 <p>Auf dieser Website: keine Cookies, nichts wird in Ihrem Browser gespeichert, keine Werbedienste, keine Tracking-Pixel
-und keine eingebetteten Inhalte Dritter. Die Reichweite messen wir mit einem selbst betriebenen Werkzeug ohne Cookies
-(Abschnitt 3a). Schriftarten und Skripte kommen vom selben Server wie die Website oder von unserem eigenen Server
+und keine eingebetteten Inhalte Dritter. Die Reichweite messen wir nur mit Ihrer Einwilligung, mit einem selbst betriebenen
+Werkzeug ohne Cookies (Abschnitt 3a). Schriftarten und Skripte kommen vom selben Server wie die Website oder von unserem eigenen Server
 stats.logicalknight.com. Wir verkaufen keine Daten, bilden keine Profile und treffen keine automatisierten
 Entscheidungen im Sinne von Art. 22 DSGVO.</p>
 
@@ -89,10 +88,17 @@ Auslieferung der Seiten wird auf Ihrem Gerät nichts gespeichert oder ausgelesen
 quelloffene Software <strong>Umami</strong>. Wir betreiben sie selbst auf unserem Server bei der <strong>Hetzner Online
 GmbH</strong>, Industriestr. 25, 91710 Gunzenhausen, Deutschland, als Auftragsverarbeiter (Art. 28 DSGVO); es gibt keine
 Übermittlung in Drittländer und keine Weitergabe an Dritte.</p>
-<p><strong>Auf Ihrem Gerät.</strong> Ihr Browser lädt ein Skript von stats.logicalknight.com. Es liest die
+<p><strong>Nur mit Einwilligung.</strong> Beim ersten Besuch fragen wir, ob wir messen dürfen („Messung erlauben“ oder
+„Ablehnen“, gleichwertig, nichts ist vorausgewählt). Bevor Sie zustimmen, wird das Mess-Skript nicht geladen, nichts
+ausgelesen und nichts gesendet; lehnen Sie ab oder antworten Sie nicht, bleibt es dabei. Die Website funktioniert in
+jedem Fall gleich. Ihre Wahl speichern wir nur in Ihrem Browser für diese Website (lokaler Speicher, Eintrag
+„lk-analytics-consent“: Version, Wahl und Datum, keine Kennung); nach 12 Monaten fragen wir erneut. Ändern oder
+widerrufen können Sie Ihre Wahl jederzeit über „Datenschutz-Einstellungen“ unten auf jeder Seite; danach wird nichts
+mehr gesendet.</p>
+<p><strong>Nach Ihrer Einwilligung.</strong> Ihr Browser lädt ein Skript von stats.logicalknight.com. Es liest die
 Bildschirmgröße, die Browsersprache, die Einstellung „Do Not Track“ und, ob die Messung in diesem Browser abgeschaltet
-wurde (der Eintrag „umami.disabled“ im lokalen Speicher, nur falls Sie ihn selbst gesetzt haben). Es speichert nichts
-auf Ihrem Gerät und setzt keine Cookies. Ist „Do Not Track“ aktiv, sendet es nichts.</p>
+wurde (der Eintrag „umami.disabled“ im lokalen Speicher, nur falls Sie ihn selbst gesetzt haben). Es setzt keine
+Cookies. Ist „Do Not Track“ aktiv, sendet es nichts.</p>
 <p><strong>Was gesendet wird.</strong> Die aufgerufene Adresse ohne Parameter und ohne Fragment (erhalten bleiben nur von
 uns festgelegte Kampagnenkennungen in utm_source, utm_medium und utm_campaign), der Seitentitel, die verweisende Seite,
 Sprache und Bildschirmgröße; bei bestimmten Schaltflächen nur deren Name, nie Formularinhalte. Mit jeder Anfrage erhält
@@ -102,9 +108,10 @@ Stadt ab und bildet aus IP-Adresse, Browserkennung und einem Wert, der jeden Kal
 Aufrufe aus demselben Browser innerhalb dieses Monats zusammenfasst. Gespeichert werden diese Kennung, die gesendeten
 Angaben, Browser, Betriebssystem, Gerätetyp und der ungefähre Ort. Wir verknüpfen diese Daten nicht mit E-Mails,
 Anfragen, Kontaktdaten oder Kundenkonten.</p>
-<p><strong>Rechtsgrundlage</strong>: Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse ist eine datensparsame
-Messung, welche Inhalte genutzt werden. <strong>Speicherdauer</strong>: bis wir die Messdaten für die Auswertung nicht
-mehr benötigen. <strong>Widerspruch</strong>: Aktivieren Sie „Do Not Track“ in Ihrem Browser, oder schreiben Sie uns.</p>
+<p><strong>Rechtsgrundlage</strong>: Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Das Speichern
+Ihrer Wahl selbst ist dafür unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG). <strong>Speicherdauer</strong>: Messdaten
+löschen wir automatisch nach 24 Monaten. <strong>Widerruf</strong>: jederzeit über „Datenschutz-Einstellungen“, mit
+Wirkung für die Zukunft; die Rechtmäßigkeit der bis dahin erfolgten Messung bleibt unberührt.</p>
 
 <h2 id="kontakt">4. Kontakt per E-Mail</h2>
 <p>Wenn Sie uns schreiben, verarbeiten wir Ihre E-Mail-Adresse, Ihren Namen, falls angegeben, und den Inhalt Ihrer
@@ -176,24 +183,31 @@ Ludwig-Erhard-Str. 22, 20459 Hamburg, Telefon 040 428 54-4040, E-Mail mailbox@da
 <li><strong>Controller.</strong> Leo King, Große Holl 32, 22115 Hamburg, Germany, trading as “<span translate="no" class="notranslate">Logical Knight</span>”, e-mail <a href="mailto:hello@logicalknight.com">hello@logicalknight.com</a>. No data protection
 officer is required.</li>
 <li><strong>What we do not do.</strong> On this website: no cookies, nothing stored in your browser, no advertising, tracking
-pixels or third-party embeds. We measure reach with a self-operated tool without cookies (item 3a). No sale of data, no
+pixels or third-party embeds. We measure reach only with your consent, with a self-operated tool without cookies
+(item 3a). No sale of data, no
 profiling, no automated decisions.</li>
 <li><strong>Website.</strong> Hosted by GitHub Pages (GitHub, Inc., USA) and delivered through Cloudflare (Cloudflare, Inc., USA), which process your IP address, time, URL and
 browser details to deliver and secure the site. We do not receive these data. Legal basis: Art. 6(1)(f) GDPR. Both are certified under the EU-U.S. Data Privacy Framework.</li>
 <li id="reach"><strong>3a. Reach measurement (Umami, self-operated).</strong> To see which pages are read and which buttons
 are used, we run the open-source software Umami ourselves on our server at Hetzner Online GmbH, Industriestr. 25, 91710
 Gunzenhausen, Germany, as our processor (Art. 28 GDPR); no transfer to third countries, no disclosure to third parties.
-Your browser loads a script from stats.logicalknight.com. It reads the screen size, the browser language, the “Do Not
-Track” setting and whether measurement was switched off in this browser (the local-storage entry “umami.disabled”, only if
-you set it yourself). It stores nothing on your device and sets no cookies; with “Do Not Track” on, it sends nothing.
+Only with your consent: on your first visit we ask (“Allow analytics” or “Reject analytics”, equal, nothing
+preselected). Before you allow it, the script is not loaded, nothing is read and nothing is sent; if you reject or do
+not answer, it stays that way and the website works the same. Your choice is stored only in your browser for this
+website (local storage entry “lk-analytics-consent”: version, choice and date, no identifier); we ask again after 12
+months. Change or withdraw it at any time with “Privacy settings” at the bottom of every page; nothing is sent after
+that. After consent, your browser loads a script from stats.logicalknight.com. It reads the screen size, the browser
+language, the “Do Not Track” setting and whether measurement was switched off in this browser (the local-storage entry
+“umami.disabled”, only if you set it yourself). It sets no cookies; with “Do Not Track” on, it sends nothing.
 It sends the page address without parameters or fragment (only campaign codes we defined in utm_source, utm_medium and
 utm_campaign remain), the page title, the referring page, language and screen size, and for certain buttons only their
 name, never form contents. Our server technically receives your IP address and browser identifier with each request.
 Umami does not store the IP address: it derives an approximate country, region and city, and builds an identifier from
 IP address, browser identifier and a value that changes every calendar month, which groups requests from the same
 browser within that month. We do not link these data with e-mails, enquiries, contact details or customer accounts.
-Legal basis: Art. 6(1)(f) GDPR (our legitimate interest in data-minimising measurement of which content is used). Kept
-until no longer needed for analysis. To object, turn on “Do Not Track” or write to us.</li>
+Legal basis: your consent (Art. 6(1)(a) GDPR, § 25(1) TDDDG); storing your choice is strictly necessary for that (§ 25(2)
+no. 2 TDDDG). Measurement data are deleted automatically after 24 months. Withdrawal at any time with “Privacy
+settings”, for the future; it does not affect measurement made before.</li>
 <li id="contact"><strong>E-mail contact.</strong> We process your address, your name if given and your message to
 reply. Mail to our addresses is received by Cloudflare Email Routing (Cloudflare, Inc., USA; EU-U.S. Data Privacy Framework) and forwarded to our mailbox at Google Gmail. Kept until resolved, then 12 months. Business and pilot enquiries are recorded in our
 self-operated internal customer system and deleted at the latest 24 months after the last contact if no contract
@@ -239,7 +253,7 @@ Information). Write to <a href="mailto:hello@logicalknight.com">hello@logicalkni
         </nav>
       </div>
       <div class="site-footer__bottom">
-        <p>© <span data-year>2026</span> <span translate="no" class="notranslate">Logical Knight</span>. Alle Rechte vorbehalten.</p>
+        <p>© <span data-year>2026</span> <span translate="no" class="notranslate">Logical Knight</span>. Alle Rechte vorbehalten. <button type="button" class="linkish js-only" data-privacy-settings>Datenschutz-Einstellungen</button></p>
         <div class="lang" role="group" aria-label="Sprache"><a class="lang__item" href="/datenschutz/#privacy-policy" hreflang="en" lang="en" aria-label="English">EN</a><span class="lang__item" aria-current="true" lang="de" title="Deutsch">DE</span></div>
       </div>
     </div>
