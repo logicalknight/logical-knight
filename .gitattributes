@@ -1,0 +1,6 @@
+# never convert line endings in binary files (PDFs here contain no NUL byte, so Git would guess "text")
+*.pdf binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.ico binary
