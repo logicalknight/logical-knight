@@ -972,7 +972,9 @@ def ippc(lang: str) -> str:
 '''
 
     ruled = lambda items: '<ul class="ruled">' + "".join(f"<li><h3>{e(h)}</h3><p>{e(p)}</p></li>" for h, p in items) + "</ul>"  # noqa: E731
+    # reading order for a first-time visitor: the example in the browser, its summary as PDF, then the full package
     sample = (f'<a class="btn btn--secondary" href="{path("ippc_sample", lang)}">{SAMPLE_PAGE[lang]["view_btn"]}</a> '
+              f'<a class="btn btn--secondary" href="{_sample_pdf(lang, "summary.pdf")}">{SAMPLE_PAGE[lang]["summary_pdf"]}</a> '
               f'<a class="btn btn--secondary" href="{SAMPLE[lang]}" download>{c["pack_dl"]}</a>')
     shot_name, shot_alt, shot_cap = c["hero_shot"]
     shots = "".join(figure(f"/assets/img/ippc/{lang}/{n}", alt, cap) for n, alt, cap in c["shots"])
