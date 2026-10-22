@@ -11,12 +11,15 @@ directory). Standard library only.
 
 from __future__ import annotations
 
+import csv
+import io
 import math
 import re
+import zipfile
 from html import escape
 from pathlib import Path
 
-from content_ippc import APP, GS, SAMPLE, T as IPPC
+from content_ippc import APP, GS, SAMPLE, SAMPLE_PAGE, T as IPPC
 
 ROOT = Path(__file__).resolve().parents[2]
 SITE = "https://logicalknight.com"
@@ -59,6 +62,7 @@ ROUTES = {
     "dw": ("/en/data-workbench/", "/de/data-workbench/"),
     "ippc": ("/en/ippc-ledger/", "/de/ippc-ledger/"),
     "ippc_gs": ("/en/ippc-ledger/getting-started/", "/de/ippc-ledger/erste-schritte/"),
+    "ippc_sample": ("/en/ippc-ledger/sample-export/", "/de/ippc-ledger/beispiel-export/"),
     "contact": ("/en/contact/", "/de/kontakt/"),
 }
 LEGAL = {"impressum": "/impressum/", "datenschutz": "/datenschutz/"}
@@ -966,7 +970,8 @@ def ippc(lang: str) -> str:
 '''
 
     ruled = lambda items: '<ul class="ruled">' + "".join(f"<li><h3>{e(h)}</h3><p>{e(p)}</p></li>" for h, p in items) + "</ul>"  # noqa: E731
-    sample = f'<a class="btn btn--secondary" href="{SAMPLE[lang]}" download>{c["pack_dl"]}</a>'
+    sample = (f'<a class="btn btn--secondary" href="{path("ippc_sample", lang)}">{SAMPLE_PAGE[lang]["view_btn"]}</a> '
+              f'<a class="btn btn--secondary" href="{SAMPLE[lang]}" download>{c["pack_dl"]}</a>')
     shot_name, shot_alt, shot_cap = c["hero_shot"]
     shots = "".join(figure(f"/assets/img/ippc/{lang}/{n}", alt, cap) for n, alt, cap in c["shots"])
     extra = f'''
@@ -1023,6 +1028,85 @@ def ippc_getting_started(lang: str) -> str:
   </main>
 '''
     return page(lang, "ippc_gs", g["title"], g["lede"], main, "products", cta=(c["pilot_btn"], f"{APP}/pilot?lang={lang}"))
+
+
+def _sample(lang: str) -> zipfile.ZipFile:
+    return zipfile.ZipFile(ROOT / SAMPLE[lang].lstrip("/"))
+
+
+def _sample_pdf(lang: str, member: str) -> str:
+    """Where a PDF of the example archive is published unpacked: /assets/samples/<lang>/<member>."""
+    return f"/assets/samples/{lang}/{member}"
+
+
+def sample_files() -> dict[str, bytes]:
+    """The PDFs of both example archives, unpacked byte for byte so a phone can open each one directly."""
+    out = {}
+    for lang in ("en", "de"):
+        z = _sample(lang)
+        for member in z.namelist():
+            if member.endswith(".pdf"):
+                out[_sample_pdf(lang, member).lstrip("/")] = z.read(member)
+    return out
+
+
+def ippc_sample(lang: str) -> str:
+    """The example export as a page: what a phone visitor can read without unpacking the ZIP. Every value comes from
+    the archive's own CSV files; nothing is retyped."""
+    c, t = IPPC[lang], SAMPLE_PAGE[lang]
+    z = _sample(lang)
+
+    def rows(name: str) -> list[dict]:
+        return list(csv.DictReader(io.StringIO(z.read(name).decode("utf-8-sig"))))
+    deliveries, jobs, suppliers = rows("deliveries.csv"), rows("jobs.csv"), rows("suppliers.csv")
+    findings = rows("completeness.csv")
+    files = list(dict.fromkeys((r["archive_path"], r["original_filename"], r["document_type"], r["version"], r["review_status"],
+                                r["delivery_reference"] if r["document_type"] != "SUPPLIER_AUTHORIZATION" else r["supplier"])
+                               for r in rows("manifest.csv")))
+
+    def gaps(kind: str, label: str) -> str:
+        found = [f["message"] for f in findings if f["entity_type"] == kind and f["entity_label"] == label]
+        return (f'<p><strong>{e(t["gaps"])}:</strong> ' + " ".join(e(m) for m in found) + "</p>") if found else \
+            f"<p>{e(t['none'])}</p>"
+
+    def item(h: str, status: str, line: str, body: str) -> str:
+        return f"<li><h3>{e(h)} {status_pill(t['status'].get(status, status))}</h3><p>{line}</p>{body}</li>"
+
+    d_items = "".join(item(d["delivery_reference"], d["completeness"],
+                           e(t["received"].format(date=d["received_at"], note=d["delivery_note_number"],
+                                                  supplier=d["supplier"])), gaps("delivery", d["delivery_reference"]))
+                      for d in deliveries)
+    j_items = "".join(item(j["job_number"], j["completeness"],
+                           e(t["job_line"].format(customer=j["customer_name"], packaging=j["packaging_type"])),
+                           gaps("job", j["job_number"])) for j in jobs)
+    docs = "".join(
+        f'<li><h3><a href="{_sample_pdf(lang, path_)}">{e(name)}</a></h3>'
+        f'<p>{e(t["doc_line"].format(type=t["types"].get(kind, kind), subject=subject, review=t["review"].get(review, review)))}'
+        + (f" · {e(t['superseded'])}" if version == "superseded" else "") + "</p></li>"
+        for path_, name, kind, version, review, subject in files)
+    counts = t["counts"].format(jobs=len(jobs), deliveries=len(deliveries), suppliers=len(suppliers), files=len(files))
+    buttons = (f'<p class="btn-row"><a class="btn btn--primary" href="{_sample_pdf(lang, "summary.pdf")}">'
+               f'{e(t["summary_pdf"])}</a> <a class="btn btn--secondary" href="{SAMPLE[lang]}" download>'
+               f'{e(t["zip"])}</a></p>')
+
+    def sec(sid: str, h: str, body: str) -> str:
+        return f'''    <section class="section" aria-labelledby="{sid}-title">
+      <div class="container">
+        <div class="section-intro"><h2 class="h-lg" id="{sid}-title">{e(h)}</h2></div>
+        {body}
+      </div>
+    </section>
+'''
+    main = f'''  <main id="main">
+{page_head(b("IPPC Ledger") + " " + status_pill(c["status"]), e(t["h1"]), e(t["lede"]), buttons)}
+{sec("overview", t["overview_h"], f'<p class="lede">{e(counts)}</p><p class="note">{e(t["fictional"])}</p>')}
+{sec("deliveries", t["deliveries_h"], f'<ul class="ruled">{d_items}</ul><p class="note">{e(t["complete_note"])}</p>')}
+{sec("jobs", t["jobs_h"], f'<ul class="ruled">{j_items}</ul>')}
+{sec("documents", t["docs_h"], f'<p class="lede">{e(t["docs_lede"])}</p><ul class="ruled">{docs}</ul>')}
+{sec("archive", t["zip_h"], f'<p class="lede">{e(t["zip_lede"])}</p>{buttons}<p class="prose"><a href="{path("ippc", lang)}">{e(t["back"])}</a></p>')}
+  </main>
+'''
+    return page(lang, "ippc_sample", t["title"], t["desc"], main, "products", cta=(c["pilot_btn"], f"{APP}/pilot?lang={lang}"))
 
 
 # --------------------------------------------------------------------------------------------------------------------
@@ -1225,7 +1309,7 @@ def outputs() -> dict[str, str]:
         out[(p.strip("/") + "/index.html").lstrip("/")] = html
 
     builders = {"home": home, "company": company, "products": products, "dw": data_workbench, "ippc": ippc,
-                "ippc_gs": ippc_getting_started, "contact": contact}
+                "ippc_gs": ippc_getting_started, "ippc_sample": ippc_sample, "contact": contact}
     for key, build in builders.items():
         for lang in ("en", "de"):
             at(path(key, lang), build(lang))
@@ -1243,6 +1327,11 @@ def main() -> None:
         p = ROOT / rel
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(text, encoding="utf-8", newline="\n")
+        print("wrote", rel)
+    for rel, data in sample_files().items():
+        p = ROOT / rel
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_bytes(data)
         print("wrote", rel)
 
 

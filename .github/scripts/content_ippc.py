@@ -270,3 +270,84 @@ GS = {
            ],
            "help": "Questions? <a href=\"mailto:support@logicalknight.com\">support@logicalknight.com</a>", "back": "Back to IPPC Ledger"},
 }
+
+
+# The example export, readable in the browser (built from the example ZIP itself; see build_site.ippc_sample)
+SAMPLE_PAGE = {
+    "de": {
+        "title": "Beispiel-Export im Browser – IPPC Ledger",
+        "desc": "Der Beispiel-Export von IPPC Ledger mit erfundenen Daten, lesbar ohne ZIP-Programm: Wareneingänge, "
+                "Aufträge, fehlende Nachweise und die Musterdokumente zum Öffnen.",
+        "h1": "Der Beispiel-Export, im Browser lesbar.",
+        "lede": "Dieselben erfundenen Daten wie im ZIP-Archiv, ohne Entpacken: Übersicht, Wareneingänge, Aufträge und "
+                "die Musterdokumente zum einzelnen Öffnen, auch auf dem Handy.",
+        "fictional": "Alle Firmen, Nummern, Daten und Dokumente sind erfunden. Die Musterdokumente sind keine "
+                     "Nachweise und keine Bescheinigungen.",
+        "summary_pdf": "Übersicht als PDF öffnen",
+        "zip": "Vollständiges Archiv herunterladen (ZIP)",
+        "back": "Zurück zu IPPC Ledger",
+        "overview_h": "Überblick",
+        "counts": "{jobs} Aufträge · {deliveries} Wareneingänge · {suppliers} Lieferanten · {files} Dokumente",
+        "deliveries_h": "Wareneingänge",
+        "received": "Eingang {date} · Lieferschein {note} · {supplier}",
+        "jobs_h": "Aufträge",
+        "job_line": "{customer} · {packaging}",
+        "gaps": "Was fehlt",
+        "none": "Keine Lücke gefunden.",
+        "docs_h": "Dokumente im Archiv",
+        "docs_lede": "Jede Datei liegt im Archiv byte-gleich so, wie sie hochgeladen wurde. Hier lässt sie sich einzeln öffnen (PDF).",
+        "doc_line": "{type} · {subject} · {review}",
+        "superseded": "ersetzt durch eine neue Version",
+        "zip_h": "Das Archiv",
+        "zip_lede": "Im ZIP-Archiv liegen zusätzlich die Daten als CSV-Dateien, der vollständige Verlauf (audit.csv) und "
+                    "eine Erklärung (README.txt). Auf dem iPhone: herunterladen, in der App „Dateien“ unter Downloads "
+                    "antippen; das Archiv wird dann als Ordner entpackt.",
+        "status": {"COMPLETE": "Vollständig", "ATTENTION": "Hinweis", "INCOMPLETE": "Unvollständig",
+                   "UNKNOWN": "Nicht feststellbar"},
+        "types": {"DELIVERY_NOTE": "Lieferschein", "TREATMENT_EVIDENCE": "Behandlungsnachweis",
+                  "SUPPLIER_AUTHORIZATION": "Ermächtigung des Lieferanten", "INVOICE": "Rechnung",
+                  "OTHER_SUPPORTING_EVIDENCE": "Sonstiger Nachweis"},
+        "review": {"REVIEWED": "geprüft", "REJECTED": "abgelehnt", "UNREVIEWED": "nicht geprüft"},
+        "complete_note": "„Vollständig“ heißt, dass keine Regel eine Lücke in den erfassten Angaben gefunden hat. Es ist "
+                         "keine rechtliche Bewertung und kein Zertifikat.",
+        "view_btn": "Beispiel im Browser ansehen",
+    },
+    "en": {
+        "title": "Sample export in the browser – IPPC Ledger",
+        "desc": "The IPPC Ledger sample export with invented data, readable without a ZIP tool: deliveries, jobs, missing "
+                "evidence and the sample documents to open.",
+        "h1": "The sample export, readable in the browser.",
+        "lede": "The same invented data as in the ZIP archive, without unpacking it: overview, deliveries, jobs and the "
+                "sample documents to open one by one, on a phone too.",
+        "fictional": "All companies, numbers, dates and documents are invented. The sample documents are not evidence "
+                     "and not certificates.",
+        "summary_pdf": "Open the summary (PDF)",
+        "zip": "Download the complete archive (ZIP)",
+        "back": "Back to IPPC Ledger",
+        "overview_h": "Overview",
+        "counts": "{jobs} jobs · {deliveries} deliveries · {suppliers} suppliers · {files} documents",
+        "deliveries_h": "Deliveries",
+        "received": "Received {date} · delivery note {note} · {supplier}",
+        "jobs_h": "Jobs",
+        "job_line": "{customer} · {packaging}",
+        "gaps": "What is missing",
+        "none": "No gap found.",
+        "docs_h": "Documents in the archive",
+        "docs_lede": "Each file is in the archive byte for byte as it was uploaded. Here you can open them one by one (PDF).",
+        "doc_line": "{type} · {subject} · {review}",
+        "superseded": "replaced by a newer version",
+        "zip_h": "The archive",
+        "zip_lede": "The ZIP archive also holds the records as CSV files, the full history (audit.csv) and an explanation "
+                    "(README.txt). On an iPhone: download it, then tap it in the Files app under Downloads; it unpacks "
+                    "into a folder.",
+        "status": {"COMPLETE": "Complete", "ATTENTION": "Needs attention", "INCOMPLETE": "Incomplete",
+                   "UNKNOWN": "Unknown"},
+        "types": {"DELIVERY_NOTE": "Delivery note", "TREATMENT_EVIDENCE": "Treatment evidence",
+                  "SUPPLIER_AUTHORIZATION": "Supplier authorisation", "INVOICE": "Invoice",
+                  "OTHER_SUPPORTING_EVIDENCE": "Other supporting evidence"},
+        "review": {"REVIEWED": "reviewed", "REJECTED": "rejected", "UNREVIEWED": "not reviewed"},
+        "complete_note": "\"Complete\" means that no rule found a gap in the recorded information. It is not a legal "
+                         "assessment and not a certificate.",
+        "view_btn": "View the sample in the browser",
+    },
+}
