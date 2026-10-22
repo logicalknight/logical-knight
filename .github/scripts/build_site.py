@@ -45,7 +45,9 @@ BRANDS = ("Logical Knight", "IPPC Ledger", "Data Workbench")
 # same list as Growth Desk's UMAMI_CAMPAIGN_CODES; 1-40 of a-z 0-9 - _). Empty = no campaign code is ever sent.
 UMAMI_SCRIPT = "https://stats.logicalknight.com/script.js"
 UMAMI_WEBSITE_ID = "45510b01-dd9d-4f28-a8f1-5f013c924c58"
-CAMPAIGN_CODES = {"utm-source": "", "utm-medium": "", "utm-campaign": ""}
+# IPPC pilot launch, October 2026 (organic posts only; Growth Desk: GD_UMAMI_CAMPAIGN_CODES=ippc_pilot_202610)
+CAMPAIGN_CODES = {"utm-source": "linkedin,youtube,facebook,instagram,tiktok,reddit", "utm-medium": "organic_social",
+                  "utm-campaign": "ippc_pilot_202610"}
 
 
 def analytics_tags() -> str:
