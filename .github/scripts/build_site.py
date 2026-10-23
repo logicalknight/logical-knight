@@ -16,7 +16,7 @@ import re
 from html import escape
 from pathlib import Path
 
-from content_ippc import APP, GS, SAMPLE, T as IPPC
+from content_ippc import APP, GS, OVERVIEW, T as IPPC
 
 ROOT = Path(__file__).resolve().parents[2]
 SITE = "https://logicalknight.com"
@@ -966,13 +966,13 @@ def ippc(lang: str) -> str:
 '''
 
     ruled = lambda items: '<ul class="ruled">' + "".join(f"<li><h3>{e(h)}</h3><p>{e(p)}</p></li>" for h, p in items) + "</ul>"  # noqa: E731
-    sample = f'<a class="btn btn--secondary" href="{SAMPLE[lang]}" download>{c["pack_dl"]}</a>'
+    overview = f'<a class="btn btn--secondary" href="{OVERVIEW[lang]}" type="application/pdf">{c["overview_btn"]}</a>'
     shot_name, shot_alt, shot_cap = c["hero_shot"]
     shots = "".join(figure(f"/assets/img/ippc/{lang}/{n}", alt, cap) for n, alt, cap in c["shots"])
     extra = f'''
         <p class="btn-row">
           <a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a>
-          <a class="btn btn--secondary" href="#{ids["example"]}">{c["example_btn"]}</a>
+          {overview}
         </p>
         <p class="hero-note">{c["login_note"]} <a href="{login}">{c["login"]}</a></p>'''
     main = f'''  <main id="main">
@@ -986,7 +986,7 @@ def ippc(lang: str) -> str:
 {sec("problem", c["problem_eyebrow"], c["problem_h"], ruled(c["problem"]))}
 {sec("flow", c["flow_eyebrow"], c["flow_h"], steps_list(c["flow"], "steps steps--five"))}
 {sec("example", c["ex_eyebrow"], c["ex_h"], f'<p class="lede">{e(c["ex_lede"])}</p><div class="shots">{shots}</div>')}
-{sec("export", c["pack_eyebrow"], c["pack_h"], f'<p class="lede">{e(c["pack_lede"])}</p><dl class="pack">' + "".join(f"<div><dt><code>{escape(f)}</code></dt><dd>{e(d)}</dd></div>" for f, d in c["pack"]) + f'</dl><p class="note">{e(c["pack_note"])}</p><p class="btn-row">{sample}</p>')}
+{sec("export", c["pack_eyebrow"], c["pack_h"], f'<p class="lede">{e(c["pack_lede"])}</p><dl class="pack">' + "".join(f"<div><dt><code>{escape(f)}</code></dt><dd>{e(d)}</dd></div>" for f, d in c["pack"]) + f'</dl><p class="note">{e(c["pack_note"])}</p>')}
 {sec("features", c["feat_eyebrow"], c["feat_h"], ruled(c["features"]))}
 {sec("start", c["gs_eyebrow"], c["gs_h"], '<ul class="ticks ticks--lg">' + "".join(f"<li><strong>{e(h)}</strong> {e(p)}</li>" for h, p in c["gs_items"]) + f'</ul><p class="prose">{b(c["gs_text"].format(gs=gs))}</p>')}
 {sec("data", c["data_eyebrow"], c["data_h"], ruled(c["data"]))}
@@ -996,7 +996,7 @@ def ippc(lang: str) -> str:
       <div class="container closing__inner">
         <h2 id="closing-title" class="h-lg">{c["final_h"]}</h2>
         <p class="lede">{b(c["final_text"])}</p>
-        <p class="btn-row btn-row--center"><a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a> {sample}</p>
+        <p class="btn-row btn-row--center"><a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a> {overview}</p>
         <p class="fineprint">{c["fictional"]}</p>
       </div>
     </section>

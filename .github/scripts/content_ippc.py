@@ -3,14 +3,15 @@ behaviour that exists in IPPC Ledger (checked against the product); screenshots 
 data. Hosting facts match the privacy policy (datenschutz, section 5). Rendered by build_site.py."""
 
 APP = "https://app.logicalknight.com"
-SAMPLE = {"de": "/assets/samples/ippc-ledger-beispiel-export.zip", "en": "/assets/samples/ippc-ledger-sample-export.zip"}
+# One self-contained product-overview PDF per language (made by overview_pdf.py); no public export archive.
+OVERVIEW = {"de": "/assets/docs/ippc-ledger-produktueberblick.pdf", "en": "/assets/docs/ippc-ledger-product-overview.pdf"}
 
 T = {
     "de": {
         "title": "IPPC Ledger: Wareneingänge und ISPM-15-Nachweise an einem Ort · Logical Knight",
         "desc": "Für Holzverpackungsbetriebe, die behandeltes Holz zukaufen: Lieferungen mit Lieferantennachweisen verknüpfen, fehlende Unterlagen sehen und die Dokumentation für einen Zeitraum exportieren. Pilotphase.",
         "status": "Pilotphase",
-        "login": "Anmelden", "pilot_btn": "Pilot anfragen", "example_btn": "Beispiel ansehen",
+        "login": "Anmelden", "pilot_btn": "Pilot anfragen",
         "login_note": "Sie nehmen schon am Pilot teil?",
         "h1": "Wareneingänge und ISPM-15-Nachweise an einem Ort.",
         "lede": "Für Holzverpackungsbetriebe, die behandeltes Holz zukaufen. Verknüpfen Sie Lieferungen mit den Nachweisen der Lieferanten, sehen Sie sofort, was fehlt, und stellen Sie die Dokumentation für einen Zeitraum zusammen.",
@@ -53,7 +54,7 @@ T = {
         ],
         "pack_eyebrow": "Der Export",
         "pack_h": "Was im Export steckt.",
-        "pack_lede": "Ein Export für einen Zeitraum, einen Lieferanten oder einen Auftrag ist ein ZIP-Archiv. Das Beispiel enthält die erfundenen Lieferungen der letzten 60 Tage.",
+        "pack_lede": "Ein Export für einen Zeitraum, einen Lieferanten oder einen Auftrag ist ein ZIP-Archiv in Ihrem Arbeitsbereich. Es enthält:",
         "pack": [
             ("documents/", "Die Originaldateien, unverändert und per Prüfsumme (SHA-256) kontrolliert, auch ersetzte Versionen."),
             ("summary.pdf", "Eine druckbare Übersicht: Aufträge und Lieferungen mit Status und jeder offenen Lücke."),
@@ -63,7 +64,7 @@ T = {
             ("audit.csv", "Der Verlauf der enthaltenen Datensätze, mit dem Grund jeder Korrektur."),
         ],
         "pack_note": "Unvollständiges wird nicht versteckt: Es steht mit Grund in der Übersicht und in completeness.csv. Ein Zeitraum ohne Lieferungen ergibt keinen leeren Export, sondern einen Hinweis.",
-        "pack_dl": "Beispiel-Export herunterladen (ZIP, erfundene Daten)",
+        "overview_btn": "Produktüberblick als PDF",
         "feat_eyebrow": "Was Sie damit tun",
         "feat_h": "Was Sie mit IPPC Ledger erledigen.",
         "features": [
@@ -119,7 +120,7 @@ T = {
             ("Wie fragen wir einen Pilot an?", "Über das Formular „Pilot anfragen“. Wir antworten per E-Mail; danach erhalten Sie eine Einladung zu Ihrem eigenen Bereich."),
         ],
         "final_h": "Lieber selbst ansehen?",
-        "final_text": "Schauen Sie sich den Beispiel-Export an, oder fragen Sie einen Pilot an. Fragen beantworten wir gern unter <a href=\"mailto:hello@logicalknight.com\">hello@logicalknight.com</a>.",
+        "final_text": "Lesen Sie den Produktüberblick als PDF, oder fragen Sie einen Pilot an. Fragen beantworten wir gern unter <a href=\"mailto:hello@logicalknight.com\">hello@logicalknight.com</a>.",
         "fictional": "Alle Beispiele, Firmen und Dokumente auf dieser Seite sind erfunden.",
         "shot_label": "Beispiel mit erfundenen Daten",
     },
@@ -127,7 +128,7 @@ T = {
         "title": "IPPC Ledger: keep timber deliveries and ISPM 15 records together · Logical Knight",
         "desc": "For wood-packaging businesses that buy treated timber: connect deliveries with supplier evidence, see which documents are missing and export the records for a selected period. Pilot phase.",
         "status": "Pilot phase",
-        "login": "Log in", "pilot_btn": "Request a pilot", "example_btn": "See an example",
+        "login": "Log in", "pilot_btn": "Request a pilot",
         "login_note": "Already in the pilot?",
         "h1": "Keep timber deliveries and ISPM 15 records together.",
         "lede": "For wood-packaging businesses that buy treated timber. Connect each delivery with the supplier's evidence, see straight away what is missing, and put the records for a period together in one export.",
@@ -170,7 +171,7 @@ T = {
         ],
         "pack_eyebrow": "The export",
         "pack_h": "What is in an export.",
-        "pack_lede": "An export for a period, a supplier or a job is a ZIP archive. The example holds the invented deliveries of the last 60 days.",
+        "pack_lede": "An export for a period, a supplier or a job is a ZIP archive in your workspace. It contains:",
         "pack": [
             ("documents/", "The original files, unchanged and checked by checksum (SHA-256), including superseded versions."),
             ("summary.pdf", "A printable overview: jobs and deliveries with their status and every open gap."),
@@ -180,7 +181,7 @@ T = {
             ("audit.csv", "The history of the included records, with the reason for each correction."),
         ],
         "pack_note": "Incomplete items are not hidden: they appear with their reason in the summary and in completeness.csv. A period without deliveries gives a message, not an empty archive.",
-        "pack_dl": "Download the sample export (ZIP, invented data)",
+        "overview_btn": "Product overview (PDF)",
         "feat_eyebrow": "What you can do",
         "feat_h": "What you do with IPPC Ledger.",
         "features": [
@@ -236,7 +237,7 @@ T = {
             ("How do we request and start a pilot?", "With the “Request a pilot” form. We reply by e-mail; then you receive an invitation to your own area."),
         ],
         "final_h": "Rather see for yourself?",
-        "final_text": "Look at the sample export, or request a pilot. Questions are welcome at <a href=\"mailto:hello@logicalknight.com\">hello@logicalknight.com</a>.",
+        "final_text": "Read the product overview (PDF), or request a pilot. Questions are welcome at <a href=\"mailto:hello@logicalknight.com\">hello@logicalknight.com</a>.",
         "fictional": "All examples, companies and documents on this page are invented.",
         "shot_label": "Example with invented data",
     },
