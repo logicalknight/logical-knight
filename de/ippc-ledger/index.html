@@ -66,7 +66,7 @@
         <p class="lede">Für Holzverpackungsbetriebe, die behandeltes Holz zukaufen. Verknüpfen Sie Lieferungen mit den Nachweisen der Lieferanten, sehen Sie sofort, was fehlt, und stellen Sie die Dokumentation für einen Zeitraum zusammen.</p>
         <p class="btn-row">
           <a class="btn btn--primary" href="https://app.logicalknight.com/pilot?lang=de" data-umami-event="ippc_pilot_click">Pilot anfragen</a>
-          <a class="btn btn--secondary" href="#beispiel">Beispiel ansehen</a>
+          <a class="btn btn--secondary" href="/assets/docs/ippc-ledger-produktueberblick.pdf" type="application/pdf">Produktüberblick als PDF</a>
         </p>
         <p class="hero-note">Sie nehmen schon am Pilot teil? <a href="https://app.logicalknight.com/login?lang=de">Anmelden</a></p>
       </div>
@@ -102,7 +102,7 @@
     <section class="section" id="export" aria-labelledby="export-title">
       <div class="container">
         <div class="section-intro"><p class="eyebrow">Der Export</p><h2 class="h-lg" id="export-title">Was im Export steckt.</h2></div>
-        <p class="lede">Ein Export für einen Zeitraum, einen Lieferanten oder einen Auftrag ist ein ZIP-Archiv. Das Beispiel enthält die erfundenen Lieferungen der letzten 60 Tage.</p><dl class="pack"><div><dt><code>documents/</code></dt><dd>Die Originaldateien, unverändert und per Prüfsumme (SHA-256) kontrolliert, auch ersetzte Versionen.</dd></div><div><dt><code>summary.pdf</code></dt><dd>Eine druckbare Übersicht: Aufträge und Lieferungen mit Status und jeder offenen Lücke.</dd></div><div><dt><code>manifest.csv</code></dt><dd>Zu jeder Datei: Lieferung, Lieferant, Material, Auftrag, Prüfstatus und Prüfsumme.</dd></div><div><dt><code>deliveries.csv, material.csv, jobs.csv, suppliers.csv</code></dt><dd>Die Datensätze als Tabelle, sicher gegen Formel-Einschleusung in Tabellenkalkulationen.</dd></div><div><dt><code>completeness.csv</code></dt><dd>Jede fehlende oder nicht feststellbare Angabe mit Regel und Grund.</dd></div><div><dt><code>audit.csv</code></dt><dd>Der Verlauf der enthaltenen Datensätze, mit dem Grund jeder Korrektur.</dd></div></dl><p class="note">Unvollständiges wird nicht versteckt: Es steht mit Grund in der Übersicht und in completeness.csv. Ein Zeitraum ohne Lieferungen ergibt keinen leeren Export, sondern einen Hinweis.</p><p class="btn-row"><a class="btn btn--secondary" href="/assets/samples/ippc-ledger-beispiel-export.zip" download>Beispiel-Export herunterladen (ZIP, erfundene Daten)</a></p>
+        <p class="lede">Ein Export für einen Zeitraum, einen Lieferanten oder einen Auftrag ist ein ZIP-Archiv in Ihrem Arbeitsbereich. Es enthält:</p><dl class="pack"><div><dt><code>documents/</code></dt><dd>Die Originaldateien, unverändert und per Prüfsumme (SHA-256) kontrolliert, auch ersetzte Versionen.</dd></div><div><dt><code>summary.pdf</code></dt><dd>Eine druckbare Übersicht: Aufträge und Lieferungen mit Status und jeder offenen Lücke.</dd></div><div><dt><code>manifest.csv</code></dt><dd>Zu jeder Datei: Lieferung, Lieferant, Material, Auftrag, Prüfstatus und Prüfsumme.</dd></div><div><dt><code>deliveries.csv, material.csv, jobs.csv, suppliers.csv</code></dt><dd>Die Datensätze als Tabelle, sicher gegen Formel-Einschleusung in Tabellenkalkulationen.</dd></div><div><dt><code>completeness.csv</code></dt><dd>Jede fehlende oder nicht feststellbare Angabe mit Regel und Grund.</dd></div><div><dt><code>audit.csv</code></dt><dd>Der Verlauf der enthaltenen Datensätze, mit dem Grund jeder Korrektur.</dd></div></dl><p class="note">Unvollständiges wird nicht versteckt: Es steht mit Grund in der Übersicht und in completeness.csv. Ein Zeitraum ohne Lieferungen ergibt keinen leeren Export, sondern einen Hinweis.</p>
       </div>
     </section>
 
@@ -144,8 +144,8 @@
     <section class="section closing" aria-labelledby="closing-title">
       <div class="container closing__inner">
         <h2 id="closing-title" class="h-lg">Lieber selbst ansehen?</h2>
-        <p class="lede">Schauen Sie sich den Beispiel-Export an, oder fragen Sie einen Pilot an. Fragen beantworten wir gern unter <a href="mailto:hello@logicalknight.com">hello@logicalknight.com</a>.</p>
-        <p class="btn-row btn-row--center"><a class="btn btn--primary" href="https://app.logicalknight.com/pilot?lang=de" data-umami-event="ippc_pilot_click">Pilot anfragen</a> <a class="btn btn--secondary" href="/assets/samples/ippc-ledger-beispiel-export.zip" download>Beispiel-Export herunterladen (ZIP, erfundene Daten)</a></p>
+        <p class="lede">Lesen Sie den Produktüberblick als PDF, oder fragen Sie einen Pilot an. Fragen beantworten wir gern unter <a href="mailto:hello@logicalknight.com">hello@logicalknight.com</a>.</p>
+        <p class="btn-row btn-row--center"><a class="btn btn--primary" href="https://app.logicalknight.com/pilot?lang=de" data-umami-event="ippc_pilot_click">Pilot anfragen</a> <a class="btn btn--secondary" href="/assets/docs/ippc-ledger-produktueberblick.pdf" type="application/pdf">Produktüberblick als PDF</a></p>
         <p class="fineprint">Alle Beispiele, Firmen und Dokumente auf dieser Seite sind erfunden.</p>
       </div>
     </section>

@@ -66,7 +66,7 @@
         <p class="lede">For wood-packaging businesses that buy treated timber. Connect each delivery with the supplier's evidence, see straight away what is missing, and put the records for a period together in one export.</p>
         <p class="btn-row">
           <a class="btn btn--primary" href="https://app.logicalknight.com/pilot?lang=en" data-umami-event="ippc_pilot_click">Request a pilot</a>
-          <a class="btn btn--secondary" href="#example">See an example</a>
+          <a class="btn btn--secondary" href="/assets/docs/ippc-ledger-product-overview.pdf" type="application/pdf">Product overview (PDF)</a>
         </p>
         <p class="hero-note">Already in the pilot? <a href="https://app.logicalknight.com/login?lang=en">Log in</a></p>
       </div>
@@ -102,7 +102,7 @@
     <section class="section" id="export" aria-labelledby="export-title">
       <div class="container">
         <div class="section-intro"><p class="eyebrow">The export</p><h2 class="h-lg" id="export-title">What is in an export.</h2></div>
-        <p class="lede">An export for a period, a supplier or a job is a ZIP archive. The example holds the invented deliveries of the last 60 days.</p><dl class="pack"><div><dt><code>documents/</code></dt><dd>The original files, unchanged and checked by checksum (SHA-256), including superseded versions.</dd></div><div><dt><code>summary.pdf</code></dt><dd>A printable overview: jobs and deliveries with their status and every open gap.</dd></div><div><dt><code>manifest.csv</code></dt><dd>For each file: delivery, supplier, material, job, review status and checksum.</dd></div><div><dt><code>deliveries.csv, material.csv, jobs.csv, suppliers.csv</code></dt><dd>The records as tables, safe against formula injection in spreadsheets.</dd></div><div><dt><code>completeness.csv</code></dt><dd>Every missing or unestablished item with its rule and reason.</dd></div><div><dt><code>audit.csv</code></dt><dd>The history of the included records, with the reason for each correction.</dd></div></dl><p class="note">Incomplete items are not hidden: they appear with their reason in the summary and in completeness.csv. A period without deliveries gives a message, not an empty archive.</p><p class="btn-row"><a class="btn btn--secondary" href="/assets/samples/ippc-ledger-sample-export.zip" download>Download the sample export (ZIP, invented data)</a></p>
+        <p class="lede">An export for a period, a supplier or a job is a ZIP archive in your workspace. It contains:</p><dl class="pack"><div><dt><code>documents/</code></dt><dd>The original files, unchanged and checked by checksum (SHA-256), including superseded versions.</dd></div><div><dt><code>summary.pdf</code></dt><dd>A printable overview: jobs and deliveries with their status and every open gap.</dd></div><div><dt><code>manifest.csv</code></dt><dd>For each file: delivery, supplier, material, job, review status and checksum.</dd></div><div><dt><code>deliveries.csv, material.csv, jobs.csv, suppliers.csv</code></dt><dd>The records as tables, safe against formula injection in spreadsheets.</dd></div><div><dt><code>completeness.csv</code></dt><dd>Every missing or unestablished item with its rule and reason.</dd></div><div><dt><code>audit.csv</code></dt><dd>The history of the included records, with the reason for each correction.</dd></div></dl><p class="note">Incomplete items are not hidden: they appear with their reason in the summary and in completeness.csv. A period without deliveries gives a message, not an empty archive.</p>
       </div>
     </section>
 
@@ -144,8 +144,8 @@
     <section class="section closing" aria-labelledby="closing-title">
       <div class="container closing__inner">
         <h2 id="closing-title" class="h-lg">Rather see for yourself?</h2>
-        <p class="lede">Look at the sample export, or request a pilot. Questions are welcome at <a href="mailto:hello@logicalknight.com">hello@logicalknight.com</a>.</p>
-        <p class="btn-row btn-row--center"><a class="btn btn--primary" href="https://app.logicalknight.com/pilot?lang=en" data-umami-event="ippc_pilot_click">Request a pilot</a> <a class="btn btn--secondary" href="/assets/samples/ippc-ledger-sample-export.zip" download>Download the sample export (ZIP, invented data)</a></p>
+        <p class="lede">Read the product overview (PDF), or request a pilot. Questions are welcome at <a href="mailto:hello@logicalknight.com">hello@logicalknight.com</a>.</p>
+        <p class="btn-row btn-row--center"><a class="btn btn--primary" href="https://app.logicalknight.com/pilot?lang=en" data-umami-event="ippc_pilot_click">Request a pilot</a> <a class="btn btn--secondary" href="/assets/docs/ippc-ledger-product-overview.pdf" type="application/pdf">Product overview (PDF)</a></p>
         <p class="fineprint">All examples, companies and documents on this page are invented.</p>
       </div>
     </section>

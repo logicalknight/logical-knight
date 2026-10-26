@@ -300,6 +300,25 @@ class Pages(unittest.TestCase):
         self.assertIn("nur auf Englisch", page_file("/de/data-workbench/").read_text(encoding="utf-8"))
 
 
+class ProductOverview(unittest.TestCase):
+    """The owner replaced the public example-export ZIP with one product-overview PDF per language."""
+
+    def test_no_public_export_archive(self):
+        self.assertEqual(list(ROOT.glob("assets/**/*.zip")), [])
+        for f in html_files():
+            with self.subTest(str(f.relative_to(ROOT))):
+                self.assertNotRegex(f.read_text(encoding="utf-8"), r'href="[^"]+\.zip"|assets/samples/')
+
+    def test_each_language_links_its_one_overview_pdf(self):
+        for lang, other in (("de", "en"), ("en", "de")):
+            text = page_file(f"/{lang}/ippc-ledger/").read_text(encoding="utf-8")
+            own, foreign = site.OVERVIEW[lang], site.OVERVIEW[other]
+            with self.subTest(lang):
+                self.assertEqual(text.count(f'href="{own}" type="application/pdf"'), 2)  # hero and closing
+                self.assertNotIn(foreign, text)
+                pdf = (ROOT / own.lstrip("/")).read_bytes()
+                self.assertTrue(pdf.startswith(b"%PDF-") and len(pdf) < 1_000_000)
+
 class Copy(unittest.TestCase):
     def test_no_stale_positioning_or_old_assets(self):
         files = html_files() + [ROOT / "assets/js/site.js", ROOT / "assets/css/site.css", ROOT / "sitemap.xml"]
