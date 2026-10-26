@@ -121,6 +121,22 @@ class Routes(unittest.TestCase):
                     self.assertIn(f'url={target}"', f.read_text(encoding="utf-8"))
                     self.assertIsNotNone(resolve(target))
 
+    def test_old_addresses_keep_only_the_approved_campaign_codes(self):
+        # the redirect page loads the campaign filter with exactly the analytics tag's list, then redirect.js
+        tag = parse(page_file("/en/ippc-ledger/")).all("script")
+        consent = next(t for t in tag if t.get("src") == "/assets/js/consent.js")
+        for old, target in site.REDIRECTS.items():
+            with self.subTest(old):
+                scripts = parse(page_file(old)).all("script")
+                self.assertEqual([t.get("src") for t in scripts], ["/assets/js/umami-campaign.js", "/assets/js/redirect.js"])
+                for k in ("data-utm-source", "data-utm-medium", "data-utm-campaign"):
+                    self.assertEqual(scripts[0].get(k), consent.get(k), k)
+                self.assertEqual(scripts[1].get("data-target"), target)
+                self.assertFalse(any("defer" in t or "async" in t for t in scripts))  # both run before the refresh
+        js = (ROOT / "assets/js/redirect.js").read_text(encoding="utf-8")
+        self.assertEqual(js.count("location.search"), 1)  # read once, only through the approved-codes filter
+        self.assertIn("filter(location.search)", js)
+
     def test_sitemap_lists_every_page(self):
         sm = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
         for en, de in site.ROUTES.values():

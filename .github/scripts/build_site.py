@@ -1195,9 +1195,14 @@ def not_found() -> str:
 
 
 def redirect(target: str) -> str:
+    # Campaign links to an old or short address keep their approved codes (and nothing else): umami-campaign.js filters
+    # with the same list as the analytics tag, redirect.js then replaces the address. The meta refresh is the fallback.
+    codes = "".join(f' data-{k}="{escape(v)}"' for k, v in CAMPAIGN_CODES.items() if v)
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8"><title>Logical Knight</title><meta name="robots" content="noindex">
+<script src="/assets/js/umami-campaign.js"{codes}></script>
+<script src="/assets/js/redirect.js" data-target="{target}"></script>
 <link rel="canonical" href="{SITE}{target}"><meta http-equiv="refresh" content="0; url={target}"></head>
 <body><p><a href="{target}"><span translate="no" class="notranslate">Logical Knight</span></a></p></body>
 </html>
