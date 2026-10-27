@@ -16,6 +16,7 @@ import re
 from html import escape
 from pathlib import Path
 
+from content_bow import BOW
 from content_ippc import APP, GS, OVERVIEW, T as IPPC
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -63,6 +64,9 @@ ROUTES = {
     "ippc_gs": ("/en/ippc-ledger/getting-started/", "/de/ippc-ledger/erste-schritte/"),
     "contact": ("/en/contact/", "/de/kontakt/"),
 }
+# Prepared pages that are not published yet: built and linked between their two languages only, noindex, outside the
+# navigation, the product lists and the sitemap, until the owner decides (content_bow.py).
+DRAFTS = {"bow": ("/en/ippc-ledger/bow-making/", "/de/ippc-ledger/bogenbau/")}
 LEGAL = {"impressum": "/impressum/", "datenschutz": "/datenschutz/"}
 # Older or shorter addresses that must keep working: path -> target.
 REDIRECTS = {
@@ -1027,6 +1031,43 @@ def ippc_getting_started(lang: str) -> str:
     return page(lang, "ippc_gs", g["title"], g["lede"], main, "products", cta=(c["pilot_btn"], f"{APP}/pilot?lang={lang}"))
 
 
+def bow_making(lang: str) -> str:
+    """Prepared page (DRAFTS): noindex, reachable only by its address until the owner publishes it."""
+    c = BOW[lang]
+    en_href, de_href = DRAFTS["bow"]
+    mail = f'<a href="mailto:{HELLO}?subject={escape(c["subject"])}">{HELLO}</a>'
+    ruled = lambda items: '<ul class="ruled">' + "".join(f"<li><h3>{e(h)}</h3><p>{e(p)}</p></li>" for h, p in items) + "</ul>"  # noqa: E731
+
+    def sec(sid: str, h: str, body: str) -> str:
+        return f"""    <section class="section" id="{sid}" aria-labelledby="{sid}-title">
+      <div class="container">
+        <div class="section-intro"><h2 class="h-lg" id="{sid}-title">{e(h)}</h2></div>
+        {body}
+      </div>
+    </section>
+"""
+    limits = '<ul class="ticks">' + "".join(f"<li>{e(t)}</li>" for t in c["limits"]) + "</ul>"
+    status = "".join(f'<p class="prose">{e(t)}</p>' for t in c["status_text"])
+    main = f"""  <main id="main">
+{page_head(f'{b("IPPC Ledger")} {status_pill(c["status"])}', e(c["h1"]), e(c["lede"]))}
+{sec("problem", c["problem_h"], ruled(c["problem"]))}
+{sec("module", c["how_h"], ruled(c["how"]))}
+{sec("limits", c["limits_h"], limits)}
+{sec("status", c["status_h"], status)}
+    <section class="section closing" aria-labelledby="closing-title">
+      <div class="container closing__inner">
+        <h2 id="closing-title" class="h-lg">{e(c["cta_h"])}</h2>
+        <p class="lede">{c["cta"].format(mail=mail)}</p>
+        <p class="prose"><a href="{path("ippc", lang)}">{b(c["back"])}</a></p>
+      </div>
+    </section>
+  </main>
+"""
+    href = en_href if lang == "en" else de_href
+    return (head(lang, c["title"], c["desc"], href, {"en": en_href, "de": de_href}, "page-inner", robots="noindex, nofollow")
+            + header(lang, "products", en_href, de_href) + seal(lang) + main + footer(lang, en_href, de_href))
+
+
 # --------------------------------------------------------------------------------------------------------------------
 # Contact
 # --------------------------------------------------------------------------------------------------------------------
@@ -1236,6 +1277,8 @@ def outputs() -> dict[str, str]:
     for key, build in builders.items():
         for lang in ("en", "de"):
             at(path(key, lang), build(lang))
+    for lang in ("en", "de"):
+        at(DRAFTS["bow"][0 if lang == "en" else 1], bow_making(lang))
     for name, p in LEGAL.items():
         at(p, legal(name))
     for p, target in REDIRECTS.items():
