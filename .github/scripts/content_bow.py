@@ -1,16 +1,16 @@
-"""Draft page: the bow-making records module of the IPPC Ledger application (not published as a product yet).
+"""The bow-making records module of the IPPC Ledger application: a module page under IPPC Ledger, not a product card.
 
-Rules (docs/company-site.md): describe only behaviour that exists; no price; no "available" claim before a pilot used
-it; the module never certifies lawful origin or authenticates a bow. The page is noindex, outside the navigation,
-the product lists and the sitemap until the owner decides its name and publication.
+Rules (docs/company-site.md): describe only behaviour that exists; no price; pilot status only, never general
+availability; the module never certifies lawful origin or authenticates a bow. Published on 28 October 2026 by the
+owner's decision, linked from the IPPC Ledger page.
 """
 
 BOW = {
     "en": {
-        "title": "Bow-making records (in development) · IPPC Ledger · Logical Knight",
-        "desc": "A module for bow makers: wood origin, stock, every processing step with waste, documents and a selected handover per bow. In development; pilot workshops wanted. No price yet.",
-        "eyebrow": "IPPC Ledger · module in development",
-        "status": "In development",
+        "title": "Bow-making records (pilot) · IPPC Ledger · Logical Knight",
+        "desc": "A module for bow makers: wood origin, stock, every processing step with waste, documents and a selected handover per bow. Pilot phase with selected workshops. No price yet.",
+        "eyebrow": "IPPC Ledger · module in pilot phase",
+        "status": "Pilot phase",
         "h1": "Records from the wood to each bow.",
         "lede": "For bow makers who must show where the wood in a bow came from. You record the origin of your wood, your stock and each processing step. For each bow you hand over only the evidence you choose.",
         "problem_h": "The problem",
@@ -37,7 +37,7 @@ BOW = {
         ],
         "status_h": "Status and access",
         "status_text": [
-            "The module is built and in review. It is not available yet.",
+            "The module runs in IPPC Ledger. It is open only to pilot workshops that we set up together with them; it is not generally available.",
             "We are looking for a small number of bow-making workshops that want to try it with their own records, together with us.",
             "Access is set up per workshop by us; there is no self sign-up. It runs in the same application as IPPC Ledger, with its own access.",
             "There is no price yet. We will tell you the terms before you commit to anything.",
@@ -46,12 +46,13 @@ BOW = {
         "cta": "Write to {mail} and tell us how you keep your records today. We reply by e-mail.",
         "subject": "Bow-making records",
         "back": "IPPC Ledger",
+        "ippc_link": "For bow makers: a module for wood origin, stock and bow records is in a pilot phase.",
     },
     "de": {
-        "title": "Aufzeichnungen für den Bogenbau (in Entwicklung) · IPPC Ledger · Logical Knight",
-        "desc": "Ein Modul für Bogenbauer: Herkunft des Holzes, Bestand, jeder Arbeitsschritt mit Verschnitt, Dokumente und eine ausgewählte Übergabe pro Bogen. In Entwicklung; Werkstätten für einen Pilot gesucht. Noch kein Preis.",
-        "eyebrow": "IPPC Ledger · Modul in Entwicklung",
-        "status": "In Entwicklung",
+        "title": "Aufzeichnungen für den Bogenbau (Pilot) · IPPC Ledger · Logical Knight",
+        "desc": "Ein Modul für Bogenbauer: Herkunft des Holzes, Bestand, jeder Arbeitsschritt mit Verschnitt, Dokumente und eine ausgewählte Übergabe pro Bogen. Pilotphase mit ausgewählten Werkstätten. Noch kein Preis.",
+        "eyebrow": "IPPC Ledger · Modul in der Pilotphase",
+        "status": "Pilotphase",
         "h1": "Aufzeichnungen vom Holz bis zu jedem Bogen.",
         "lede": "Für Bogenbauer, die zeigen müssen, woher das Holz in einem Bogen stammt. Sie erfassen die Herkunft Ihres Holzes, Ihren Bestand und jeden Arbeitsschritt. Pro Bogen geben Sie nur die Nachweise weiter, die Sie auswählen.",
         "problem_h": "Das Problem",
@@ -78,7 +79,7 @@ BOW = {
         ],
         "status_h": "Stand und Zugang",
         "status_text": [
-            "Das Modul ist gebaut und wird geprüft. Es ist noch nicht verfügbar.",
+            "Das Modul läuft in IPPC Ledger. Es ist nur für Pilot-Werkstätten geöffnet, die wir gemeinsam mit ihnen einrichten; allgemein verfügbar ist es nicht.",
             "Wir suchen einige Bogenbau-Werkstätten, die es gemeinsam mit uns an ihren eigenen Aufzeichnungen ausprobieren möchten.",
             "Den Zugang richten wir für jede Werkstatt ein; eine eigene Anmeldung gibt es nicht. Das Modul läuft in derselben Anwendung wie IPPC Ledger, mit eigenem Zugang.",
             "Einen Preis gibt es noch nicht. Die Bedingungen nennen wir Ihnen, bevor Sie sich auf etwas festlegen.",
@@ -87,5 +88,6 @@ BOW = {
         "cta": "Schreiben Sie an {mail} und erzählen Sie uns, wie Sie Ihre Aufzeichnungen heute führen. Wir antworten per E-Mail.",
         "subject": "Aufzeichnungen Bogenbau",
         "back": "IPPC Ledger",
+        "ippc_link": "Für Bogenbauer: Ein Modul für Holzherkunft, Bestand und Bogen-Aufzeichnungen ist in der Pilotphase.",
     },
 }

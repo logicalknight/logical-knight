@@ -344,25 +344,23 @@ class Copy(unittest.TestCase):
                 with self.subTest(file=str(f.relative_to(ROOT)), term=term):
                     self.assertNotIn(term, text)
 
-    def test_prepared_bow_page_is_unpublished_honest_and_priceless(self):
-        """The bow-making module page is prepared, not published: noindex, no link from any other page or the sitemap,
-        no price, no availability claim, and it says what the module does not do."""
-        drafts = {p for pair in site.DRAFTS.values() for p in pair}
+    def test_bow_page_is_a_pilot_module_page_without_price_or_claims(self):
+        """The bow-making module page (published 28 Oct 2026): pilot status only, never generally available, no price,
+        it says what the module does not do, and it is linked from the IPPC Ledger page, not shown as a product."""
         sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
-        for p in drafts:
+        for lang, p in zip(("en", "de"), site.ROUTES["bow"]):
             html = (ROOT / p.strip("/") / "index.html").read_text(encoding="utf-8")
             text = " ".join(parse(ROOT / p.strip("/") / "index.html").text)
-            self.assertIn('name="robots" content="noindex, nofollow"', html)
-            self.assertNotIn(p, sitemap)
-            self.assertNotRegex(text, r"(€|EUR|\d+[.,]\d{2}\s*(€|EUR)|per month|pro Monat|im Monat)")
+            self.assertNotIn("noindex", html)
+            self.assertIn(p, sitemap)
+            self.assertNotRegex(text, r"(€|EUR|\d+[.,]\d{2}\s*(€|EUR)|per month|pro Monat|im Monat)")
             self.assertRegex(text, r"(does not certify lawful origin|bestätigt weder die rechtmäßige Herkunft)")
-            self.assertRegex(text, r"(not available yet|noch nicht verfügbar)")
-        for f in html_files():
-            rel = "/" + str(f.relative_to(ROOT).parent).replace("\\", "/").strip("./") + "/"
-            if rel in drafts:
-                continue
-            for a in parse(f).all("a"):
-                self.assertNotIn((a.get("href") or "").split("#")[0], drafts, f"{f} links to a prepared page")
+            self.assertRegex(text, r"(not generally available|allgemein verfügbar ist es nicht)")
+            self.assertNotRegex(text.lower(), r"(now available|jetzt verfügbar|certified|zertifiziert)")
+            ippc = (ROOT / site.ROUTES["ippc"][0 if lang == "en" else 1].strip("/") / "index.html").read_text(encoding="utf-8")
+            self.assertIn(f'href="{p}"', ippc)
+            products = (ROOT / site.ROUTES["products"][0 if lang == "en" else 1].strip("/") / "index.html").read_text(encoding="utf-8")
+            self.assertNotIn(f'href="{p}"', products)  # a module page, not a product card
 
     def test_no_hype_words_in_visible_text(self):
         for f in CONTENT:
