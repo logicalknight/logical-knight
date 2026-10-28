@@ -16,6 +16,7 @@ import re
 from html import escape
 from pathlib import Path
 
+from content_bow import BOW
 from content_ippc import APP, GS, OVERVIEW, T as IPPC
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -61,6 +62,7 @@ ROUTES = {
     "dw": ("/en/data-workbench/", "/de/data-workbench/"),
     "ippc": ("/en/ippc-ledger/", "/de/ippc-ledger/"),
     "ippc_gs": ("/en/ippc-ledger/getting-started/", "/de/ippc-ledger/erste-schritte/"),
+    "bow": ("/en/ippc-ledger/bow-making/", "/de/ippc-ledger/bogenbau/"),
     "contact": ("/en/contact/", "/de/kontakt/"),
 }
 LEGAL = {"impressum": "/impressum/", "datenschutz": "/datenschutz/"}
@@ -989,7 +991,7 @@ def ippc(lang: str) -> str:
 {sec("flow", c["flow_eyebrow"], c["flow_h"], steps_list(c["flow"], "steps steps--five"))}
 {sec("example", c["ex_eyebrow"], c["ex_h"], f'<p class="lede">{e(c["ex_lede"])}</p><div class="shots">{shots}</div>')}
 {sec("export", c["pack_eyebrow"], c["pack_h"], f'<p class="lede">{e(c["pack_lede"])}</p><dl class="pack">' + "".join(f"<div><dt><code>{escape(f)}</code></dt><dd>{e(d)}</dd></div>" for f, d in c["pack"]) + f'</dl><p class="note">{e(c["pack_note"])}</p>')}
-{sec("features", c["feat_eyebrow"], c["feat_h"], ruled(c["features"]))}
+{sec("features", c["feat_eyebrow"], c["feat_h"], ruled(c["features"]) + f'<p class="prose"><a href="{path("bow", lang)}">{e(BOW[lang]["ippc_link"])}</a></p>')}
 {sec("start", c["gs_eyebrow"], c["gs_h"], '<ul class="ticks ticks--lg">' + "".join(f"<li><strong>{e(h)}</strong> {e(p)}</li>" for h, p in c["gs_items"]) + f'</ul><p class="prose">{b(c["gs_text"].format(gs=gs))}</p>')}
 {sec("data", c["data_eyebrow"], c["data_h"], ruled(c["data"]))}
 {sec("pilot", c["pilot_eyebrow"], c["pilot_h"], f'<p class="lede">{e(c["pilot_scope"])}</p>' + steps_list(c["pilot_steps"], "steps steps--five") + f'<p class="btn-row"><a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a></p>')}
@@ -1025,6 +1027,40 @@ def ippc_getting_started(lang: str) -> str:
   </main>
 '''
     return page(lang, "ippc_gs", g["title"], g["lede"], main, "products", cta=(c["pilot_btn"], f"{APP}/pilot?lang={lang}"))
+
+
+def bow_making(lang: str) -> str:
+    """The bow-making module page under IPPC Ledger (pilot status; content_bow.py)."""
+    c = BOW[lang]
+    mail = f'<a href="mailto:{HELLO}?subject={escape(c["subject"])}">{HELLO}</a>'
+    ruled = lambda items: '<ul class="ruled">' + "".join(f"<li><h3>{e(h)}</h3><p>{e(p)}</p></li>" for h, p in items) + "</ul>"  # noqa: E731
+
+    def sec(sid: str, h: str, body: str) -> str:
+        return f"""    <section class="section" id="{sid}" aria-labelledby="{sid}-title">
+      <div class="container">
+        <div class="section-intro"><h2 class="h-lg" id="{sid}-title">{e(h)}</h2></div>
+        {body}
+      </div>
+    </section>
+"""
+    limits = '<ul class="ticks">' + "".join(f"<li>{e(t)}</li>" for t in c["limits"]) + "</ul>"
+    status = "".join(f'<p class="prose">{e(t)}</p>' for t in c["status_text"])
+    main = f"""  <main id="main">
+{page_head(f'{b("IPPC Ledger")} {status_pill(c["status"])}', e(c["h1"]), e(c["lede"]))}
+{sec("problem", c["problem_h"], ruled(c["problem"]))}
+{sec("module", c["how_h"], ruled(c["how"]))}
+{sec("limits", c["limits_h"], limits)}
+{sec("status", c["status_h"], status)}
+    <section class="section closing" aria-labelledby="closing-title">
+      <div class="container closing__inner">
+        <h2 id="closing-title" class="h-lg">{e(c["cta_h"])}</h2>
+        <p class="lede">{c["cta"].format(mail=mail)}</p>
+        <p class="prose"><a href="{path("ippc", lang)}">{b(c["back"])}</a></p>
+      </div>
+    </section>
+  </main>
+"""
+    return page(lang, "bow", c["title"], c["desc"], main, "products")
 
 
 # --------------------------------------------------------------------------------------------------------------------
@@ -1234,7 +1270,7 @@ def outputs() -> dict[str, str]:
         out[(p.strip("/") + "/index.html").lstrip("/")] = html
 
     builders = {"home": home, "company": company, "products": products, "dw": data_workbench, "ippc": ippc,
-                "ippc_gs": ippc_getting_started, "contact": contact}
+                "ippc_gs": ippc_getting_started, "bow": bow_making, "contact": contact}
     for key, build in builders.items():
         for lang in ("en", "de"):
             at(path(key, lang), build(lang))
