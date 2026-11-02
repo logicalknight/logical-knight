@@ -61,7 +61,7 @@ APP = {
         ],
         "status_h": "Status",
         "status_text": [
-            "The app is in development and tested on Logical Knight's own development store with fictional products. It is not on the Shopify App Store and cannot be installed by merchants yet.",
+            "The app is in development. It is tested only on Logical Knight's own development store, with fictional products. It is not on the Shopify App Store and cannot be installed by merchants yet.",
             "There is no price yet. We will state the terms before the app is offered.",
         ],
         "cta_h": "Questions or support",
@@ -99,7 +99,7 @@ APP = {
         ],
         "status_h": "Stand",
         "status_text": [
-            "Die App ist in Entwicklung und wird im eigenen Entwicklungsshop von Logical Knight mit erfundenen Produkten getestet. Sie ist nicht im Shopify App Store und kann von Händlern noch nicht installiert werden.",
+            "Die App ist in Entwicklung. Getestet wird sie nur im eigenen Entwicklungsshop von Logical Knight, mit erfundenen Produkten. Sie ist nicht im Shopify App Store und kann von Händlern noch nicht installiert werden.",
             "Einen Preis gibt es noch nicht. Die Bedingungen nennen wir, bevor die App angeboten wird.",
         ],
         "cta_h": "Fragen und Support",
