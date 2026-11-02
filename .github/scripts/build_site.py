@@ -18,6 +18,7 @@ from pathlib import Path
 
 from content_bow import BOW
 from content_ippc import APP, GS, OVERVIEW, T as IPPC
+from content_shopify import APP as SHOPIFY_APP, SHOP_FILES
 
 ROOT = Path(__file__).resolve().parents[2]
 SITE = "https://logicalknight.com"
@@ -60,6 +61,7 @@ ROUTES = {
     "company": ("/en/company/", "/de/unternehmen/"),
     "products": ("/en/products/", "/de/produkte/"),
     "dw": ("/en/data-workbench/", "/de/data-workbench/"),
+    "dw_shopify": ("/en/data-workbench/shopify/", "/de/data-workbench/shopify/"),
     "ippc": ("/en/ippc-ledger/", "/de/ippc-ledger/"),
     "ippc_gs": ("/en/ippc-ledger/getting-started/", "/de/ippc-ledger/erste-schritte/"),
     "bow": ("/en/ippc-ledger/bow-making/", "/de/ippc-ledger/bogenbau/"),
@@ -930,6 +932,19 @@ def data_workbench(lang: str) -> str:
       </div>
     </section>
 
+    <section class="section" aria-labelledby="shop-title">
+      <div class="container split">
+        <div>
+          <h2 id="shop-title" class="h-lg">{SHOP_FILES[lang]["h"]}</h2>
+          <p class="lede">{b(SHOP_FILES[lang]["lede"])}</p>
+        </div>
+        <div class="split__body">
+          <ul class="ticks">{"".join(f"<li>{b(x)}</li>" for x in SHOP_FILES[lang]["items"])}</ul>
+          <p class="prose"><a href="{path("dw_shopify", lang)}">{e(SHOP_FILES[lang]["app_link"])}</a></p>
+        </div>
+      </div>
+    </section>
+
     <section class="section" aria-labelledby="early-title">
       <div class="container split">
         <div>
@@ -1027,6 +1042,40 @@ def ippc_getting_started(lang: str) -> str:
   </main>
 '''
     return page(lang, "ippc_gs", g["title"], g["lede"], main, "products", cta=(c["pilot_btn"], f"{APP}/pilot?lang={lang}"))
+
+
+def dw_shopify(lang: str) -> str:
+    """The Shopify app page under Data Workbench: status in development, also the app's help and data page."""
+    c = SHOPIFY_APP[lang]
+    ruled = lambda items: '<ul class="ruled">' + "".join(f"<li><h3>{e(h)}</h3><p>{e(p)}</p></li>" for h, p in items) + "</ul>"  # noqa: E731
+    ticks = lambda items: '<ul class="ticks">' + "".join(f"<li>{e(t)}</li>" for t in items) + "</ul>"  # noqa: E731
+
+    def sec(sid: str, h: str, body: str) -> str:
+        return f"""    <section class="section" id="{sid}" aria-labelledby="{sid}-title">
+      <div class="container">
+        <div class="section-intro"><h2 class="h-lg" id="{sid}-title">{e(h)}</h2></div>
+        {body}
+      </div>
+    </section>
+"""
+    status = "".join(f'<p class="prose">{e(t)}</p>' for t in c["status_text"])
+    contact = b(c["cta"]).format(hello=f'<a href="mailto:{HELLO}">{HELLO}</a>', support=f'<a href="mailto:{SUPPORT}">{SUPPORT}</a>')
+    main = f"""  <main id="main">
+{page_head(f'{b("Data Workbench")} {status_pill(c["status"])}', e(c["h1"]), e(c["lede"]))}
+{sec("how", c["how_h"], ruled(c["how"]))}
+{sec("never", c["never_h"], ticks(c["never"]))}
+{sec("data", c["data_h"], ticks(c["data"]))}
+{sec("status", c["status_h"], status)}
+    <section class="section closing" aria-labelledby="closing-title">
+      <div class="container closing__inner">
+        <h2 id="closing-title" class="h-lg">{e(c["cta_h"])}</h2>
+        <p class="lede">{contact}</p>
+        <p class="prose"><a href="{path("dw", lang)}">{b(c["back"])}</a></p>
+      </div>
+    </section>
+  </main>
+"""
+    return page(lang, "dw_shopify", c["title"], c["desc"], main, "products")
 
 
 def bow_making(lang: str) -> str:
@@ -1270,7 +1319,7 @@ def outputs() -> dict[str, str]:
         out[(p.strip("/") + "/index.html").lstrip("/")] = html
 
     builders = {"home": home, "company": company, "products": products, "dw": data_workbench, "ippc": ippc,
-                "ippc_gs": ippc_getting_started, "bow": bow_making, "contact": contact}
+                "ippc_gs": ippc_getting_started, "bow": bow_making, "dw_shopify": dw_shopify, "contact": contact}
     for key, build in builders.items():
         for lang in ("en", "de"):
             at(path(key, lang), build(lang))
