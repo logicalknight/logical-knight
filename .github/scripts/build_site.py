@@ -15,6 +15,7 @@ import math
 import re
 from html import escape
 from pathlib import Path
+from urllib.parse import quote
 
 from content_bow import BOW
 from content_ippc import APP, GS, OVERVIEW, T as IPPC
@@ -992,6 +993,7 @@ def ippc(lang: str) -> str:
         <p class="btn-row">
           <a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a>
           {overview}
+          <a class="btn btn--secondary" href="#{ids["example"]}" data-umami-event="ippc_example_click">{e(c["example_btn"])}</a>
         </p>
         <p class="hero-note">{c["login_note"]} <a href="{login}">{c["login"]}</a></p>'''
     main = f'''  <main id="main">
@@ -1081,7 +1083,11 @@ def dw_shopify(lang: str) -> str:
 def bow_making(lang: str) -> str:
     """The bow-making module page under IPPC Ledger (pilot status; content_bow.py)."""
     c = BOW[lang]
-    mail = f'<a href="mailto:{HELLO}?subject={escape(c["subject"])}">{HELLO}</a>'
+    mail_href = f'mailto:{HELLO}?subject={quote(c["subject"])}'
+    mail = f'<a href="{mail_href}">{HELLO}</a>'
+    pilot_btn = (f'<a class="btn btn--primary" href="{mail_href}" '
+                 f'data-umami-event="ippc_bow_pilot_click">{e(c["pilot_btn"])}</a>')
+    extra = f'<p class="btn-row">{pilot_btn}</p>'
     ruled = lambda items: '<ul class="ruled">' + "".join(f"<li><h3>{e(h)}</h3><p>{e(p)}</p></li>" for h, p in items) + "</ul>"  # noqa: E731
 
     def sec(sid: str, h: str, body: str) -> str:
@@ -1095,21 +1101,23 @@ def bow_making(lang: str) -> str:
     limits = '<ul class="ticks">' + "".join(f"<li>{e(t)}</li>" for t in c["limits"]) + "</ul>"
     status = "".join(f'<p class="prose">{e(t)}</p>' for t in c["status_text"])
     main = f"""  <main id="main">
-{page_head(f'{b("IPPC Ledger")} {status_pill(c["status"])}', e(c["h1"]), e(c["lede"]))}
+{page_head(f'{b("IPPC Ledger")} {status_pill(c["status"])}', e(c["h1"]), e(c["lede"]), extra)}
 {sec("problem", c["problem_h"], ruled(c["problem"]))}
 {sec("module", c["how_h"], ruled(c["how"]))}
+{sec("faq", c["faq_h"], '<div class="faq">' + "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in c["faq"]) + "</div>")}
 {sec("limits", c["limits_h"], limits)}
 {sec("status", c["status_h"], status)}
     <section class="section closing" aria-labelledby="closing-title">
       <div class="container closing__inner">
         <h2 id="closing-title" class="h-lg">{e(c["cta_h"])}</h2>
         <p class="lede">{c["cta"].format(mail=mail)}</p>
+        <p class="btn-row btn-row--center">{pilot_btn}</p>
         <p class="prose"><a href="{path("ippc", lang)}">{b(c["back"])}</a></p>
       </div>
     </section>
   </main>
 """
-    return page(lang, "bow", c["title"], c["desc"], main, "products")
+    return page(lang, "bow", c["title"], c["desc"], main, "products", cta=(c["pilot_btn"], mail_href))
 
 
 # --------------------------------------------------------------------------------------------------------------------
