@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Workbench: checked, understandable data from CSV and Excel · Logical Knight</title>
-  <meta name="description" content="Data Workbench turns CSV and Excel files into checked, understandable data. Important changes wait for a person&#x27;s approval. Free Early Access.">
+  <title>Check and clean CSV and Excel files | Data Workbench</title>
+  <meta name="description" content="Check CSV and Excel files for missing values, duplicates and suspicious data. Review changes before approving an export. Request free early access.">
   <link rel="canonical" href="https://logicalknight.com/en/data-workbench/">
   <link rel="alternate" hreflang="en" href="https://logicalknight.com/en/data-workbench/">
   <link rel="alternate" hreflang="de" href="https://logicalknight.com/de/data-workbench/">
@@ -12,8 +12,8 @@
   <meta name="theme-color" content="#FFFFFF">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Logical Knight">
-  <meta property="og:title" content="Data Workbench: checked, understandable data from CSV and Excel · Logical Knight">
-  <meta property="og:description" content="Data Workbench turns CSV and Excel files into checked, understandable data. Important changes wait for a person&#x27;s approval. Free Early Access.">
+  <meta property="og:title" content="Check and clean CSV and Excel files | Data Workbench">
+  <meta property="og:description" content="Check CSV and Excel files for missing values, duplicates and suspicious data. Review changes before approving an export. Request free early access.">
   <meta property="og:url" content="https://logicalknight.com/en/data-workbench/">
   <meta property="og:image" content="https://logicalknight.com/assets/img/logical-knight-logo.png">
   <meta property="og:locale" content="en_GB">
@@ -62,11 +62,12 @@
     <section class="page-head">
       <div class="container">
         <p class="eyebrow"><span translate="no" class="notranslate">Data Workbench</span> <span class="pill">Free Early Access</span></p>
-        <h1>Turn CSV and Excel files into checked, understandable data.</h1>
-        <p class="lede"><span translate="no" class="notranslate">Data Workbench</span> helps small teams clean up messy spreadsheets without losing track of what changed. Your original file stays as it was. The changes that matter wait for you to approve them.</p>
+        <h1>Check and clean your CSV and Excel files.</h1>
+        <p class="lede">Find missing values, duplicates and inconsistent formats in your spreadsheets. See each proposed change next to the original value, decide what to keep and approve the result before downloading it.</p>
         <p class="btn-row">
           <a class="btn btn--primary" href="https://workbench.logicalknight.com/early-access" data-umami-event="dw_early_access_click">Request Free Early Access</a>
           <a class="btn btn--secondary" href="https://workbench.logicalknight.com/login">Sign in</a>
+          <a class="btn btn--secondary" href="#control-title" data-umami-event="dw_example_click">See a change example</a>
         </p>
         <p class="hero-note">Free for now, while we learn from real use. We review every request before granting access.</p>
       </div>
@@ -124,6 +125,13 @@
           <ul class="ticks"><li>New products or updates of existing products, chosen explicitly. Products can be kept as drafts.</li><li>Product codes keep their leading zeros. Prices are written in the store currency you set; amounts are never converted.</li><li>An update replaces each product's variants in Shopify. <span translate="no" class="notranslate">Data Workbench</span> lists the variants an update would remove, compared with earlier approved files, and asks you to confirm the complete variant set first.</li><li>A file for the Matrixify app is available as an option.</li></ul>
           <p class="prose"><a href="/en/data-workbench/shopify/">The <span translate="no" class="notranslate">Logical Knight</span> Workbench app for Shopify is in development.</a></p>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-intro"><h2 id="faq-title" class="h-lg">Questions about checking CSV and Excel files</h2></div>
+        <div class="faq"><details><summary>Which file formats can I check?</summary><p>You can upload CSV and XLSX files up to 20 MB. The current limits are 10,000 rows per sheet, 100 columns and five sheets per workbook. Formulas are shown, never run.</p></details><details><summary>Which data problems can I find?</summary><p>The quality check shows data types, missing values, duplicates and suspicious values for each column. Review the findings, choose how columns are read and decide which changes to approve.</p></details><details><summary>How do I keep leading zeros in product codes?</summary><p>Read product codes as text when preparing the columns. The review shows the original and prepared values, so you can check codes such as 00123 before approving the output.</p></details><details><summary>Does cleaning overwrite my original file?</summary><p>No. The original stays unchanged and changes are recorded. You see the values before and after, resolve open questions and approve the exact output before downloading it.</p></details><details><summary>Can I prepare product files for Shopify?</summary><p>Yes. An approved result can be exported for Shopify's product import, with a Matrixify file available as an option. These file exports are separate from the Shopify app, which is still in development.</p></details><details><summary>Can I use the application in German?</summary><p>The application is currently in English. This website explains the workflow in German and English. Access is by request; Free Early Access is currently free and is not a permanent free plan.</p></details></div>
       </div>
     </section>
 

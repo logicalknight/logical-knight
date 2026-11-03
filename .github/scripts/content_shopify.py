@@ -31,11 +31,14 @@ SHOP_FILES = {
 
 APP = {
     "en": {
-        "title": "Logical Knight Workbench for Shopify (in development) · Data Workbench · Logical Knight",
-        "desc": "A Shopify app in development: approved Data Workbench results become product changes that you see against your live catalogue and approve before anything is written. Not yet on the Shopify App Store.",
+        "title": "Preview Shopify product changes | Data Workbench",
+        "desc": "Compare approved Data Workbench results with your Shopify catalogue before approving changes. Shopify app in development, not yet available to install.",
         "status": "In development",
-        "h1": "See every catalogue change before it reaches your shop.",
+        "h1": "Preview Shopify product changes before you approve.",
         "lede": "Logical Knight Workbench is a Shopify app in development. It takes a result you approved in Data Workbench, compares it with your live catalogue and writes only the changes you approve.",
+        "question_btn": "Ask a question",
+        "files_btn": "Prepare product files",
+        "subject": "Data Workbench Shopify app",
         "how_h": "How it works",
         "how": [
             ("Approved data only", "Supplier files are checked, mapped and reviewed in Data Workbench. Only an approved result can become a change for your shop."),
@@ -43,6 +46,14 @@ APP = {
             ("Your approval", "Nothing is written until you approve the exact preview. A variant is deleted only if you tick it."),
             ("Changes in between", "If your catalogue changed after the preview, the change is refused and you preview again."),
             ("A record of every step", "Each change is recorded with the previous values. Field changes can be reverted from them."),
+        ],
+        "faq_h": "Questions about Shopify product data",
+        "faq": [
+            ("Can I install the Shopify app now?", "Not yet. The app is in development and is tested on Logical Knight's own development store with fictional products. It is not on the Shopify App Store and cannot be installed by merchants yet."),
+            ("Can I prepare Shopify files before the app is available?", "Yes. Data Workbench can write a Shopify product-import file from an approved result. A Matrixify file is available as an option. You perform the import in Shopify or Matrixify; writing a file does not update your shop."),
+            ("How are product variants reviewed?", "The app previews changes against your live catalogue and deletes only variants you explicitly select. For file updates, Data Workbench asks you to confirm the complete variant set before export. Check which workflow you are using."),
+            ("Does the app read customers or orders?", "No. It requests access to products only. The app does not read customer or order data."),
+            ("Can I see the previous product field values?", "Yes. Each change is recorded with its previous values. You can inspect the earlier values and use them to revert field changes."),
         ],
         "never_h": "What the app never does",
         "never": [
@@ -69,11 +80,14 @@ APP = {
         "back": "Data Workbench",
     },
     "de": {
-        "title": "Logical Knight Workbench für Shopify (in Entwicklung) · Data Workbench · Logical Knight",
-        "desc": "Eine Shopify-App in Entwicklung: Freigegebene Ergebnisse aus Data Workbench werden zu Produktänderungen, die Sie gegen Ihren aktuellen Katalog sehen und freigeben, bevor etwas geschrieben wird. Noch nicht im Shopify App Store.",
+        "title": "Shopify-Produktdaten prüfen | Data Workbench",
+        "desc": "Produktänderungen aus Data Workbench mit dem Shopify-Katalog vergleichen und vor dem Schreiben freigeben. Shopify-App in Entwicklung, noch nicht installierbar.",
         "status": "In Entwicklung",
-        "h1": "Jede Katalogänderung sehen, bevor sie Ihren Shop erreicht.",
+        "h1": "Shopify-Produktänderungen vor der Freigabe prüfen.",
         "lede": "Logical Knight Workbench ist eine Shopify-App in Entwicklung. Sie nimmt ein Ergebnis, das Sie in Data Workbench freigegeben haben, vergleicht es mit Ihrem aktuellen Katalog und schreibt nur die Änderungen, die Sie freigeben.",
+        "question_btn": "Frage stellen",
+        "files_btn": "Produktdateien vorbereiten",
+        "subject": "Data Workbench Shopify-App",
         "how_h": "So funktioniert es",
         "how": [
             ("Nur freigegebene Daten", "Lieferantendateien werden in Data Workbench geprüft, zugeordnet und durchgesehen. Nur ein freigegebenes Ergebnis kann zu einer Änderung für Ihren Shop werden."),
@@ -81,6 +95,14 @@ APP = {
             ("Ihre Freigabe", "Geschrieben wird erst, wenn Sie genau diese Vorschau freigeben. Eine Variante wird nur gelöscht, wenn Sie sie ankreuzen."),
             ("Änderungen dazwischen", "Hat sich Ihr Katalog nach der Vorschau geändert, wird die Änderung abgelehnt und Sie erstellen eine neue Vorschau."),
             ("Jeder Schritt festgehalten", "Jede Änderung wird mit den vorherigen Werten gespeichert. Feldänderungen lassen sich damit zurücknehmen."),
+        ],
+        "faq_h": "Fragen zu Produktdaten für Shopify",
+        "faq": [
+            ("Kann ich die Shopify-App schon installieren?", "Noch nicht. Die App ist in Entwicklung und wird im eigenen Entwicklungsshop von Logical Knight mit erfundenen Produkten getestet. Sie ist nicht im Shopify App Store und kann von Händlern noch nicht installiert werden."),
+            ("Kann ich Shopify-Dateien vorbereiten, bevor die App verfügbar ist?", "Ja. Data Workbench kann aus einem freigegebenen Ergebnis eine Produktdatei für Shopify schreiben. Eine Datei für Matrixify gibt es als Option. Den Import führen Sie in Shopify oder Matrixify aus; das Schreiben einer Datei ändert Ihren Shop nicht."),
+            ("Wie werden Produktvarianten geprüft?", "Die App zeigt Änderungen im Vergleich mit Ihrem aktuellen Katalog und löscht nur Varianten, die Sie ausdrücklich auswählen. Bei Dateiaktualisierungen lässt Data Workbench Sie vor dem Export den vollständigen Variantensatz bestätigen. Achten Sie darauf, welchen Ablauf Sie verwenden."),
+            ("Liest die App Kunden oder Bestellungen?", "Nein. Sie fragt nur Zugriff auf Produkte an. Die App liest keine Kunden- oder Bestelldaten."),
+            ("Kann ich die vorherigen Werte eines Produktfelds sehen?", "Ja. Jede Änderung wird mit den vorherigen Werten gespeichert. Sie können die früheren Werte prüfen und damit Feldänderungen zurücknehmen."),
         ],
         "never_h": "Was die App nie tut",
         "never": [

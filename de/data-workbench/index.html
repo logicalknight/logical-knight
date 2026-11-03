@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Workbench: geprüfte, verständliche Daten aus CSV und Excel · Logical Knight</title>
-  <meta name="description" content="Data Workbench macht aus CSV- und Excel-Dateien geprüfte, verständliche Daten. Wichtige Änderungen warten auf die Freigabe durch eine Person. Kostenloser Vorabzugang.">
+  <title>CSV und Excel prüfen und bereinigen | Data Workbench</title>
+  <meta name="description" content="CSV und Excel auf fehlende Werte, Dubletten und auffällige Daten prüfen. Änderungen vor dem Export freigeben. Kostenlosen Vorabzugang anfragen.">
   <link rel="canonical" href="https://logicalknight.com/de/data-workbench/">
   <link rel="alternate" hreflang="en" href="https://logicalknight.com/en/data-workbench/">
   <link rel="alternate" hreflang="de" href="https://logicalknight.com/de/data-workbench/">
@@ -12,8 +12,8 @@
   <meta name="theme-color" content="#FFFFFF">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Logical Knight">
-  <meta property="og:title" content="Data Workbench: geprüfte, verständliche Daten aus CSV und Excel · Logical Knight">
-  <meta property="og:description" content="Data Workbench macht aus CSV- und Excel-Dateien geprüfte, verständliche Daten. Wichtige Änderungen warten auf die Freigabe durch eine Person. Kostenloser Vorabzugang.">
+  <meta property="og:title" content="CSV und Excel prüfen und bereinigen | Data Workbench">
+  <meta property="og:description" content="CSV und Excel auf fehlende Werte, Dubletten und auffällige Daten prüfen. Änderungen vor dem Export freigeben. Kostenlosen Vorabzugang anfragen.">
   <meta property="og:url" content="https://logicalknight.com/de/data-workbench/">
   <meta property="og:image" content="https://logicalknight.com/assets/img/logical-knight-logo.png">
   <meta property="og:locale" content="de_DE">
@@ -62,11 +62,12 @@
     <section class="page-head">
       <div class="container">
         <p class="eyebrow"><span translate="no" class="notranslate">Data Workbench</span> <span class="pill">Kostenloser Vorabzugang</span></p>
-        <h1>Aus CSV- und Excel-Dateien werden geprüfte, verständliche Daten.</h1>
-        <p class="lede"><span translate="no" class="notranslate">Data Workbench</span> hilft kleinen Teams, unordentliche Tabellen zu bereinigen, ohne den Überblick über die Änderungen zu verlieren. Ihre Originaldatei bleibt, wie sie ist. Wichtige Änderungen warten auf Ihre Freigabe.</p>
+        <h1>CSV- und Excel-Dateien prüfen und bereinigen.</h1>
+        <p class="lede">Finden Sie fehlende Werte, Dubletten und uneinheitliche Formate in Ihren Tabellen. Sehen Sie jede vorgeschlagene Änderung neben dem Originalwert, entscheiden Sie, was bleiben soll, und geben Sie das Ergebnis vor dem Herunterladen frei.</p>
         <p class="btn-row">
           <a class="btn btn--primary" href="https://workbench.logicalknight.com/early-access" data-umami-event="dw_early_access_click">Kostenlosen Vorabzugang anfragen</a>
           <a class="btn btn--secondary" href="https://workbench.logicalknight.com/login">Anmelden</a>
+          <a class="btn btn--secondary" href="#control-title" data-umami-event="dw_example_click">Änderungsbeispiel ansehen</a>
         </p>
         <p class="hero-note">Derzeit kostenlos, solange wir aus der echten Nutzung lernen. Wir prüfen jede Anfrage, bevor wir Zugang gewähren.</p>
         <p class="note note--lang">Die Anwendung ist derzeit nur auf Englisch verfügbar. Dort heißt der Vorabzugang „Free Early Access“.</p>
@@ -125,6 +126,13 @@
           <ul class="ticks"><li>Neue Produkte oder Aktualisierungen bestehender Produkte, ausdrücklich gewählt. Produkte können als Entwurf bleiben.</li><li>Artikelnummern behalten ihre führenden Nullen. Preise stehen in der von Ihnen festgelegten Shop-Währung; Beträge werden nie umgerechnet.</li><li>Eine Aktualisierung ersetzt in Shopify die Varianten jedes Produkts. <span translate="no" class="notranslate">Data Workbench</span> zeigt die Varianten, die eine Aktualisierung entfernen würde, im Vergleich mit früher freigegebenen Dateien, und lässt Sie zuerst den vollständigen Variantensatz bestätigen.</li><li>Eine Datei für die App Matrixify gibt es als Option.</li></ul>
           <p class="prose"><a href="/de/data-workbench/shopify/">Die App <span translate="no" class="notranslate">Logical Knight</span> Workbench für Shopify ist in Entwicklung.</a></p>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-intro"><h2 id="faq-title" class="h-lg">Fragen zum Prüfen von CSV- und Excel-Dateien</h2></div>
+        <div class="faq"><details><summary>Welche Dateiformate kann ich prüfen?</summary><p>Sie können CSV- und XLSX-Dateien bis 20 MB hochladen. Derzeit gelten 10.000 Zeilen je Blatt, 100 Spalten und fünf Blätter je Arbeitsmappe als Grenze. Formeln werden angezeigt, nie ausgeführt.</p></details><details><summary>Welche Datenprobleme kann ich finden?</summary><p>Die Qualitätsprüfung zeigt Datentypen, fehlende Werte, Dubletten und auffällige Werte je Spalte. Sie prüfen die Hinweise, legen fest, wie Spalten gelesen werden, und entscheiden über die Freigabe der Änderungen.</p></details><details><summary>Wie bleiben führende Nullen in Artikelnummern erhalten?</summary><p>Lassen Sie Artikelnummern beim Vorbereiten der Spalten als Text lesen. Die Prüfansicht zeigt den ursprünglichen und den vorbereiteten Wert. So können Sie Nummern wie 00123 vor der Freigabe kontrollieren.</p></details><details><summary>Überschreibt die Bereinigung meine Originaldatei?</summary><p>Nein. Das Original bleibt unverändert und Änderungen werden festgehalten. Sie sehen die Werte vorher und nachher, klären offene Fragen und geben genau das Ergebnis vor dem Herunterladen frei.</p></details><details><summary>Kann ich Produktdateien für Shopify vorbereiten?</summary><p>Ja. Ein freigegebenes Ergebnis lässt sich für den Produktimport von Shopify exportieren. Eine Datei für Matrixify gibt es als Option. Diese Dateiexporte sind von der Shopify-App getrennt, die noch in Entwicklung ist.</p></details><details><summary>Kann ich die Anwendung auf Deutsch nutzen?</summary><p>Die Anwendung ist derzeit auf Englisch verfügbar. Diese Website erklärt den Ablauf auf Deutsch und Englisch. Sie fragen den Zugang an; der kostenlose Vorabzugang ist kein dauerhaft kostenloses Angebot.</p></details></div>
       </div>
     </section>
 

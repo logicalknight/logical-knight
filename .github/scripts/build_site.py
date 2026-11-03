@@ -802,11 +802,12 @@ def products(lang: str) -> str:
 
 DW = {
     "en": {
-        "title": "Data Workbench: checked, understandable data from CSV and Excel · Logical Knight",
-        "desc": "Data Workbench turns CSV and Excel files into checked, understandable data. Important changes wait for a person's approval. Free Early Access.",
+        "title": "Check and clean CSV and Excel files | Data Workbench",
+        "desc": "Check CSV and Excel files for missing values, duplicates and suspicious data. Review changes before approving an export. Request free early access.",
         "status": "Free Early Access",
-        "h1": "Turn CSV and Excel files into checked, understandable data.",
-        "lede": "Data Workbench helps small teams clean up messy spreadsheets without losing track of what changed. Your original file stays as it was. The changes that matter wait for you to approve them.",
+        "h1": "Check and clean your CSV and Excel files.",
+        "lede": "Find missing values, duplicates and inconsistent formats in your spreadsheets. See each proposed change next to the original value, decide what to keep and approve the result before downloading it.",
+        "example_btn": "See a change example",
         "cta1": "Request Free Early Access", "cta2": "Sign in",
         "hero_note": "Free for now, while we learn from real use. We review every request before granting access.",
         "lang_note": "",
@@ -831,6 +832,15 @@ DW = {
         "limits": [("Formats", "CSV, XLSX"), ("File size", "up to 20 MB"), ("Rows per sheet", "up to 10,000"),
                    ("Columns", "up to 100"), ("Sheets per workbook", "up to 5"), ("Formulas", "shown, never run")],
         "not_included": "Data Workbench prepares and explains data. It does not do forecasting or train machine-learning models.",
+        "faq_h": "Questions about checking CSV and Excel files",
+        "faq": [
+            ("Which file formats can I check?", "You can upload CSV and XLSX files up to 20 MB. The current limits are 10,000 rows per sheet, 100 columns and five sheets per workbook. Formulas are shown, never run."),
+            ("Which data problems can I find?", "The quality check shows data types, missing values, duplicates and suspicious values for each column. Review the findings, choose how columns are read and decide which changes to approve."),
+            ("How do I keep leading zeros in product codes?", "Read product codes as text when preparing the columns. The review shows the original and prepared values, so you can check codes such as 00123 before approving the output."),
+            ("Does cleaning overwrite my original file?", "No. The original stays unchanged and changes are recorded. You see the values before and after, resolve open questions and approve the exact output before downloading it."),
+            ("Can I prepare product files for Shopify?", "Yes. An approved result can be exported for Shopify's product import, with a Matrixify file available as an option. These file exports are separate from the Shopify app, which is still in development."),
+            ("Can I use the application in German?", "The application is currently in English. This website explains the workflow in German and English. Access is by request; Free Early Access is currently free and is not a permanent free plan."),
+        ],
         "early_h": "Free Early Access.",
         "early_lede": "Free while we learn from real use.",
         "early": ["Early Access is currently free. It is not a permanent free plan.",
@@ -842,11 +852,12 @@ DW = {
         "final": f"Request access, and we will get back to you. Questions to <a href=\"mailto:{HELLO}\">{HELLO}</a>; if you already use Data Workbench, <a href=\"mailto:{SUPPORT}\">{SUPPORT}</a>.",
     },
     "de": {
-        "title": "Data Workbench: geprüfte, verständliche Daten aus CSV und Excel · Logical Knight",
-        "desc": "Data Workbench macht aus CSV- und Excel-Dateien geprüfte, verständliche Daten. Wichtige Änderungen warten auf die Freigabe durch eine Person. Kostenloser Vorabzugang.",
+        "title": "CSV und Excel prüfen und bereinigen | Data Workbench",
+        "desc": "CSV und Excel auf fehlende Werte, Dubletten und auffällige Daten prüfen. Änderungen vor dem Export freigeben. Kostenlosen Vorabzugang anfragen.",
         "status": "Kostenloser Vorabzugang",
-        "h1": "Aus CSV- und Excel-Dateien werden geprüfte, verständliche Daten.",
-        "lede": "Data Workbench hilft kleinen Teams, unordentliche Tabellen zu bereinigen, ohne den Überblick über die Änderungen zu verlieren. Ihre Originaldatei bleibt, wie sie ist. Wichtige Änderungen warten auf Ihre Freigabe.",
+        "h1": "CSV- und Excel-Dateien prüfen und bereinigen.",
+        "lede": "Finden Sie fehlende Werte, Dubletten und uneinheitliche Formate in Ihren Tabellen. Sehen Sie jede vorgeschlagene Änderung neben dem Originalwert, entscheiden Sie, was bleiben soll, und geben Sie das Ergebnis vor dem Herunterladen frei.",
+        "example_btn": "Änderungsbeispiel ansehen",
         "cta1": "Kostenlosen Vorabzugang anfragen", "cta2": "Anmelden",
         "hero_note": "Derzeit kostenlos, solange wir aus der echten Nutzung lernen. Wir prüfen jede Anfrage, bevor wir Zugang gewähren.",
         "lang_note": "Die Anwendung ist derzeit nur auf Englisch verfügbar. Dort heißt der Vorabzugang „Free Early Access“.",
@@ -871,6 +882,15 @@ DW = {
         "limits": [("Formate", "CSV, XLSX"), ("Dateigröße", "bis 20 MB"), ("Zeilen je Blatt", "bis 10.000"),
                    ("Spalten", "bis 100"), ("Blätter je Arbeitsmappe", "bis 5"), ("Formeln", "angezeigt, nie ausgeführt")],
         "not_included": "Data Workbench bereitet Daten auf und macht sie verständlich. Es erstellt keine Prognosen und trainiert keine Modelle für maschinelles Lernen.",
+        "faq_h": "Fragen zum Prüfen von CSV- und Excel-Dateien",
+        "faq": [
+            ("Welche Dateiformate kann ich prüfen?", "Sie können CSV- und XLSX-Dateien bis 20 MB hochladen. Derzeit gelten 10.000 Zeilen je Blatt, 100 Spalten und fünf Blätter je Arbeitsmappe als Grenze. Formeln werden angezeigt, nie ausgeführt."),
+            ("Welche Datenprobleme kann ich finden?", "Die Qualitätsprüfung zeigt Datentypen, fehlende Werte, Dubletten und auffällige Werte je Spalte. Sie prüfen die Hinweise, legen fest, wie Spalten gelesen werden, und entscheiden über die Freigabe der Änderungen."),
+            ("Wie bleiben führende Nullen in Artikelnummern erhalten?", "Lassen Sie Artikelnummern beim Vorbereiten der Spalten als Text lesen. Die Prüfansicht zeigt den ursprünglichen und den vorbereiteten Wert. So können Sie Nummern wie 00123 vor der Freigabe kontrollieren."),
+            ("Überschreibt die Bereinigung meine Originaldatei?", "Nein. Das Original bleibt unverändert und Änderungen werden festgehalten. Sie sehen die Werte vorher und nachher, klären offene Fragen und geben genau das Ergebnis vor dem Herunterladen frei."),
+            ("Kann ich Produktdateien für Shopify vorbereiten?", "Ja. Ein freigegebenes Ergebnis lässt sich für den Produktimport von Shopify exportieren. Eine Datei für Matrixify gibt es als Option. Diese Dateiexporte sind von der Shopify-App getrennt, die noch in Entwicklung ist."),
+            ("Kann ich die Anwendung auf Deutsch nutzen?", "Die Anwendung ist derzeit auf Englisch verfügbar. Diese Website erklärt den Ablauf auf Deutsch und Englisch. Sie fragen den Zugang an; der kostenlose Vorabzugang ist kein dauerhaft kostenloses Angebot."),
+        ],
         "early_h": "Kostenloser Vorabzugang.",
         "early_lede": "Kostenlos, solange wir aus der echten Nutzung lernen.",
         "early": ["Der Vorabzugang ist derzeit kostenlos. Er ist kein dauerhaft kostenloses Angebot.",
@@ -892,6 +912,7 @@ def data_workbench(lang: str) -> str:
         <p class="btn-row">
           <a class="btn btn--primary" href="{WB_EARLY}" data-umami-event="dw_early_access_click">{c["cta1"]}</a>
           <a class="btn btn--secondary" href="{WB_LOGIN}">{c["cta2"]}</a>
+          <a class="btn btn--secondary" href="#control-title" data-umami-event="dw_example_click">{e(c["example_btn"])}</a>
         </p>
         <p class="hero-note">{c["hero_note"]}</p>{lang_note}'''
     limits = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in c["limits"])
@@ -943,6 +964,13 @@ def data_workbench(lang: str) -> str:
           <ul class="ticks">{"".join(f"<li>{b(x)}</li>" for x in SHOP_FILES[lang]["items"])}</ul>
           <p class="prose"><a href="{path("dw_shopify", lang)}">{e(SHOP_FILES[lang]["app_link"])}</a></p>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-intro"><h2 id="faq-title" class="h-lg">{e(c["faq_h"])}</h2></div>
+        <div class="faq">{"".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in c["faq"])}</div>
       </div>
     </section>
 
@@ -1049,6 +1077,12 @@ def ippc_getting_started(lang: str) -> str:
 def dw_shopify(lang: str) -> str:
     """The Shopify app page under Data Workbench: status in development, also the app's help and data page."""
     c = SHOPIFY_APP[lang]
+    question_href = f'mailto:{HELLO}?subject={quote(c["subject"])}'
+    question_btn = (f'<a class="btn btn--primary" href="{question_href}" '
+                    f'data-umami-event="dw_shopify_question_click">{e(c["question_btn"])}</a>')
+    files_href = f'{path("dw", lang)}#shop-title'
+    extra = (f'<p class="btn-row">{question_btn} '
+             f'<a class="btn btn--secondary" href="{files_href}">{e(c["files_btn"])}</a></p>')
     ruled = lambda items: '<ul class="ruled">' + "".join(f"<li><h3>{e(h)}</h3><p>{e(p)}</p></li>" for h, p in items) + "</ul>"  # noqa: E731
     ticks = lambda items: '<ul class="ticks">' + "".join(f"<li>{e(t)}</li>" for t in items) + "</ul>"  # noqa: E731
 
@@ -1063,8 +1097,9 @@ def dw_shopify(lang: str) -> str:
     status = "".join(f'<p class="prose">{e(t)}</p>' for t in c["status_text"])
     contact = b(c["cta"]).format(hello=f'<a href="mailto:{HELLO}">{HELLO}</a>', support=f'<a href="mailto:{SUPPORT}">{SUPPORT}</a>')
     main = f"""  <main id="main">
-{page_head(f'{b("Data Workbench")} {status_pill(c["status"])}', e(c["h1"]), e(c["lede"]))}
+{page_head(f'{b("Data Workbench")} {status_pill(c["status"])}', e(c["h1"]), e(c["lede"]), extra)}
 {sec("how", c["how_h"], ruled(c["how"]))}
+{sec("faq", c["faq_h"], '<div class="faq">' + "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in c["faq"]) + "</div>")}
 {sec("never", c["never_h"], ticks(c["never"]))}
 {sec("data", c["data_h"], ticks(c["data"]))}
 {sec("status", c["status_h"], status)}
@@ -1072,12 +1107,13 @@ def dw_shopify(lang: str) -> str:
       <div class="container closing__inner">
         <h2 id="closing-title" class="h-lg">{e(c["cta_h"])}</h2>
         <p class="lede">{contact}</p>
+        <p class="btn-row btn-row--center">{question_btn}</p>
         <p class="prose"><a href="{path("dw", lang)}">{b(c["back"])}</a></p>
       </div>
     </section>
   </main>
 """
-    return page(lang, "dw_shopify", c["title"], c["desc"], main, "products")
+    return page(lang, "dw_shopify", c["title"], c["desc"], main, "products", cta=(c["question_btn"], question_href))
 
 
 def bow_making(lang: str) -> str:
