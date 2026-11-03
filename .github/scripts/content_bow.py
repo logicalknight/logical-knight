@@ -7,11 +7,11 @@ owner's decision, linked from the IPPC Ledger page.
 
 BOW = {
     "en": {
-        "title": "Bow-making records (pilot) · IPPC Ledger · Logical Knight",
-        "desc": "A module for bow makers: wood origin, stock, every processing step with waste, documents and a selected handover per bow. Pilot phase with selected workshops. No price yet.",
+        "title": "Bow making: wood origin and stock records | IPPC Ledger",
+        "desc": "Record wood origins, workshop stock and processing steps for each bow. Share selected supporting documents. IPPC Ledger module in pilot phase.",
         "eyebrow": "IPPC Ledger · module in pilot phase",
         "status": "Pilot phase",
-        "h1": "Records from the wood to each bow.",
+        "h1": "Record wood origins and stock for bow making.",
         "lede": "For bow makers who must show where the wood in a bow came from. You record the origin of your wood, your stock and each processing step. For each bow you hand over only the evidence you choose.",
         "problem_h": "The problem",
         "problem": [
@@ -29,6 +29,15 @@ BOW = {
             ("Inventory report", "Counts, weight and volume as recorded, per kind and status. It is an internal report, not an official or regulatory format."),
             ("Handover", "Per bow: a package with the documents you select, a readable summary and checksums. Private notes and the rest of your stock stay out."),
         ],
+        "faq_h": "Questions about wood and workshop records",
+        "faq": [
+            ("Can I bring my wood inventory from Excel?", "Yes. You can import a CSV or Excel inventory. Every row is checked and shown in a preview. Nothing is saved until you confirm."),
+            ("How do I keep the connection from a board to a finished bow?", "Give each piece your own code and record the processing steps. When you split a board, identify the resulting blanks individually and follow them through the workshop. Breakage and waste are recorded too."),
+            ("What if my old stock has missing origin records?", "Record what you know and attach the documents you have. Unknown facts and gaps in the history stay visible. The module does not reconstruct missing history or certify lawful origin."),
+            ("Which records can I hand over with a bow?", "Choose the documents for that bow. The handover package contains your selection, a readable summary and checksums. Private notes and unrelated stock stay out."),
+            ("How can my workshop try the module?", "Contact us by e-mail to request a pilot with your own records. We discuss your workflow and set up access for your workshop. The module is not generally available; we explain the terms before you commit."),
+        ],
+        "pilot_btn": "Request a pilot",
         "limits_h": "What it does not do",
         "limits": [
             "It does not certify lawful origin and it does not authenticate a bow.",
@@ -49,11 +58,11 @@ BOW = {
         "ippc_link": "For bow makers: a module for wood origin, stock and bow records is in a pilot phase.",
     },
     "de": {
-        "title": "Aufzeichnungen für den Bogenbau (Pilot) · IPPC Ledger · Logical Knight",
-        "desc": "Ein Modul für Bogenbauer: Herkunft des Holzes, Bestand, jeder Arbeitsschritt mit Verschnitt, Dokumente und eine ausgewählte Übergabe pro Bogen. Pilotphase mit ausgewählten Werkstätten. Noch kein Preis.",
+        "title": "Bogenbau: Holzherkunft und Bestand erfassen | IPPC Ledger",
+        "desc": "Für Bogenbauer: Holzherkunft, Bestand und Arbeitsschritte festhalten. Pro Bogen ausgewählte Nachweise weitergeben. IPPC Ledger in der Pilotphase.",
         "eyebrow": "IPPC Ledger · Modul in der Pilotphase",
         "status": "Pilotphase",
-        "h1": "Aufzeichnungen vom Holz bis zu jedem Bogen.",
+        "h1": "Holzherkunft und Bestand im Bogenbau dokumentieren.",
         "lede": "Für Bogenbauer, die zeigen müssen, woher das Holz in einem Bogen stammt. Sie erfassen die Herkunft Ihres Holzes, Ihren Bestand und jeden Arbeitsschritt. Pro Bogen geben Sie nur die Nachweise weiter, die Sie auswählen.",
         "problem_h": "Das Problem",
         "problem": [
@@ -71,6 +80,15 @@ BOW = {
             ("Bestandsbericht", "Stückzahl, Gewicht und Volumen wie erfasst, nach Art und Status. Es ist ein interner Bericht, kein amtliches Format."),
             ("Übergabe", "Pro Bogen: ein Paket mit den Dokumenten, die Sie auswählen, einer lesbaren Zusammenfassung und Prüfsummen. Private Notizen und Ihr übriger Bestand bleiben draußen."),
         ],
+        "faq_h": "Fragen zu Holzbestand und Werkstattaufzeichnungen",
+        "faq": [
+            ("Kann ich meinen Holzbestand aus Excel übernehmen?", "Ja. Sie können einen Bestand aus CSV oder Excel importieren. Jede Zeile wird geprüft und in einer Vorschau angezeigt. Gespeichert wird erst nach Ihrer Bestätigung."),
+            ("Wie bleibt ein Brett mit dem fertigen Bogen verbunden?", "Geben Sie jedem Teil Ihre eigene Kennung und erfassen Sie die Arbeitsschritte. Beim Teilen eines Bretts kennzeichnen Sie die entstandenen Rohlinge einzeln und verfolgen sie durch die Werkstatt. Bruch und Verschnitt werden ebenfalls erfasst."),
+            ("Was mache ich bei Altbestand mit fehlenden Herkunftsnachweisen?", "Erfassen Sie, was Sie wissen, und hängen Sie vorhandene Unterlagen an. Unbekannte Angaben und Lücken im Verlauf bleiben sichtbar. Das Modul ergänzt keine fehlende Geschichte und bestätigt keine rechtmäßige Herkunft."),
+            ("Welche Nachweise kann ich mit einem Bogen weitergeben?", "Sie wählen die Dokumente für diesen Bogen aus. Das Übergabepaket enthält Ihre Auswahl, eine lesbare Zusammenfassung und Prüfsummen. Private Notizen und der übrige Bestand bleiben draußen."),
+            ("Wie kann meine Werkstatt das Modul ausprobieren?", "Fragen Sie per E-Mail nach einem Pilot mit Ihren eigenen Aufzeichnungen. Wir besprechen Ihren Ablauf und richten den Zugang für Ihre Werkstatt ein. Das Modul ist noch nicht allgemein verfügbar; die Bedingungen nennen wir Ihnen vor einer Zusage."),
+        ],
+        "pilot_btn": "Pilot anfragen",
         "limits_h": "Was es nicht tut",
         "limits": [
             "Es bestätigt weder die rechtmäßige Herkunft noch die Echtheit eines Bogens.",
