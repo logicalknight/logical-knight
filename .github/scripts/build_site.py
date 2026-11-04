@@ -131,9 +131,9 @@ UI = {
 PRODUCTS = {
     "en": [
         {"key": "ippc", "name": "IPPC Ledger", "status": "Pilot phase",
-         "for": "For wood-packaging businesses",
+         "for": "For wood-packaging and bow-making businesses",
          "problem": "Delivery notes, supplier authorisations and treatment records sit in binders, inboxes and spreadsheets, so gaps show up late.",
-         "solution": "IPPC Ledger keeps timber deliveries and their ISPM 15 evidence together, shows what is missing and why, and exports the records for a job or a period.",
+         "solution": "IPPC Ledger keeps timber deliveries and their ISPM 15 evidence together, shows what is missing and why, and exports the records for a job or a period. It runs as two modules in one application: ISPM 15 wood-packaging evidence and bow-making provenance.",
          "shot": ("app-dashboard.png", "IPPC Ledger dashboard with counts of deliveries, open jobs and incomplete records")},
         {"key": "dw", "name": "Data Workbench", "status": "Free Early Access",
          "for": "For teams that work with CSV and Excel files",
@@ -143,9 +143,9 @@ PRODUCTS = {
     ],
     "de": [
         {"key": "ippc", "name": "IPPC Ledger", "status": "Pilotphase",
-         "for": "Für Holzverpackungsbetriebe",
+         "for": "Für Holzverpackungs- und Bogenbaubetriebe",
          "problem": "Lieferscheine, Ermächtigungen und Behandlungsangaben liegen in Ordnern, Postfächern und Tabellen. Lücken fallen deshalb spät auf.",
-         "solution": "IPPC Ledger hält Wareneingänge und ihre ISPM-15-Nachweise zusammen, zeigt, was fehlt und warum, und exportiert die Dokumentation für einen Auftrag oder Zeitraum.",
+         "solution": "IPPC Ledger hält Wareneingänge und ihre ISPM-15-Nachweise zusammen, zeigt, was fehlt und warum, und exportiert die Dokumentation für einen Auftrag oder Zeitraum. Sie läuft als zwei Module in einer Anwendung: ISPM-15-Holzverpackungsnachweise und Bogenbau-Herkunft.",
          "shot": ("app-dashboard.png", "Startseite von IPPC Ledger mit Kennzahlen zu Wareneingängen, offenen Aufträgen und unvollständigen Datensätzen")},
         {"key": "dw", "name": "Data Workbench", "status": "Kostenloser Vorabzugang",
          "for": "Für Teams, die mit CSV- und Excel-Dateien arbeiten",
@@ -1018,6 +1018,7 @@ def ippc(lang: str) -> str:
     shot_name, shot_alt, shot_cap = c["hero_shot"]
     shots = "".join(figure(f"/assets/img/ippc/{lang}/{n}", alt, cap) for n, alt, cap in c["shots"])
     extra = f'''
+        <p class="hero-note">{c["modules_note"].format(bow=path("bow", lang))}</p>
         <p class="btn-row">
           <a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a>
           {overview}
