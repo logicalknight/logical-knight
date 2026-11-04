@@ -1018,16 +1018,29 @@ def ippc(lang: str) -> str:
     shot_name, shot_alt, shot_cap = c["hero_shot"]
     shots = "".join(figure(f"/assets/img/ippc/{lang}/{n}", alt, cap) for n, alt, cap in c["shots"])
     extra = f'''
-        <p class="hero-note">{c["modules_note"].format(bow=path("bow", lang))}</p>
         <p class="btn-row">
           <a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a>
           {overview}
           <a class="btn btn--secondary" href="#{ids["example"]}" data-umami-event="ippc_example_click">{e(c["example_btn"])}</a>
         </p>
         <p class="hero-note">{c["login_note"]} <a href="{login}">{c["login"]}</a></p>'''
+
+    def module_card(m: dict) -> str:
+        href = path("bow", lang) if m.get("bow") else f'#{m["anchor"]}'
+        ticks = '<ul class="ticks">' + "".join(f"<li>{e(t)}</li>" for t in m["benefits"]) + "</ul>"
+        return (f'<li><h3>{e(m["label"])}</h3><p class="prose">{e(m["who"])}</p>{ticks}'
+                f'<p class="btn-row"><a class="btn btn--primary" href="{href}" data-umami-event="{m["umami"]}">{e(m["btn"])}</a></p></li>')
+    modules = ('<ul class="ruled">' + module_card(c["modules"]["wood"]) + module_card(c["modules"]["bow"]) + "</ul>")
+    modules_section = f'''    <section class="section section--tint" id="modules" aria-labelledby="modules-title">
+      <div class="container">
+        <div class="section-intro"><p class="eyebrow">{e(c["modules_eyebrow"])}</p><h2 class="h-lg" id="modules-title">{e(c["modules_h"])}</h2></div>
+        {modules}
+      </div>
+    </section>
+'''
     main = f'''  <main id="main">
 {page_head(f'{b("IPPC Ledger")} {status_pill(c["status"])}', e(c["h1"]), e(c["lede"]), extra)}
-    <section class="section section--flush" aria-label="{escape(shot_alt)}">
+{modules_section}    <section class="section section--flush" aria-label="{escape(shot_alt)}">
       <div class="container">
         {figure(f"/assets/img/ippc/{lang}/{shot_name}", shot_alt, e(shot_cap), "shot shot--hero", lazy=False)}
         <p class="note">{e(c["status_note"])}</p>
@@ -1140,7 +1153,10 @@ def bow_making(lang: str) -> str:
     main = f"""  <main id="main">
 {page_head(f'{b("IPPC Ledger")} {status_pill(c["status"])}', e(c["h1"]), e(c["lede"]), extra)}
 {sec("problem", c["problem_h"], ruled(c["problem"]))}
+{sec("workflow", c["workflow_h"], steps_list(c["workflow"]))}
+{sec("example", c["example_h"], f'<p class="lede">{e(c["example_lede"])}</p>' + steps_list(c["example"]))}
 {sec("module", c["how_h"], ruled(c["how"]))}
+{sec("handover", c["handover_h"], f'<p class="lede">{e(c["handover_lede"])}</p>' + ruled(c["handover"]))}
 {sec("faq", c["faq_h"], '<div class="faq">' + "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in c["faq"]) + "</div>")}
 {sec("limits", c["limits_h"], limits)}
 {sec("status", c["status_h"], status)}
