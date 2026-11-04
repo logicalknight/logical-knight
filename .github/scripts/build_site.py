@@ -1151,11 +1151,13 @@ def bow_making(lang: str) -> str:
 """
     limits = '<ul class="ticks">' + "".join(f"<li>{e(t)}</li>" for t in c["limits"]) + "</ul>"
     status = "".join(f'<p class="prose">{e(t)}</p>' for t in c["status_text"])
+    shots = "".join(figure(f"/assets/img/bow/{lang}/{n}", alt, cap) for n, alt, cap in c["shots"])
     main = f"""  <main id="main">
 {page_head(f'{b("IPPC Ledger")} {status_pill(c["status"])}', e(c["h1"]), e(c["lede"]), extra)}
 {sec("problem", c["problem_h"], ruled(c["problem"]))}
 {sec("workflow", c["workflow_h"], steps_list(c["workflow"]))}
 {sec("example", c["example_h"], f'<p class="lede">{e(c["example_lede"])}</p>' + steps_list(c["example"]))}
+{sec("screens", c["screens_h"], f'<p class="lede">{e(c["screens_lede"])}</p><div class="shots">{shots}</div>')}
 {sec("module", c["how_h"], ruled(c["how"]))}
 {sec("handover", c["handover_h"], f'<p class="lede">{e(c["handover_lede"])}</p>' + ruled(c["handover"]))}
 {sec("faq", c["faq_h"], '<div class="faq">' + "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in c["faq"]) + "</div>")}
