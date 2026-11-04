@@ -1020,6 +1020,7 @@ def ippc(lang: str) -> str:
     extra = f'''
         <p class="btn-row">
           <a class="btn btn--primary" href="{pilot}" data-umami-event="ippc_pilot_click">{c["pilot_btn"]}</a>
+          <a class="btn btn--secondary" href="{path("bow", lang)}" data-umami-event="ippc_bow_explore_hero_click">{e(c["modules"]["bow"]["btn"])}</a>
           {overview}
           <a class="btn btn--secondary" href="#{ids["example"]}" data-umami-event="ippc_example_click">{e(c["example_btn"])}</a>
         </p>
