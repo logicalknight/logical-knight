@@ -67,7 +67,7 @@ APP = {
         "data": [
             "Stored: your shop's address, encrypted access keys, copies of the products in a preview, previews, the changes made with their previous values, and a log of who linked and approved (the Shopify staff user number).",
             "Not stored: customer or order data. Shopify's customer privacy requests are acknowledged; there is nothing to return or delete.",
-            "Uninstalling deletes the access keys at once. When Shopify asks for the shop's data to be erased, 48 hours after uninstalling, every record of the shop is deleted.",
+            "Uninstalling deletes the access keys at once. About 48 hours after uninstalling, Shopify asks for the shop's data to be erased, and the shop's records are deleted, keeping only a deletion receipt.",
             "Linking a shop to a Data Workbench organisation needs a single-use code from an owner of that organisation. E-mail addresses are never used to link accounts.",
         ],
         "status_h": "Status",
@@ -116,7 +116,7 @@ APP = {
         "data": [
             "Gespeichert werden: die Adresse Ihres Shops, verschlüsselte Zugriffsschlüssel, Kopien der Produkte einer Vorschau, Vorschauen, die vorgenommenen Änderungen mit den vorherigen Werten und ein Protokoll, wer verknüpft und freigegeben hat (die Benutzernummer des Shopify-Mitarbeiters).",
             "Nicht gespeichert werden: Kunden- oder Bestelldaten. Die Datenschutzanfragen von Shopify zu Kunden werden bestätigt; es gibt nichts herauszugeben oder zu löschen.",
-            "Beim Deinstallieren werden die Zugriffsschlüssel sofort gelöscht. Wenn Shopify 48 Stunden nach der Deinstallation die Löschung der Shopdaten anfordert, wird jeder Datensatz des Shops gelöscht.",
+            "Beim Deinstallieren werden die Zugriffsschlüssel sofort gelöscht. Etwa 48 Stunden nach der Deinstallation fordert Shopify die Löschung der Shopdaten an; die Datensätze des Shops werden gelöscht, es bleibt nur ein Löschbeleg.",
             "Für die Verknüpfung eines Shops mit einem Data-Workbench-Bereich braucht es einen Einmalcode von einem Inhaber dieses Bereichs. E-Mail-Adressen werden nie zur Verknüpfung verwendet.",
         ],
         "status_h": "Stand",
