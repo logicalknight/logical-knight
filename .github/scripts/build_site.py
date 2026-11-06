@@ -818,7 +818,9 @@ DW = {
         "how_lede": "From a raw file to an output you approved.",
         "steps": [("Upload", "A CSV or Excel file. The original is stored exactly as received."),
                   ("Check quality", "See types, gaps, duplicates and suspicious values, column by column."),
-                  ("Prepare", "Choose how each column is read. Nothing is guessed."),
+                  ("Prepare", "Choose how each column is read. Data Workbench suggests a column for each field, with a "
+                   "confidence and the reasons, using only headers and column statistics. You decide: nothing is "
+                   "applied without your approval."),
                   ("Review changes", "See every value before and after, and decide the open questions."),
                   ("Approve", "Approve the exact output, then download it."),
                   ("Analyse", "Run documented analysis on approved data, with methods and limits stated."),
@@ -868,7 +870,9 @@ DW = {
         "how_lede": "Von der Rohdatei zu einem Ergebnis, das Sie freigegeben haben.",
         "steps": [("Hochladen", "Eine CSV- oder Excel-Datei. Das Original wird unverändert gespeichert."),
                   ("Qualität prüfen", "Datentypen, Lücken, Dubletten und auffällige Werte, Spalte für Spalte."),
-                  ("Vorbereiten", "Sie legen fest, wie jede Spalte gelesen wird. Nichts wird geraten."),
+                  ("Vorbereiten", "Sie legen fest, wie jede Spalte gelesen wird. Data Workbench schlägt für jedes Feld eine "
+                   "Spalte vor, mit Einstufung und Begründung, nur anhand von Spaltenköpfen und Spaltenstatistiken. "
+                   "Sie entscheiden: Ohne Ihre Freigabe wird nichts übernommen."),
                   ("Änderungen prüfen", "Jeder Wert vorher und nachher. Offene Fragen entscheiden Sie."),
                   ("Freigeben", "Sie geben genau das Ergebnis frei und laden es herunter."),
                   ("Auswerten", "Dokumentierte Auswertungen auf freigegebenen Daten, mit Methode und Grenzen."),
