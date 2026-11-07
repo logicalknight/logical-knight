@@ -1142,7 +1142,9 @@ def bow_making(lang: str) -> str:
     mail = f'<a href="{mail_href}">{HELLO}</a>'
     pilot_btn = (f'<a class="btn btn--primary" href="{mail_href}" '
                  f'data-umami-event="ippc_bow_pilot_click">{e(c["pilot_btn"])}</a>')
-    extra = f'<p class="btn-row">{pilot_btn}</p>'
+    login = f"{APP}/login?lang={lang}"  # the same application and sign-in as IPPC Ledger, for workshops already in the pilot
+    extra = (f'<p class="btn-row">{pilot_btn}</p>'
+             f'<p class="hero-note">{IPPC[lang]["login_note"]} <a href="{login}">{IPPC[lang]["login"]}</a></p>')
     ruled = lambda items: '<ul class="ruled">' + "".join(f"<li><h3>{e(h)}</h3><p>{e(p)}</p></li>" for h, p in items) + "</ul>"  # noqa: E731
 
     def sec(sid: str, h: str, body: str) -> str:
