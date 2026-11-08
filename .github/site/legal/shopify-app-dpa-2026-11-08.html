@@ -1,0 +1,102 @@
+<h1 id="dpa">Data processing agreement (Art. 28 GDPR): Shopify app <span translate="no" class="notranslate">„Logical Knight Workbench“</span></h1>
+<p>Version 2026-11-08 · This version is not changed after publication; a new version gets a new address. Language:
+English. Accepted together with the <a href="/legal/shopify-app-terms-2026-11-08/">terms of use, version 2026-11-08</a>,
+in the app (electronic form, Art. 28(9) GDPR). Privacy information: <a href="/datenschutz/#shopify-app-en">privacy
+policy, section 5b</a>.</p>
+
+<h2>1. Parties, subject and duration</h2>
+<p><strong>Controller:</strong> the merchant who installs the app and accepts this agreement.
+<strong>Processor:</strong> Leo King, trading as <span translate="no" class="notranslate">Logical Knight</span>, Große Holl 32, 22115 Hamburg, Germany (sole proprietor;
+§ 5 DDG, see the <a href="/impressum/#legal-notice">legal notice</a>), <a href="mailto:support@logicalknight.com">support@logicalknight.com</a>.</p>
+<p><strong>Subject:</strong> processing of the merchant's shop data to preview and apply approved catalogue changes.
+<strong>Duration:</strong> from the controller's acceptance in the app (recorded with version, time and accepting user) until the data covered by this agreement have been returned or deleted after uninstalling (section 8).</p>
+<p><strong>Setup data before acceptance.</strong> Shopify installs the app before it can show this agreement. Until acceptance the processor stores only what the app needs to open and present the agreement: the shop address, the access tokens issued by Shopify and the Shopify user ID of the installing user. For these setup data the processor is controller, on the basis of Art. 6(1)(f) GDPR (its legitimate interest in providing the app the merchant chose to install and offering this agreement; only these three data, no product data). No product data are read before acceptance. From acceptance these data are processed under this agreement; if the agreement is never accepted, they are deleted on uninstall (tokens) and on Shopify's deletion request (section 8).</p>
+<p><strong>Roles.</strong> For everything listed in section 3 the processor acts only on the controller's documented
+instructions; the lawful basis is the controller's. This includes the record of the Shopify user ID of who installed,
+linked, approved or decided a schedule: it is kept for the controller's traceability of the changes made in its shop,
+shown to the controller in the app and deleted with the shop's records. The processor does not use these data for
+its own purposes. Not covered by this agreement, because the processor decides on them itself as controller: the
+one-day keyed hash of an IP address used to protect sign-in to <span translate="no" class="notranslate">Data Workbench</span>, and the deletion receipt kept after
+Shopify's deletion request (privacy section 5b).</p>
+
+<h2>2. Nature and purpose</h2>
+<ul>
+<li>Reading the products named in an approved <span translate="no" class="notranslate">Data Workbench</span> release.</li>
+<li>Showing a preview.</li>
+<li>Writing only the changes the merchant approves.</li>
+<li>Recording what was written, with previous values, for traceability and field reverts.</li>
+</ul>
+
+<h2>3. Types of data and data subjects</h2>
+<ul>
+<li>Product data: titles, descriptions, prices, SKUs, barcodes, images, variants. Usually not personal data; it can be
+personal where a sole trader's name appears in product content.</li>
+<li>The numeric Shopify user ID of the person signed in to the Shopify admin who installs, links, approves or decides a
+schedule, stored in the audit, link, approval and schedule records; no name or e-mail address. Data subjects: the
+shop owner and the merchant's staff. No separate <span translate="no" class="notranslate">Logical Knight</span> account is involved.</li>
+<li>The shop address and the access tokens issued by Shopify.</li>
+<li><strong>Not processed:</strong> customer and order data. The app does not request those scopes.</li>
+</ul>
+
+<h2>4. Instructions</h2>
+<p>The controller instructs through the app (link, preview, approval, ticked variant removals, authorised schedules,
+revert approvals) and by any further instruction in text form (e-mail to support@logicalknight.com is sufficient).
+Nothing is written without an approval or a schedule the controller has authorised. The processor processes the data
+only on documented instructions, including with regard to transfers to a third country, unless required to do so by
+Union or Member State law, in which case it informs the controller beforehand unless that law prohibits it. No data
+is transferred outside the EU/EEA. The processor informs the controller without undue delay if, in its opinion, an
+instruction infringes data-protection law, and may suspend that instruction until it is confirmed.</p>
+
+<h2>5. Confidentiality</h2>
+<p>The processor ensures that persons authorised to process the data have committed to confidentiality or are under
+an appropriate statutory duty of confidentiality, and that access is limited to those who need it to provide the
+service.</p>
+
+<h2>6. Technical and organisational measures (Art. 32 GDPR)</h2>
+<ul>
+<li><strong>Transport:</strong> TLS for all connections.</li>
+<li><strong>Tokens:</strong> expiring offline tokens (about 60 minutes) with refresh tokens, stored encrypted (AES-GCM);
+the key is kept outside the database and outside source control; deleted at once on uninstall.</li>
+<li><strong>Authentication:</strong> Shopify session tokens verified on every request.</li>
+<li><strong>Separation:</strong> every record is bound to one shop and one <span translate="no" class="notranslate">Data Workbench</span> organisation; shops are
+linked only with a single-use code created by an owner of that organisation, never by e-mail.</li>
+<li><strong>Write safety:</strong> preview first; approval bound to the exact preview; refusal when the shop changed
+since the preview; per-operation idempotency; no publication, no product deletion, variant removal only when ticked.</li>
+<li><strong>Webhooks:</strong> signature-verified (rejected when invalid); payloads not stored.</li>
+<li><strong>Logs:</strong> no IP addresses in the access log; credential parameters masked; rotation as stated in the
+privacy policy.</li>
+<li><strong>Backups:</strong> encrypted, overwritten after at most 35 days, stored in Germany.</li>
+<li><strong>Hosting:</strong> Hetzner Online GmbH, data centre in Germany.</li>
+<li><strong>Recovery limits:</strong> field changes can be reverted from the recorded values; created products, added
+images and deleted variants are not undone; restoring a database backup does not undo writes already made in Shopify.</li>
+</ul>
+<p>The processor may adapt the measures to technical progress, provided the level of protection is not reduced.</p>
+
+<h2>7. Sub-processors</h2>
+<p>The controller authorises the following sub-processor: <strong>Hetzner Online GmbH</strong>, Industriestr. 25,
+91710 Gunzenhausen, Germany (hosting). Shopify is the controller's own platform, not a sub-processor of the
+processor. The processor informs the controller in advance (by a notice in the app or by e-mail to the shop's
+contact address) of any intended addition or replacement of a sub-processor, giving the controller a reasonable
+period to object; if the controller objects on reasonable data-protection grounds and no solution is found, the
+controller may end the agreement by uninstalling the app. Every sub-processor is bound by a contract imposing the
+same data-protection obligations as this agreement (Art. 28(4) GDPR).</p>
+
+<h2>8. Deletion and return</h2>
+<p>On uninstall, the access tokens are deleted immediately. On Shopify's deletion request (<code>shop/redact</code>,
+about 48 hours after uninstall) the shop's operational records are deleted: link, snapshots, previews, operations,
+schedules, audit, and the earlier webhook-log rows unless another installation of the same shop remains. Backups are
+overwritten within 35 days. At the end of the processing the controller chooses whether the personal data covered by this agreement (section 3) are returned or deleted (Art. 28(3)(g) GDPR). To have them returned, the controller asks at support@logicalknight.com before uninstalling; the processor then provides a copy of the stored records (for example the audit trail, operations with their previous and new values, previews and catalogue snapshots) in a common machine-readable format. The audit trail can also be viewed in the app. The product data themselves remain in the controller's Shopify shop. Without such a request the data are deleted as described above. Data are kept longer only where Union or Member State law requires it.</p>
+
+<h2>9. Assistance, breaches, information and audits</h2>
+<p>Taking into account the nature of the processing, the processor assists the controller by appropriate technical
+and organisational measures in responding to data-subject requests concerning any personal data processed under this agreement (section 3), including personal data in product content and the Shopify user IDs; the app stores no customer or order data, and with the controller's obligations under
+Arts. 32 to 36 GDPR. The processor notifies the controller without undue delay after becoming aware of a
+personal-data breach affecting the controller's data, with the information the controller needs for its own
+notification duties. The processor makes available all information necessary to demonstrate compliance with Art. 28
+GDPR and allows for and contributes to audits, including inspections, by the controller or an auditor it mandates, on
+reasonable notice, during business hours, subject to confidentiality and without compromising other customers'
+security.</p>
+
+<h2>10. Liability, precedence, law and jurisdiction</h2>
+<p>Liability follows Art. 82 GDPR and otherwise section 9 of the terms of use. If this agreement and the terms of use
+conflict on data protection, this agreement prevails. Law and jurisdiction follow section 11 of the terms of use.</p>

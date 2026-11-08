@@ -68,7 +68,10 @@ ROUTES = {
     "bow": ("/en/ippc-ledger/bow-making/", "/de/ippc-ledger/bogenbau/"),
     "contact": ("/en/contact/", "/de/kontakt/"),
 }
-LEGAL = {"impressum": "/impressum/", "datenschutz": "/datenschutz/"}
+# The Shopify app agreements are versioned: a published version is never edited; a new version gets a new address.
+LEGAL = {"impressum": "/impressum/", "datenschutz": "/datenschutz/",
+         "shopify-app-terms-2026-11-08": "/legal/shopify-app-terms-2026-11-08/",
+         "shopify-app-dpa-2026-11-08": "/legal/shopify-app-dpa-2026-11-08/"}
 # Older or shorter addresses that must keep working: path -> target.
 REDIRECTS = {
     "/en/": "/",
@@ -1312,11 +1315,16 @@ def contact(lang: str) -> str:
 LEGAL_META = {
     "impressum": ("Impressum · Logical Knight", "Impressum (Anbieterkennzeichnung nach § 5 DDG) von Logical Knight.", "#legal-notice"),
     "datenschutz": ("Datenschutzerklärung · Logical Knight", "Datenschutzerklärung von Logical Knight (Deutsch, English).", "#privacy-policy"),
+    "shopify-app-terms-2026-11-08": ("Terms of use, Shopify app (2026-11-08) · Logical Knight",
+                                     "Terms of use for the Shopify app Logical Knight Workbench, version 2026-11-08.", "", "en"),
+    "shopify-app-dpa-2026-11-08": ("Data processing agreement, Shopify app (2026-11-08) · Logical Knight",
+                                   "Data processing agreement (Art. 28 GDPR) for the Shopify app Logical Knight Workbench, version 2026-11-08.", "", "en"),
 }
 
 
 def legal(name: str) -> str:
-    title, desc, en_anchor = LEGAL_META[name]
+    title, desc, en_anchor, *lang = LEGAL_META[name]
+    lang = lang[0] if lang else "de"
     p = LEGAL[name]
     body = (LEGAL_SRC / f"{name}.html").read_text(encoding="utf-8")
     en_href, de_href = p + en_anchor, p
@@ -1327,8 +1335,8 @@ def legal(name: str) -> str:
     </section>
   </main>
 '''
-    return (head("de", title, desc, p, None, "page-inner page-legal") + header("de", None, en_href, de_href)
-            + seal("de") + main + footer("de", en_href, de_href))
+    return (head(lang, title, desc, p, None, "page-inner page-legal") + header(lang, None, en_href, de_href)
+            + seal(lang) + main + footer(lang, en_href, de_href))
 
 
 # --------------------------------------------------------------------------------------------------------------------
